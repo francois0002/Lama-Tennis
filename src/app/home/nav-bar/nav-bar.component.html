@@ -1,4 +1,4 @@
-<nav>
+<nav class="flex items-center justify-between">
   <a href="/home">
     <mat-icon
       aria-hidden="false"
@@ -7,4 +7,24 @@
     ></mat-icon>
   </a>
   <h1>Lama Tennis</h1>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>help_outline</mat-icon>
+      <span>FAQ</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>account_circle</mat-icon>
+      <span>Mon Compte</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Déconnexion</span>
+    </button>
+  </mat-menu>
+
+
 </nav>

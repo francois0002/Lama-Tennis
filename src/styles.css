@@ -11,10 +11,42 @@ body {
 }
 
 h1 {
-  font-family: "Caprasimo", sans-serif;
+  font-family: "Caprasimo", sans-serif !important;
   font-size: 2.5rem;
   color: #fff;
   text-align: center;
   margin-top: 0;
   padding-top: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
 }

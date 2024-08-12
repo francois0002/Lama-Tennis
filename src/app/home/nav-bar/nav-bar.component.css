@@ -1,3 +1,28 @@
 :host {
   display: block;
 }
+
+mat-icon {
+  color: white;
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+nav {
+  background-color: #cacaca;
+  color: white;
+  position: fixed;
+  padding: 0 1rem;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
