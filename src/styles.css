@@ -7,16 +7,16 @@ body {
 body {
   margin: 0;
   font-family: "Poppins", "Helvetica Neue", sans-serif;
-  background-color: #7aaec4;
+  background-color: #f0f0f0;
 }
 
 h1 {
   font-family: "Caprasimo", sans-serif !important;
   font-size: 2.5rem;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
-  margin-top: 0;
   padding-top: 0;
+  margin: 0;
 }
 
 html,
@@ -50,3 +50,17 @@ body {
 .justify-center {
   justify-content: center;
 }
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+
+.cap-font {
+  font-family: "Caprasimo", sans-serif !important;
+  font: 1.5rem "Caprasimo", sans-serif !important;
+}
+
