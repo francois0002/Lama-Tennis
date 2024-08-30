@@ -9,7 +9,6 @@ import { PromoteLamaTennisComponent } from '../blog-articles/promote-lama-tennis
 import { StartWithLamaComponent } from '../blog-articles/start-with-lama/start-with-lama.component';
 import { HautsFaitsComponent } from '../main-feature/hauts-faits/hauts-faits.component';
 import { PoulesComponent } from '../main-feature/poules/poules.component';
-import { ClubsService } from '../clubs.service';
 import { MyClubComponent } from '../main-feature/my-club/my-club.component';
 
 
