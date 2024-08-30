@@ -1,2 +1,25 @@
+<div>
+  <label for="city">Ville:</label>
+  <select id="city" [(ngModel)]="selectedCity" (change)="filterClubs()">
+    <option value="">Tous</option>
+    <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+  </select>
 
-<p>join-club works!</p>
+  <label for="region">Région:</label>
+  <select id="region" [(ngModel)]="selectedRegion" (change)="filterClubs()">
+    <option value="">Tous</option>
+    <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+  </select>
+
+  <label for="department">Département:</label>
+  <select id="department" [(ngModel)]="selectedDepartment" (change)="filterClubs()">
+    <option value="">Tous</option>
+    <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+  </select>
+</div>
+
+<ul>
+  <li *ngFor="let club of filteredClubs">
+    {{ club.nom }} - {{ club.adresse }} - {{ club.ville }} - {{ club.departement }} - {{ club.region }}
+  </li>
+</ul>

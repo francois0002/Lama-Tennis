@@ -49,6 +49,7 @@ padding: 0rem 3rem;
 h2 {
   font-size: 1.5rem;
   margin: 0;
+  color: #5d666b;
 }
 
 p {
@@ -58,4 +59,23 @@ p {
   font-weight: 600;;
   padding-right: 1rem;
   padding-left:0.2rem;
+}
+.button-club {
+  background-color: #88b7d5; /* Bleu */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

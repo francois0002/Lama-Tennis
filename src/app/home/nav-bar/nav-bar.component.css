@@ -13,7 +13,7 @@ h1 {
 }
 
 nav {
-  background-color: #a3cae1;
+  background-color: #5d666b;
   color: #ffffff;
   position: fixed;
   padding: 0 1rem;
@@ -27,4 +27,9 @@ nav {
 mat-toolbar {
   display: flex;
   justify-content: space-between;
+}
+
+.logo {
+width: 2.5rem;
+height: auto;
 }
