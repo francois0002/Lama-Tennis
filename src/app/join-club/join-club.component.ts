@@ -1,53 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { ClubsService } from '../clubs.service';
-import { RouterOutlet } from '@angular/router';
+import { ClubService } from '../api-service/api-services';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-clubs',
+  selector: 'app-club-filter',
   standalone: true,
   imports: [
-    RouterOutlet, FormsModule, HttpClientModule, BrowserModule, CommonModule
+    FormsModule,
+    CommonModule,
+    HttpClientModule,
   ],
-  templateUrl: './join-club.component.html',
-  styleUrls: ['./join-club.component.css']
+  template: `
+  <form (ngSubmit)="onSubmit()">
+    <label for="town">Town:</label>
+    <input id="town" [(ngModel)]="filters.town" name="town" />
 
+    <label for="region">Région:</label>
+    <input id="region" [(ngModel)]="filters.region" name="region" />
+
+    <label for="department">Département:</label>
+    <input id="department" [(ngModel)]="filters.department" name="department" />
+
+    <button type="submit">Filtrer</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let club of clubs">{{ club.nom }} - {{ club.town }}</li>
+  </ul>
+`,
 })
-export class JoinClubComponent implements OnInit {
-  clubs: any[] = [];
-  filteredClubs: any[] = [];
-  cities: string[] = [];
-  regions: string[] = [];
-  departments: string[] = [];
-  selectedCity: string = '';
-  selectedRegion: string = '';
-  selectedDepartment: string = '';
+export class JoinClubComponent {
+filters = { town: '', region: '', department: '' };
+clubs: any[] = [];
 
-  constructor(private clubsService: ClubsService) {}
+constructor(private clubService: ClubService) {}
 
-  ngOnInit(): void {
-    this.clubsService.getClubs().subscribe(data => {
-      this.clubs = data;
-      this.filteredClubs = this.clubs;
-      this.populateFilters();
-    });
-  }
-
-  populateFilters(): void {
-    this.cities = Array.from(new Set(this.clubs.map(club => club.ville)));
-    this.regions = Array.from(new Set(this.clubs.map(club => club.région)));
-    this.departments = Array.from(new Set(this.clubs.map(club => club.département)));
-  }
-
-  filterClubs(): void {
-    this.filteredClubs = this.clubs.filter(club =>
-      (this.selectedCity === '' || club.ville === this.selectedCity) &&
-      (this.selectedRegion === '' || club.région === this.selectedRegion) &&
-      (this.selectedDepartment === '' || club.département === this.selectedDepartment)
-    );
-  }
+onSubmit() {
+  this.clubService.getClubs(this.filters).subscribe((clubs) => {
+    this.clubs = clubs;
+  });
+}
 }
