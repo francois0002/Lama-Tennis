@@ -1,0 +1,39 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="firstName" placeholder="Entrez votre prénom" />
+    <mat-error *ngIf="firstName?.hasError('required')">
+      Le prénom est requis.
+    </mat-error>
+    <mat-error *ngIf="firstName?.hasError('maxlength')">
+      Le prénom ne peut pas dépasser 50 caractères.
+    </mat-error>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nom de famille</mat-label>
+    <input matInput formControlName="lastName" placeholder="Entrez votre nom de famille" />
+    <mat-error *ngIf="lastName?.hasError('required')">
+      Le nom de famille est requis.
+    </mat-error>
+    <mat-error *ngIf="lastName?.hasError('maxlength')">
+      Le nom de famille ne peut pas dépasser 50 caractères.
+    </mat-error>
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Numéro de téléphone</mat-label>
+    <input matInput formControlName="phoneNumber" placeholder="Entrez votre numéro de téléphone" />
+    <mat-error *ngIf="phoneNumber?.hasError('required')">
+      Le numéro de téléphone est requis.
+    </mat-error>
+    <mat-error *ngIf="phoneNumber?.hasError('pattern')">
+      Le numéro de téléphone n'est pas valide.
+    </mat-error>
+  </mat-form-field>
+
+  <!--<button mat-flat-button color="primary" type="submit">Soumettre</button>  -->
+</form>

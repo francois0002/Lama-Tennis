@@ -1,0 +1,12 @@
+<form>
+  <p style="color: white ; font-size: 15px;"> Je dirais que je suis un joueur...</p>
+  <mat-form-field>
+    <mat-label>Niveau</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="level">
+      @for (level of levels; track level) {
+        <mat-option [value]="level.value">{{level.viewValue}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+

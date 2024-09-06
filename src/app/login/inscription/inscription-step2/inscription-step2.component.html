@@ -1,0 +1,30 @@
+
+  <app-back-button [link]="'/InscriptionStep1'"></app-back-button>
+  <div class="container">
+  <h1 class="small-title">Inscription</h1>
+
+  <div class="div-content">
+    <p class="subtitles">
+      Ces informations permettront aux autres joueurs de te contacter
+    </p>
+    <br />
+    <p class="text">Comment t'appelles tu?</p>
+
+    <div class="example-container">
+      <app-user-info-form></app-user-info-form>
+      <br />
+
+      <div class="next-button-container">
+        <a href="home/InscriptionStep3"
+          ><button mat-flat-button class="next-button" style="color: #7aaec4">
+            Continuer
+          </button></a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="div-content-bar">
+    <app-progress-bar [currentStep]="currentStep"></app-progress-bar>
+  </div>
+
