@@ -6,7 +6,7 @@
   background-color: #88b7d5;
   color: #ffffff;
   font-weight: 400;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100%;
   border-top: 0.15rem solid #ffffff;

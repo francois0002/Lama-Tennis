@@ -1,16 +1,17 @@
-.club-container {
-  display: flex;
-  justify-content: center; /* Centre horizontalement */
-  align-items: center;    /* Centre verticalement si nécessaire */        /* Hauteur de la vue pour centrer verticalement, ajustez si nécessaire */
-  background-color: white;
-  border-radius: 0.5rem;
-  padding: 2.5rem 0;
-}
 .content {
   padding: 4rem 2rem;
   display:flex;
   flex-direction:column;
   gap:1rem;
+}
+
+.club-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 2.5rem 0;
 }
 
 .level-container {
