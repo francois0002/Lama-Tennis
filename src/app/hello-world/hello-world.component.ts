@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { HelloService } from './hello.service';
+
 
 @Component({
   selector: 'app-hello-world',
-  standalone: true,
-  imports: [CommonModule, HttpClientModule], // Assurer l'importation des modules nécessaires
-  providers: [HelloService], // Fournir le service ici
   templateUrl: './hello-world.component.html',
-  styleUrls: ['./hello-world.component.css']
+  styleUrls: ['./hello-world.component.css'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class HelloWorldComponent implements OnInit {
-  message: string = '';
+  message: string | undefined;
 
-  constructor(private helloService: HelloService) { }
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.helloService.getHello().subscribe(data => {
-      this.message = data;
-    });
+  ngOnInit(): void {
+    this.http.get<{ message: string }>('http://localhost:3000/message')
+      .subscribe(response => {
+        this.message = response.message;
+      });
   }
 }
