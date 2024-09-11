@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignorer le fichier mongodb-compass_1.43.5_amd64.deb
+mongodb-compass_1.43.5_amd64.deb
