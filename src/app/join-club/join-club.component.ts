@@ -14,6 +14,7 @@ export class JoinClubComponent {
   town: string = '';
   department: string = '';
   region: string = '';
+  name_club: string = '';
   clubs: any[] = []; // Définir le type d'array en fonction de votre structure de données
 
   constructor(private clubService: ClubService) {}
@@ -23,8 +24,9 @@ export class JoinClubComponent {
     console.log('Town:', this.town);
     console.log('Department:', this.department);
     console.log('Region:', this.region);
+    console.log('Name_club:', this.name_club);
 
-    this.clubService.getClubs(this.town, this.department, this.region)
+    this.clubService.getClubs(this.town, this.department, this.region, this.name_club)
       .subscribe({
         next: (data: any[]) => {
           console.log('Data:', data);
