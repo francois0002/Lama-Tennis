@@ -1,0 +1,14 @@
+
+.next-button {
+  background-color: white;
+  font-family: "CooperStyle";
+  text-align: center;
+  color: #7aaec4;
+  text-align: center;
+  border-radius: 20px;
+  border: 4px solid #c9d9ea;
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}

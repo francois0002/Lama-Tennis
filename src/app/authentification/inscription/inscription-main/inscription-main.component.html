@@ -1,0 +1,30 @@
+@switch (currentStep) {
+  @case(1) {
+    <app-inscription-step1></app-inscription-step1>
+  }
+  @case(2) {
+    <app-inscription-step2></app-inscription-step2>
+  }
+
+  @case(3) {
+    <app-inscription-step3></app-inscription-step3>
+  }
+
+}
+
+<button mat-flat-button class="next-button" style="color: #7aaec4" (click)="nextStep()">
+  Continuer
+</button>
+
+<button mat-flat-button class="next-button" style="color: #7aaec4" (click)="previousStep()">
+  précédent
+</button>
+
+
+<div class="div-content-bar">
+
+  <app-progress-bar [currentStep]="currentStep"></app-progress-bar>
+</div>
+
+
+

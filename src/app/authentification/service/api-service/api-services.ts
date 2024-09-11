@@ -1,8 +1,7 @@
 // club.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Club } from '../interface/club.interface';
+import { Club } from '../../../interface/club.interface';
 
 @Injectable({
   providedIn: 'root'

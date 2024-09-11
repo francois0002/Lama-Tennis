@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { BackButtonComponent } from '../../button/back-button/back-button.component';
 import { FormChoiceLevelComponent } from '../../button/form-choice-level/form-choice-level.component';
-import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-ranking/form-choice-level-ranking.component';
 
 @Component({
@@ -10,7 +9,6 @@ import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-
   imports:[
     BackButtonComponent,
     FormChoiceLevelComponent,
-    ProgressBarComponent,
     FormChoiceLevelRankingComponent
   ],
   templateUrl: './inscription-step3.component.html',
