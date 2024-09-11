@@ -1,45 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Pour ngModel
+import { CommonModule } from '@angular/common'; // Pour ngFor
 import { ClubService } from '../api-service/api-services';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-club-filter',
+  selector: 'app-join-club',
+  templateUrl: './join-club.component.html',
+  styleUrls: ['./join-club.component.css'],
   standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule,
-    HttpClientModule,
-  ],
-  template: `
-  <form (ngSubmit)="onSubmit()">
-    <label for="town">Town:</label>
-    <input id="town" [(ngModel)]="filters.town" name="town" />
-
-    <label for="region">Région:</label>
-    <input id="region" [(ngModel)]="filters.region" name="region" />
-
-    <label for="department">Département:</label>
-    <input id="department" [(ngModel)]="filters.department" name="department" />
-
-    <button type="submit">Filtrer</button>
-  </form>
-
-  <ul>
-    <li *ngFor="let club of clubs">{{ club.nom }} - {{ club.town }}</li>
-  </ul>
-`,
+  imports: [FormsModule, CommonModule]
 })
 export class JoinClubComponent {
-filters = { town: '', region: '', department: '' };
-clubs: any[] = [];
+  town: string = '';
+  department: string = '';
+  region: string = '';
+  clubs: any[] = []; // Définir le type d'array en fonction de votre structure de données
 
-constructor(private clubService: ClubService) {}
+  constructor(private clubService: ClubService) {}
 
-onSubmit() {
-  this.clubService.getClubs(this.filters).subscribe((clubs) => {
-    this.clubs = clubs;
-  });
+  // Fonction pour effectuer la recherche avec les filtres
+  searchClubs() {
+    console.log('Town:', this.town);
+    console.log('Department:', this.department);
+    console.log('Region:', this.region);
+
+    this.clubService.getClubs(this.town, this.department, this.region)
+      .subscribe({
+        next: (data: any[]) => {
+          console.log('Data:', data);
+          this.clubs = data;
+        },
+        error: (err) => {
+          console.error('Erreur lors de la récupération des clubs:', err);
+        }
+      });
+  }
 }
-}
+

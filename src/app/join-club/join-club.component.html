@@ -1,5 +1,31 @@
-<br><br><br>
+<!-- join-club.component.html -->
+<div class="filter">
+  <h2>Rejoindre un club</h2>
+  <form (ngSubmit)="searchClubs()">
+    <div>
+      <label for="town">Ville:</label>
+      <input type="text" [(ngModel)]="town" name="town" />
+    </div>
 
-<app-club-filter></app-club-filter>
+    <div>
+      <label for="department">Département:</label>
+      <input type="text" [(ngModel)]="department" name="department" />
+    </div>
 
-<p>join-club works!</p>
+    <div>
+      <label for="region">Région:</label>
+      <input type="text" [(ngModel)]="region" name="region" />
+    </div>
+
+    <button type="submit">Rechercher</button>
+  </form>
+</div>
+
+<div class="results">
+  <h3>Résultats:</h3>
+  <ul>
+    <li *ngFor="let club of clubs">
+      {{ club.name_club }} - {{ club.town }} ({{ club.department }}, {{ club.region }})
+    </li>
+  </ul>
+</div>
