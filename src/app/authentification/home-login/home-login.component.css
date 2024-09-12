@@ -2,7 +2,6 @@
   color: white;
   font-size: 2em;
   text-align: center;
-  margin-top: 50px;
   font-family: "CooperStyle";
 }
 
@@ -54,4 +53,7 @@
   width: 100%;
   overflow: hidden;
   text-align: center;
+}
+.content{
+  background-color:  #88b7d5;
 }

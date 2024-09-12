@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { BackButtonComponent } from '../../button/back-button/back-button.component';
 import { EmailButtonComponent } from '../../button/email-button/email-button.component';
 import { PasswordButtonComponent } from '../../button/password-button/password-button.component';
-import { FormService } from '../../service/form.service';
+import { FormService } from '../../../service/form.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
