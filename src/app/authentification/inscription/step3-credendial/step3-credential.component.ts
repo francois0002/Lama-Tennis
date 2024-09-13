@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FormChoiceLevelComponent } from '../../button/form-choice-level/form-choice-level.component';
 import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-ranking/form-choice-level-ranking.component';
 
+
 @Component({
   selector: 'app-inscription-step3',
   standalone: true,
-  imports:[
+  imports: [
     FormChoiceLevelComponent,
     FormChoiceLevelRankingComponent
   ],
@@ -14,4 +15,8 @@ import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-
 })
 export class InscriptionStep3Component {
 
+  onInput(inputElement: HTMLInputElement) {
+    // Vous pouvez ajouter des logiques supplémentaires ici si nécessaire
+    console.log(inputElement.value);
+}
 }
