@@ -3,7 +3,10 @@ import { HomeLoginComponent } from './authentification/home-login/home-login.com
 
 
 export const routes: Routes = [
-  { path: 'HomeLogin', component: HomeLoginComponent },
+  {
+    path: 'home-login',
+    loadChildren: () => import('./authentification/home-login/home-login.route').then(m => m.homeLoginRoutes)
+},
   { path: 'home', loadChildren: () => import('./home/home.route').then(m => m.routes), },
-  { path: '**', redirectTo: 'HomeLogin' }
+  { path: '**', redirectTo: 'home-login' }
 ];

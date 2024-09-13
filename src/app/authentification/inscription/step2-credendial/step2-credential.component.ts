@@ -13,8 +13,8 @@ import { MatFormField } from '@angular/material/form-field';
     UserInfoFormComponent,
     MatFormField
   ],
-  templateUrl: './inscription-step2.component.html',
-  styleUrl: './inscription-step2.component.css'
+  templateUrl: './step2-credential.component.html',
+  styleUrl: './step2-credential.component.css'
 })
 export class InscriptionStep2Component {
 

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { InscriptionComponent } from '../authentification/inscription/inscription-main/inscription-main.component';
 import { LamaKesakoComponent } from '../blog-articles/lama-kesako/lama-kesako.component';
 import { PromoteLamaTennisComponent } from '../blog-articles/promote-lama-tennis/promote-lama-tennis.component';
 import { StartWithLamaComponent } from '../blog-articles/start-with-lama/start-with-lama.component';
@@ -30,7 +29,6 @@ export const routes: Routes = [
       { path: 'hauts-faits', component: HautsFaitsComponent,canActivate: [AuthGuard]},
       { path: 'poules', component: PoulesComponent, canActivate: [AuthGuard]},
       { path: 'my-club',component: MyClubComponent,canActivate: [AuthGuard]},
-      { path: 'inscription', component: InscriptionComponent },
     ],
   },
 ];

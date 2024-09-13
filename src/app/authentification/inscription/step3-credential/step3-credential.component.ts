@@ -11,8 +11,8 @@ import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-
     FormChoiceLevelComponent,
     FormChoiceLevelRankingComponent
   ],
-  templateUrl: './inscription-step3.component.html',
-  styleUrl: './inscription-step3.component.css'
+  templateUrl: './step3-credential.component.html',
+  styleUrl: './step3-credential.component.css'
 })
 export class InscriptionStep3Component {
 
