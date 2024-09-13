@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BackButtonComponent } from '../../button/back-button/back-button.component';
 import { FormChoiceLevelComponent } from '../../button/form-choice-level/form-choice-level.component';
 import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-ranking/form-choice-level-ranking.component';
 
@@ -7,7 +6,6 @@ import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-
   selector: 'app-inscription-step3',
   standalone: true,
   imports:[
-    BackButtonComponent,
     FormChoiceLevelComponent,
     FormChoiceLevelRankingComponent
   ],

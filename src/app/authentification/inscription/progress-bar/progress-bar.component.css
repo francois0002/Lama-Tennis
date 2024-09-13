@@ -12,6 +12,7 @@
   height: 100%;
   border-radius: 8px;
   transition: width 0.3s ease-in-out;
+  width: 0;
 }
 
 .step-indicators {

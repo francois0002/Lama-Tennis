@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-back-button',
@@ -7,5 +7,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './back-button.component.css'
 })
 export class BackButtonComponent {
-  @Input() link: string = '#';
+  @Output() back = new EventEmitter<void>();
+
+  onClick() {
+    this.back.emit();
+  }
 }
+

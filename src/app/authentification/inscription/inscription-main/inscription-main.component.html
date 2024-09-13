@@ -1,4 +1,15 @@
+<!-- Template of the registration process in 3 steps-->
+
+<!-- Back button -->
+<div class="back-button">
+  <button (click)="previousStep()">
+    <img src="/icone/back.png">
+  </button>
+</div>
+
+<!-- Allow a free navigation on the same an uniq component -->
 @switch (currentStep) {
+
   @case(1) {
     <app-inscription-step1></app-inscription-step1>
   }
@@ -12,19 +23,17 @@
 
 }
 
-<button mat-flat-button class="next-button" style="color: #7aaec4" (click)="nextStep()">
+<!-- Next button -->
+<div class="container-button">
+<button mat-flat-button class="button-login-registration" (click)="nextStep()">
   Continuer
 </button>
+</div>
 
-<button mat-flat-button class="next-button" style="color: #7aaec4" (click)="previousStep()">
-  précédent
-</button>
-
+<!-- Progress bar -->
 
 <div class="div-content-bar">
 
   <app-progress-bar [currentStep]="currentStep"></app-progress-bar>
 </div>
-
-
 

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BackButtonComponent } from '../../button/back-button/back-button.component';
 import { UserInfoFormComponent } from '../../button/user-info/user-info.component';
 import { MatFormField } from '@angular/material/form-field';
 
@@ -8,7 +7,6 @@ import { MatFormField } from '@angular/material/form-field';
   selector: 'app-inscription-step2',
   standalone: true,
   imports: [
-    BackButtonComponent,
     UserInfoFormComponent,
     UserInfoFormComponent,
     MatFormField
