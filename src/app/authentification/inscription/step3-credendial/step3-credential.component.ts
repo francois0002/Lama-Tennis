@@ -16,7 +16,7 @@ import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-
 export class InscriptionStep3Component {
 
   onInput(inputElement: HTMLInputElement) {
-    // Vous pouvez ajouter des logiques supplémentaires ici si nécessaire
+
     console.log(inputElement.value);
 }
 }

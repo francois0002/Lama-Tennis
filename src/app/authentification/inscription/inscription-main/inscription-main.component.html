@@ -11,7 +11,7 @@
 @switch (currentStep) {
 
   @case(1) {
-    <app-inscription-step1></app-inscription-step1>
+    <app-inscription-step1 (validityChange)="updateStep1Validity($event)"></app-inscription-step1>
   }
   @case(2) {
     <app-inscription-step2></app-inscription-step2>
@@ -25,11 +25,14 @@
 
 <!-- Next button -->
 <div class="container-button">
-<button mat-flat-button class="button-login-registration" (click)="nextStep()">
-  Continuer
-</button>
+  <button
+    mat-flat-button
+    class="button-login-registration"
+    (click)="nextStep()"
+    [disabled]="!canProceed()"> <!-- Disable button if the form is invalid -->
+    Continuer
+  </button>
 </div>
-
 <!-- Progress bar -->
 
 <div class="div-content-bar">

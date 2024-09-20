@@ -24,16 +24,21 @@ import { Router } from '@angular/router';
 })
 export class InscriptionMainComponent {
 
+  isStep1Valid = false; // Variable to track if step 1 is valid
   currentStep = 1;
 
   constructor(private router: Router) {}
 
-  // forbid the user to go to a step that is not on the limit
-  nextStep() {
-    if (this.currentStep < 3) {
-      this.currentStep++;
-    }
+ // Method to control the 'Next' button state
+ canProceed(): boolean {
+  return this.currentStep === 1 ? this.isStep1Valid : true;
+}
+// Method to move to the next step
+nextStep() {
+  if (this.currentStep < 3 && this.canProceed()) {
+    this.currentStep++;
   }
+}
 
   // redirect to home-login page if the user is on the first step
   previousStep() {
@@ -43,5 +48,11 @@ export class InscriptionMainComponent {
       this.router.navigate(['/home-login']);
     }
   }
+
+    // This method will be called by child component to update step 1 validity
+    updateStep1Validity(isValid: boolean) {
+      this.isStep1Valid = isValid;
+    }
+
 }
 

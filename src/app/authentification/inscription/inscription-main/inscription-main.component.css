@@ -73,3 +73,11 @@
   position: relative;
   width: 75%;
 }
+
+
+.button-login-registration:disabled {
+  background-color: #ccc; /* Gray background */
+  color: #666; /* Gray text */
+  cursor: not-allowed; /* Change cursor to indicate it's disabled */
+  opacity: 0.6; /* Slightly transparent */
+}
