@@ -55,28 +55,20 @@ export class InscriptionStep1Component implements OnInit {
 // Méthode pour valider l'email lors du blur
 validateEmail(emailInput: NgModel) {
   emailInput.control.markAsTouched();
-  if (emailInput.invalid) {
-    console.log("L'email est invalide ou manquant.");
-  } else {
-    console.log("L'email est valide.");
-  }
   this.emitFormValidity();
 }
 
 // Méthode pour valider le mot de passe lors du blur
 validatePassword(passwordInput: NgModel) {
   passwordInput.control.markAsTouched();
-  if (passwordInput.invalid) {
-    console.log("Le mot de passe est invalide ou manquant.");
-  } else {
-    console.log("Le mot de passe est valide.");
-  }
   this.emitFormValidity();
 }
 
 
 emitFormValidity() {
-  this.validityChange.emit(this.isFormValid());
+  const isValid = this.isFormValid();  // Calcul de la validité du formulaire
+  this.validityChange.emit(isValid);  // Émission de l'événement
+
 }
 
 }

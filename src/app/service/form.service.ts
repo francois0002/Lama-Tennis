@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export interface RegisterForm {
+  phoneNumber: string;
   email: string;
   password: string;
   firstName: string;
@@ -21,6 +22,7 @@ export class FormService {
     password: '',
     firstName: '',
     lastName: '',
+    phoneNumber: '',
     level: '',
     ranking: '',
   });
