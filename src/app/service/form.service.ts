@@ -8,7 +8,7 @@ export interface RegisterForm {
   firstName: string;
   lastName: string;
   level: string;
-  ranking: string;
+  ranking: string | null;
 }
 
 
