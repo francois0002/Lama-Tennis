@@ -6,6 +6,9 @@ import { InscriptionStep3Component } from '../step3-credendial/step3-credential.
 import { BackButtonComponent } from '../../button/back-button/back-button.component';
 import { Step0HomeLoginComponent } from '../step0-home-login/step0-home-login.component';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { SignUpService } from '../../../service/on-sign-up.service';
+
 
 
 
@@ -15,7 +18,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports:[InscriptionStep1Component, ProgressBarComponent,
     InscriptionStep2Component, BackButtonComponent,
-    Step0HomeLoginComponent, InscriptionStep3Component],
+    Step0HomeLoginComponent, InscriptionStep3Component, CommonModule],
   templateUrl: './inscription-main.component.html',
   styleUrl: './inscription-main.component.css'
 
@@ -24,12 +27,20 @@ import { Router } from '@angular/router';
 })
 export class InscriptionMainComponent {
 
+  email: string = ''; // Déclaration des propriétés
+  password: string = '';
+  firstName: string = '';
+  lastName: string = '';
+  phoneNumber: string = '';
+  level: string = '';
+  ranking: string = '';
+
   isStep1Valid = false; // Variable to track if step 1 is valid
   isStep2Valid = false; // Variable to track if step 2 is valid
   isStep3Valid = false; // Variable to track if step 3 is valid
   currentStep = 1;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,  private signUpService: SignUpService) {}
 
  // Method to control the 'Next' button state
 canProceed(): boolean {
@@ -75,5 +86,27 @@ nextStep() {
       this.isStep3Valid = isValid;
     }
 
-}
+    register() {
+      const formData = {
+        email: this.email,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        phoneNumber: this.phoneNumber,
+        level: this.level,
+        ranking: this.ranking
+      };
 
+      this.signUpService.saveToMongo(formData).subscribe({
+        next: (response) => {
+          console.log('Inscription réussie:', response);
+          // Rediriger ou informer l'utilisateur
+          this.router.navigate(['/home-login']); // Redirection vers la page de connexion
+        },
+        error: (error) => {
+          console.error('Erreur lors de l\'inscription:', error);
+          // Afficher un message d'erreur à l'utilisateur
+        }
+      });
+}
+}

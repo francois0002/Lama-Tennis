@@ -4,6 +4,7 @@ import { PasswordButtonComponent } from '../../button/password-button/password-b
 import { FormService } from '../../../service/form.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { UserLoginComponent } from '../../user-login/user-login.component';
 
 @Component({
   selector: 'app-inscription-step1',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
     EmailButtonComponent,
     PasswordButtonComponent,
     FormsModule,
-    CommonModule
+    CommonModule,
+    UserLoginComponent
   ],
   templateUrl: './step1-credential.component.html',
   styleUrls: ['./step1-credential.component.css']

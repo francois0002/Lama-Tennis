@@ -26,6 +26,7 @@
 <!-- Next button -->
 <div class="container-button">
   <button
+  *ngIf="currentStep !== 3"
     mat-flat-button
     class="button-login-registration"
     (click)="nextStep()"
@@ -33,6 +34,22 @@
     Continuer
   </button>
 </div>
+
+
+<!-- registration button -->
+<div class="container-button">
+  <button
+  *ngIf="currentStep == 3"
+    mat-flat-button
+    class="button-login-registration"
+    (click)="register()"
+    [disabled]="!canProceed()"
+    >
+    M'inscrire
+  </button>
+</div>
+
+
 <!-- Progress bar -->
 
 <div class="div-content-bar">
