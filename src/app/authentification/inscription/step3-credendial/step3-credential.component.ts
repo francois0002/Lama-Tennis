@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormChoiceLevelComponent } from '../../button/form-choice-level/form-choice-level.component';
 import { FormChoiceLevelRankingComponent } from '../../button/form-choice-level-ranking/form-choice-level-ranking.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -42,6 +42,8 @@ interface RankingGroup {
   styleUrl: './step3-credential.component.css'
 })
 export class InscriptionStep3Component implements OnInit {
+
+  @Output() validityChange = new EventEmitter<boolean>();
 
   level: string = '';
   ranking: string = '';
@@ -108,13 +110,25 @@ export class InscriptionStep3Component implements OnInit {
     const formData = this.formService.getFormData();
     this.level = formData.level;
     this.rankingControl.setValue(formData.ranking);
+    this.emitFormValidity();
   }
 
   onLevelSelected(level: string) {
+    this.level = level;
     this.formService.updateForm({ level });
+    this.emitFormValidity();
   }
 
   onRankingChange() {
     this.formService.updateForm({ ranking: this.rankingControl.value });
+    this.emitFormValidity();
   }
+
+  emitFormValidity() {
+    const isValid = this.levelControl.value !== '' && this.rankingControl.value !== '';
+    this.validityChange.emit(isValid);
+  }
+
+
 }
+

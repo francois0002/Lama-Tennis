@@ -25,7 +25,8 @@ import { Router } from '@angular/router';
 export class InscriptionMainComponent {
 
   isStep1Valid = false; // Variable to track if step 1 is valid
-  isStep2Valid = false; // Variable to track if step 1 is valid
+  isStep2Valid = false; // Variable to track if step 2 is valid
+  isStep3Valid = false; // Variable to track if step 3 is valid
   currentStep = 1;
 
   constructor(private router: Router) {}
@@ -37,6 +38,10 @@ canProceed(): boolean {
   } else if (this.currentStep === 2) {
     return this.isStep2Valid; // Validation du Step 2
   }
+  else if (this.currentStep === 3) {
+    return this.isStep3Valid; // Validation du Step 3
+  }
+
   return true
 }
 // Method to move to the next step
@@ -63,6 +68,11 @@ nextStep() {
     // This method will be called by child component to update step 2 validity
     updateStep2Validity(isValid: boolean) {
     this.isStep2Valid = isValid;
+    }
+
+     // This method will be called by child component to update step 3 validity
+    updateStep3Validity(isValid: boolean) {
+      this.isStep3Valid = isValid;
     }
 
 }
