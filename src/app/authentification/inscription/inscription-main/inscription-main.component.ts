@@ -90,7 +90,7 @@ nextStep() {
       const formData = this.service.getFormData();
       console.log('Données à envoyer :', formData); // Vérifiez ici
 
-      this.signUpService.saveToMongo(formData).subscribe({
+      this.signUpService.saveToDatabase(formData).subscribe({
         next: (response) => {
           console.log('Inscription réussie:', response);
           // Rediriger ou informer l'utilisateur

@@ -11,7 +11,7 @@ export class SignUpService {
   constructor(private http: HttpClient) {}
 
   // Sauvegarde des données sur un serveur qui se connecte à MongoDB
-  saveToMongo(data: any): Observable<any> {
+  saveToDatabase(data: any): Observable<any> {
     return this.http.post(this.apiUrl, data);  // Utilisation d'HttpClient pour envoyer des données
   }
 }
