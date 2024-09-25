@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProgressBarComponent } from '../progress-bar/progress-bar.component';
 import { InscriptionStep1Component } from '../step1-credential/step1-credential.component';
 import { InscriptionStep2Component } from '../step2-credendial/step2-credential.component';
@@ -8,6 +8,7 @@ import { Step0HomeLoginComponent } from '../step0-home-login/step0-home-login.co
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SignUpService } from '../../../service/on-sign-up.service';
+import { FormService } from '../../../service/form.service';
 
 
 
@@ -27,18 +28,13 @@ import { SignUpService } from '../../../service/on-sign-up.service';
 })
 export class InscriptionMainComponent {
 
-  email: string = ''; // Déclaration des propriétés
-  password: string = '';
-  firstName: string = '';
-  lastName: string = '';
-  phoneNumber: string = '';
-  level: string = '';
-  ranking: string = '';
 
   isStep1Valid = false; // Variable to track if step 1 is valid
   isStep2Valid = false; // Variable to track if step 2 is valid
   isStep3Valid = false; // Variable to track if step 3 is valid
   currentStep = 1;
+
+
 
   constructor(private router: Router,  private signUpService: SignUpService) {}
 
@@ -86,16 +82,13 @@ nextStep() {
       this.isStep3Valid = isValid;
     }
 
+
+    private service = inject(FormService);
+
     register() {
-      const formData = {
-        email: this.email,
-        password: this.password,
-        firstName: this.firstName,
-        lastName: this.lastName,
-        phoneNumber: this.phoneNumber,
-        level: this.level,
-        ranking: this.ranking
-      };
+
+      const formData = this.service.getFormData();
+      console.log('Données à envoyer :', formData); // Vérifiez ici
 
       this.signUpService.saveToMongo(formData).subscribe({
         next: (response) => {
@@ -105,6 +98,7 @@ nextStep() {
         },
         error: (error) => {
           console.error('Erreur lors de l\'inscription:', error);
+          alert('Une erreur est survenue lors de l\'inscription. Veuillez vérifier vos informations et réessayer.');
           // Afficher un message d'erreur à l'utilisateur
         }
       });

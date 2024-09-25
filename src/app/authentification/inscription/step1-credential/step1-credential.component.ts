@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { EmailButtonComponent } from '../../button/email-button/email-button.component';
 import { PasswordButtonComponent } from '../../button/password-button/password-button.component';
 import { FormService } from '../../../service/form.service';
@@ -21,6 +21,8 @@ import { UserLoginComponent } from '../../user-login/user-login.component';
 })
 export class InscriptionStep1Component implements OnInit {
 
+  @Input() email: string = '';
+  @Input() password: string = '';
   @Output() validityChange = new EventEmitter<boolean>();  // Output event to notify parent
 
   private service = inject(FormService);
@@ -31,10 +33,6 @@ export class InscriptionStep1Component implements OnInit {
     this.email = formData.email;
     this.password = formData.password;
   }
-
-  // Propriétés pour les champs d'entrée
-  email: string = '';
-  password: string = '';
 
   // Méthode appelée lorsqu'il y a un changement dans l'email
   updateEmail(newEmail: string) {
