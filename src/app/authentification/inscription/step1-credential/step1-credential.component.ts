@@ -5,6 +5,7 @@ import { FormService } from '../../../service/form.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserLoginComponent } from '../../user-login/user-login.component';
+import { EmailService } from '../../../service/email.service';
 
 @Component({
   selector: 'app-inscription-step1',
@@ -14,7 +15,7 @@ import { UserLoginComponent } from '../../user-login/user-login.component';
     PasswordButtonComponent,
     FormsModule,
     CommonModule,
-    UserLoginComponent
+    UserLoginComponent,
   ],
   templateUrl: './step1-credential.component.html',
   styleUrls: ['./step1-credential.component.css']
@@ -24,8 +25,9 @@ export class InscriptionStep1Component implements OnInit {
   @Input() email: string = '';
   @Input() password: string = '';
   @Output() validityChange = new EventEmitter<boolean>();  // Output event to notify parent
+  emailError: string = '';
 
-  private service = inject(FormService);
+  constructor(private service: FormService, private emailService: EmailService) {}  // Injection du service EmailService
 
   ngOnInit() {
     // Récupérer les données du formulaire depuis le service et initialiser les propriétés
@@ -52,6 +54,34 @@ export class InscriptionStep1Component implements OnInit {
 
     return emailPattern.test(this.email) && passwordPattern.test(this.password);
   }
+
+  onEmailBlur(emailInput: NgModel) {
+    this.validateEmail(emailInput);  // D'abord, valider le format d'email
+    if (emailInput.valid && this.email) {
+      this.checkEmailAvailability(this.email);  // Puis vérifier si l'email est déjà utilisé
+    }
+  }
+
+  // Utilisation du service pour vérifier si l'email est disponible
+  checkEmailAvailability(email: string) {
+
+    console.log('Vérification de l\'email:', email);
+    this.emailService.checkEmail(email).subscribe({
+      next: (response) => {
+        this.emailError = '';  // Si l'email est disponible, réinitialiser l'erreur
+        this.emitFormValidity();
+      },
+      error: (err) => {
+        if (err.status === 400) {
+          this.emailError = err.error.message;  // Afficher le message d'erreur
+        } else {
+          console.error("Erreur lors de la vérification de l'email:", err);
+        }
+        this.emitFormValidity();
+      }
+    });
+  }
+
 // Méthode pour valider l'email lors du blur
 validateEmail(emailInput: NgModel) {
   emailInput.control.markAsTouched();

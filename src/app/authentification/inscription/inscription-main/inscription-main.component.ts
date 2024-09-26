@@ -33,6 +33,7 @@ export class InscriptionMainComponent {
   isStep2Valid = false; // Variable to track if step 2 is valid
   isStep3Valid = false; // Variable to track if step 3 is valid
   currentStep = 1;
+  isEmailAvailable = true;
 
 
 
@@ -41,7 +42,7 @@ export class InscriptionMainComponent {
  // Method to control the 'Next' button state
 canProceed(): boolean {
   if (this.currentStep === 1) {
-    return this.isStep1Valid; // Validation du Step 1
+    return this.isStep1Valid && this.isEmailAvailable; // // Validation du Step 1
   } else if (this.currentStep === 2) {
     return this.isStep2Valid; // Validation du Step 2
   }
