@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { InscriptionMainComponent } from '../inscription/inscription-main/inscription-main.component';
 import { HomeLoginComponent } from './home-login.component';
-import { InscriptionStep1Component } from '../inscription/step1-credential/step1-credential.component';
-import { Step0HomeLoginComponent } from '../inscription/step0-home-login/step0-home-login.component';
-import { InscriptionStep2Component } from '../inscription/step2-credendial/step2-credential.component';
+import { Step0HomeLoginComponent } from './step0-home-login/step0-home-login.component';
+import { UserLoginComponent } from '../user-login/user-login.component';
+import { ForgotPasswordComponent } from '../user-login/forgot-password/forgot-password.component';
+
 
 
 
@@ -13,9 +14,9 @@ export const homeLoginRoutes: Routes = [
     component: HomeLoginComponent,
     children: [
       { path: 'inscription', component: InscriptionMainComponent },
-      { path: 'step1', component: InscriptionStep1Component },
-      { path: 'step2', component: InscriptionStep2Component },
       { path: '', component: Step0HomeLoginComponent },
+      { path: 'connexion', component: UserLoginComponent },
+      { path: 'mot-de-passe-oublie', component: ForgotPasswordComponent },
     ],
   },
 ];

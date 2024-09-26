@@ -2,6 +2,7 @@
 (first entry point of the home-login).*/
 
 import { Component } from '@angular/core';
+import { UserLoginComponent } from '../../user-login/user-login.component';
 
 
 
@@ -9,7 +10,8 @@ import { Component } from '@angular/core';
   selector: 'app-step-0-home-login',
   standalone: true,
   templateUrl: './step0-home-login.component.html',
-  styleUrl: './step0-home-login.component.css'
+  styleUrl: './step0-home-login.component.css',
+  imports: [UserLoginComponent]
 })
 export class Step0HomeLoginComponent {
 

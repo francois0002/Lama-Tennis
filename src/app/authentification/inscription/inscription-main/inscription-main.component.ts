@@ -4,7 +4,7 @@ import { InscriptionStep1Component } from '../step1-credential/step1-credential.
 import { InscriptionStep2Component } from '../step2-credendial/step2-credential.component';
 import { InscriptionStep3Component } from '../step3-credendial/step3-credential.component';
 import { BackButtonComponent } from '../../button/back-button/back-button.component';
-import { Step0HomeLoginComponent } from '../step0-home-login/step0-home-login.component';
+import { Step0HomeLoginComponent } from '../../home-login/step0-home-login/step0-home-login.component';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SignUpService } from '../../../service/on-sign-up.service';

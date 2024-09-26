@@ -1,27 +1,27 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';  // Assurez-vous que le chemin est correct
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../service/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css'],
+  selector: 'app-forgot-password',
   standalone: true,
-  imports : [FormsModule,CommonModule]
+  imports: [FormsModule, CommonModule],
+  templateUrl: './forgot-password.component.html',
+  styleUrl: './forgot-password.component.css'
 })
-export class UserLoginComponent {
+export class ForgotPasswordComponent {
+previousStep() {
+    this.router.navigate(['/home-login/connexion']);
+}
   email: string = '';
   password: string = '';
   errorMessage: string = ''; // Pour afficher un message d'erreur
 
   private authService = inject(AuthService);
   private router = inject(Router);
-
-  previousStep() {
-    this.router.navigate(['/inscription']);
-}
 
   // Méthode appelée lors de la soumission du formulaire
   onLogin() {
