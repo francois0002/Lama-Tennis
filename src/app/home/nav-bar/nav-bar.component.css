@@ -33,3 +33,12 @@ mat-toolbar {
 width: 2.5rem;
 height: auto;
 }
+
+nav {
+  transition: top 0.3s ease-in-out;
+}
+
+nav.hidden {
+  top: -100px; /* Déplace la barre de navigation vers le haut */
+}
+
