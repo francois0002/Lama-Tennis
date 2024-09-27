@@ -24,30 +24,28 @@ export class InscriptionStep1Component implements OnInit {
 
   @Input() email: string = '';
   @Input() password: string = '';
-  @Output() validityChange = new EventEmitter<boolean>();  // Output event to notify parent
+  @Output() emailAvailabilityChange = new EventEmitter<boolean>(); // Émission de l'événement pour la disponibilité de l'email
+  @Output() validityChange = new EventEmitter<boolean>();
   emailError: string = '';
 
-  constructor(private service: FormService, private emailService: EmailService) {}  // Injection du service EmailService
+  constructor(private service: FormService, private emailService: EmailService) {}
 
   ngOnInit() {
-    // Récupérer les données du formulaire depuis le service et initialiser les propriétés
     const formData = this.service.getFormData();
     this.email = formData.email;
     this.password = formData.password;
   }
 
-  // Méthode appelée lorsqu'il y a un changement dans l'email
   updateEmail(newEmail: string) {
     this.email = newEmail;
     this.service.updateForm({ email: this.email });
   }
 
-  // Méthode appelée lorsqu'il y a un changement dans le mot de passe
   updatePassword(newPassword: string) {
     this.password = newPassword;
     this.service.updateForm({ password: this.password });
   }
-  // Méthode pour valider tous les champs
+
   isFormValid(): boolean {
     const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
     const passwordPattern = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -56,24 +54,23 @@ export class InscriptionStep1Component implements OnInit {
   }
 
   onEmailBlur(emailInput: NgModel) {
-    this.validateEmail(emailInput);  // D'abord, valider le format d'email
+    this.validateEmail(emailInput);
     if (emailInput.valid && this.email) {
-      this.checkEmailAvailability(this.email);  // Puis vérifier si l'email est déjà utilisé
+      this.checkEmailAvailability(this.email);  // Ajout de la vérification de la disponibilité de l'email après le blur
     }
   }
 
-  // Utilisation du service pour vérifier si l'email est disponible
   checkEmailAvailability(email: string) {
-
-    console.log('Vérification de l\'email:', email);
     this.emailService.checkEmail(email).subscribe({
       next: (response) => {
-        this.emailError = '';  // Si l'email est disponible, réinitialiser l'erreur
+        this.emailError = '';
+        this.emailAvailabilityChange.emit(true); // Notifier le parent que l'email est disponible
         this.emitFormValidity();
       },
       error: (err) => {
         if (err.status === 400) {
-          this.emailError = err.error.message;  // Afficher le message d'erreur
+          this.emailError = err.error.message;
+          this.emailAvailabilityChange.emit(false); // Notifier le parent que l'email n'est pas disponible
         } else {
           console.error("Erreur lors de la vérification de l'email:", err);
         }
@@ -82,25 +79,19 @@ export class InscriptionStep1Component implements OnInit {
     });
   }
 
-// Méthode pour valider l'email lors du blur
-validateEmail(emailInput: NgModel) {
-  emailInput.control.markAsTouched();
-  this.emitFormValidity();
-}
+  validateEmail(emailInput: NgModel) {
+    emailInput.control.markAsTouched();
+    this.emitFormValidity();
+  }
 
-// Méthode pour valider le mot de passe lors du blur
-validatePassword(passwordInput: NgModel) {
-  passwordInput.control.markAsTouched();
-  this.emitFormValidity();
-}
+  validatePassword(passwordInput: NgModel) {
+    passwordInput.control.markAsTouched();
+    this.emitFormValidity();
+  }
 
-
-emitFormValidity() {
-  const isValid = this.isFormValid();  // Calcul de la validité du formulaire
-  this.validityChange.emit(isValid);  // Émission de l'événement
+  emitFormValidity() {
+    const isValid = this.isFormValid();
+    this.validityChange.emit(isValid);
+  }
 
 }
-
-}
-
-

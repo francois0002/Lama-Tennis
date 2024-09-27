@@ -39,6 +39,12 @@ export class InscriptionMainComponent {
 
   constructor(private router: Router,  private signUpService: SignUpService) {}
 
+    // Méthode appelée lorsque la disponibilité de l'email change
+    updateEmailAvailability(isAvailable: boolean) {
+      this.isEmailAvailable = isAvailable;
+    }
+
+
  // Method to control the 'Next' button state
 canProceed(): boolean {
   if (this.currentStep === 1) {
