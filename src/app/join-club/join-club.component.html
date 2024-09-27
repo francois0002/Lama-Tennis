@@ -3,11 +3,13 @@
   <h1 class="title">Trouve ton club !</h1>
   <form (ngSubmit)="searchClubs()">
     <div>
-      <label for="town">Ville du club:</label>
+
+
+      <label for="town">Filtrer par  la ville du club:</label>
       <input type="text" [(ngModel)]="town" name="town" class="town-input"/>
     </div>
     <div>
-      <label for="name_club">Nom du club:</label>
+      <label for="name_club">et/ou par le nom du club:</label>
       <input type="text" [(ngModel)]="name_club" name="name_club" class="town-input"/>
     </div>
 
@@ -19,8 +21,9 @@
   <h1 class="title">Résultats:</h1>
   <ul>
     <li *ngFor="let club of clubs" class="club-item">
-      {{ club.name_club }} <br /><br />
+     <h4 class="club-name"> {{ club.name_club }}</h4>
       Adresse : {{ club.town }} ({{ club.location }} - {{ club.department }})
+      <button (click)="selectClub(club.id)" class="select-button">Sélectionner ce club</button>
     </li>
   </ul>
 </div>

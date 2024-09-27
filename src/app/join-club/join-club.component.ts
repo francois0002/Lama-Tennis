@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Pour ngModel
 import { CommonModule } from '@angular/common'; // Pour ngFor
 import { ClubService } from '../service/api-service/api-services';
+import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-join-club',
@@ -17,7 +19,7 @@ export class JoinClubComponent {
   name_club: string = '';
   clubs: any[] = []; // Définir le type d'array en fonction de votre structure de données
 
-  constructor(private clubService: ClubService) {}
+  constructor(private clubService: ClubService, private userService: UserService, private router: Router) {}
 
   // Fonction pour effectuer la recherche avec les filtres
   searchClubs() {
@@ -37,5 +39,21 @@ export class JoinClubComponent {
         }
       });
   }
+    // Fonction pour sélectionner un club
+    selectClub(clubId: string) {
+      const userId = '66f6698fb45393fa39a039f2'; // Remplace par l'ID de l'utilisateur actuel
+
+      // Mettre à jour l'utilisateur avec le club sélectionné
+      this.userService.updateUserClub(userId, clubId).subscribe({
+        next: () => {
+          console.log('Club mis à jour avec succès');
+          // Redirige vers la page d'accueil
+          this.router.navigate(['/home']);
+        },
+        error: (err) => {
+          console.error('Erreur lors de la mise à jour du club de l\'utilisateur:', err);
+        }
+      });
+    }
 }
 

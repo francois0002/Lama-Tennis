@@ -80,15 +80,18 @@ ul {
   padding: 0;
 }
 
-.club-item {
-  margin-bottom: 20px; /* Ajoute un espacement entre chaque résultat */
-}
-
 .club-item strong {
   font-size: 1.2rem; /* Optionnel : augmenter la taille du nom du club pour le rendre plus visible */
 }
 
 .club-item {
-  padding: 10px;
+  padding: 1.5rem;
   border-bottom: 1px solid #ccc; /* Optionnel : ajoute une ligne de séparation entre les résultats */
+}
+
+.club-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #88b7d5;
+  line-height: 1.1;
 }
