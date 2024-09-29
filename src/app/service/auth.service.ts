@@ -24,4 +24,30 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
   }
+
+  // fonction pour récupérer l'utilisateur connecté
+  getUser(){
+   const token = this.getToken();
+   if (!token) {
+      return null;
+    }
+    const user = this.decodeToken(token);
+    console.log(user);
+    return user;
+  }
+
+  //fonction pour récupérer le token
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  // fonction pour décoder le token
+  decodeToken(token: string): any {
+    const payload = token.split('.')[1];
+    const decoded = window.atob(payload);
+    return JSON.parse(decoded);
+  }
+
 }
+
+

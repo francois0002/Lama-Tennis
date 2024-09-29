@@ -35,11 +35,13 @@ export class UserLoginComponent {
         },
         error: (err) => {
           // En cas d'erreur, afficher un message
+          console.log("erreur test");
           this.errorMessage = err.error.message || "Une erreur s'est produite lors de la connexion";
         }
       });
     } else {
       this.errorMessage = 'Veuillez entrer un email et un mot de passe valides.';
+      console.log("erreur teset");
     }
   }
 
