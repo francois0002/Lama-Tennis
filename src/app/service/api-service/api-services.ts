@@ -2,13 +2,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Club } from '../../interface/club.interface';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClubService {
   private apiUrl = 'http://localhost:3000/clubs';
+  private clubSubject = new BehaviorSubject<any>(null);
+  public club$ = this.clubSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -31,5 +33,7 @@ export class ClubService {
   addUserToClub(clubId: string, userId: string): Observable<any> {
     return this.http.patch(`${this.apiUrl}/${clubId}/addUser`, { userId });
   }
+
+
 
 }

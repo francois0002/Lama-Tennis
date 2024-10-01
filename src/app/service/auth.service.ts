@@ -36,6 +36,12 @@ export class AuthService {
     return user;
   }
 
+  getUserWithClub(): Observable<any> {
+    const userId = this.getCurrentUserId(); // méthode pour obtenir l'ID de l'utilisateur
+    return this.http.get(`/api/users/${userId}`); // Assurez-vous d'avoir une API qui retourne l'utilisateur avec les détails du club
+  }
+
+
   //fonction pour récupérer le token
   getToken() {
     return localStorage.getItem('token');

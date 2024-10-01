@@ -1,8 +1,15 @@
 <div class="content">
-  <div class="club-container">
+  <div class="club-container" *ngIf="!user.club">
     <a href="/home/join-club" class="button-club"><span class="plus-sign">+</span>  Rejoindre un club</a>
   </div>
-  <div class="level-container">
+
+  <div class="club-info" *ngIf="user.club">
+    <h2>Votre Club</h2>
+    <p>Nom: {{ club.name_club }}</p>
+    <p>Adresse: {{ club.location }}</p>
+    <p>Ville: {{ club.town }}</p>
+    <p>Département: {{ club.department }}</p>
+  </div>
 
 
     <!-- ------------Articles----------------- -->
@@ -50,5 +57,4 @@
     </div>
   </div>
 
-</div>
 

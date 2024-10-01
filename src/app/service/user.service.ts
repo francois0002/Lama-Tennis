@@ -13,4 +13,13 @@ export class UserService {
   updateUserClub(userId: string, clubId: string): Observable<any> {
     return this.http.patch(`${this.apiUrl}/users/${userId}`, { club: clubId });
   }
+
+   // Fonction pour obtenir les informations de l'utilisateur
+   getUserInfo(userId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/users/${userId}`);
+  }
+
+  getClubInfo(clubId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/clubs/${clubId}`);
+  }
 }
