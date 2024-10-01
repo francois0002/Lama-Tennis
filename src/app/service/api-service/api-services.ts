@@ -2,16 +2,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Club } from '../../interface/club.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClubService {
   private apiUrl = 'http://localhost:3000/clubs';
 
   constructor(private http: HttpClient) {}
 
-  getClubs(town?: string, department?: string, region?: string, name_club?: string) {
+  getClubs(
+    town?: string,
+    department?: string,
+    region?: string,
+    name_club?: string
+  ) {
     let params: any = {};
     if (town) params.town = town;
     if (department) params.department = department;
@@ -20,4 +26,10 @@ export class ClubService {
 
     return this.http.get<Club[]>(this.apiUrl, { params });
   }
+
+  // Correction de la méthode pour ajouter un utilisateur au club
+  addUserToClub(clubId: string, userId: string): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${clubId}/addUser`, { userId });
+  }
+
 }

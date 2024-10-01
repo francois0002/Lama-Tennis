@@ -46,16 +46,33 @@ export class JoinClubComponent {
         },
       });
   }
+
   // Fonction pour sélectionner un club
+
   selectClub(clubId: string) {
-    const userId = this.authService.getUser().id; // Remplace par l'ID de l'utilisateur actuel
+    const userId = this.authService.getUser().id; // ID de l'utilisateur actuel
 
     // Mettre à jour l'utilisateur avec le club sélectionné
     this.userService.updateUserClub(userId, clubId).subscribe({
       next: () => {
-        console.log('Club mis à jour avec succès');
-        // Redirige vers la page d'accueil
-        this.router.navigate(['/home']);
+        console.log("Club mis à jour avec succès pour l'utilisateur");
+
+        // Ajouter l'utilisateur au club
+
+        console.log(clubId)
+        this.clubService.addUserToClub(clubId, userId).subscribe({
+          next: () => {
+            console.log('Utilisateur ajouté avec succès au club');
+            // Redirige vers la page d'accueil
+            this.router.navigate(['/home']);
+          },
+          error: (err) => {
+            console.error(
+              "Erreur lors de l'ajout de l'utilisateur au club:",
+              err
+            );
+          },
+        });
       },
       error: (err) => {
         console.error(

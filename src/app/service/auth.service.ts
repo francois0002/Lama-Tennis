@@ -48,6 +48,12 @@ export class AuthService {
     return JSON.parse(decoded);
   }
 
+  // Nouvelle fonction pour récupérer l'ID de l'utilisateur connecté
+getCurrentUserId(): string | null {
+  const user = this.getUser();
+  return user ? user.id : null; // Renvoie l'ID de l'utilisateur ou null si non connecté
+}
+
 }
 
 

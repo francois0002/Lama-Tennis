@@ -23,7 +23,7 @@
     <li *ngFor="let club of clubs" class="club-item">
      <h4 class="club-name"> {{ club.name_club }}</h4>
       Adresse : {{ club.town }} ({{ club.location }} - {{ club.department }})
-      <button (click)="selectClub(club.id)" class="select-button">Sélectionner ce club</button>
+      <button (click)="selectClub(club._id)" class="select-button">Sélectionner ce club</button>
     </li>
   </ul>
 </div>
