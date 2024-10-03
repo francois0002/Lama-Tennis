@@ -11,6 +11,7 @@ import { PoulesComponent } from '../main-feature/poules/poules.component';
 import { MyAccountComponent } from '../my-account/my-account.component';
 import { ArticlesHomePageComponent } from './home-page/articles-home-page/articles-home-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PartnersComponent } from '../main-feature/partners/partners.component';
 
 
 
@@ -29,6 +30,8 @@ export const routes: Routes = [
       { path: 'hauts-faits', component: HautsFaitsComponent,canActivate: [AuthGuard]},
       { path: 'poules', component: PoulesComponent, canActivate: [AuthGuard]},
       { path: 'my-club',component: MyClubComponent,canActivate: [AuthGuard]},
+      { path: 'partners',component: PartnersComponent,canActivate: [AuthGuard]}
+
     ],
   },
 ];
