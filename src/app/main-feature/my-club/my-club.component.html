@@ -10,14 +10,24 @@
       <p>Ville : {{ capitalizeWords(club?.town) }}</p>
       <p>Adresse : {{ capitalizeWords(club?.location) }}</p>
       <p>Région : {{ capitalizeWords(club?.region) }}</p>
+
+      <!-- Bouton quitter le club -->
+    <button class="leave-club-button" (click)="leaveClub()">Quitter le club</button>
+
     </div>
+
+
 
     <div class="div-promotion" *ngIf="players.length < 10">
       <p class="promotion">
+        <span class="material-symbols-outlined icon">
+          campaign
+          </span>
         Peu de joueurs sont inscrits pour le moment dans ton club, n'hésite pas
-        à recommander Lama Tennis autour de toi ! <br /><br />
+        à parler de  Lama Tennis autour de toi ! <br /><br />
+
         <a href="/home/promote-lama-tennis" class="link"
-          >Promouvoir Lama Tennis</a
+          > Recommander Lama Tennis</a
         >
       </p>
     </div>
@@ -27,7 +37,8 @@
         <span class="material-symbols-outlined tennis-icon">
           user_attributes
         </span>
-        {{ players.length }} Joueurs :
+        {{ players.length }}
+        {{ players.length === 1 ? 'joueur inscrit' : 'joueurs inscrits' }} :
       </h2>
       <ul>
         <li *ngFor="let player of players">

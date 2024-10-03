@@ -22,4 +22,9 @@ export class UserService {
   getClubInfo(clubId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/clubs/${clubId}`);
   }
+
+  // fontion pour supprimer un utilisateur du club
+  removeUserFromClub(clubId: string, userId: string): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/clubs/${clubId}/removeUser`, { userId });
+  }
 }

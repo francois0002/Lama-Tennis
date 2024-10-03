@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { AuthService } from '../../service/auth.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-club',
@@ -16,7 +17,7 @@ export class MyClubComponent implements OnInit {
   club: any; // Contient les informations du club
   players: any[] = []; // Contient la liste des joueurs
 
-  constructor(private userService: UserService, private authService: AuthService) {}
+  constructor(private userService: UserService, private authService: AuthService,private router: Router) {}
 
   ngOnInit(): void {
     const userId = this.authService.getCurrentUserId(); // Récupérer l'ID de l'utilisateur connecté
@@ -58,6 +59,39 @@ export class MyClubComponent implements OnInit {
       }
     });
   }
+
+    // Fonction pour quitter le club
+    leaveClub(): void {
+      const userId = this.authService.getCurrentUserId(); // Récupérer l'ID de l'utilisateur
+      const clubId = this.user.club; // Récupérer l'ID du club auquel l'utilisateur est associé
+
+      console.log(`Attempting to leave club. User ID: ${userId}`);
+      if (userId && clubId) {
+        // Mettre à jour l'utilisateur pour supprimer le club
+        this.userService.updateUserClub(userId, '').subscribe(
+          (response) => {
+            console.log('Response from server after leaving club:', response);
+
+            // Supprimer l'utilisateur de la liste des membres du club
+            this.userService.removeUserFromClub(clubId, userId).subscribe(
+              () => {
+                console.log('User successfully removed from club');
+                this.router.navigate(['/home']);
+              },
+              (error) => {
+                console.error('Erreur lors de la suppression de l\'utilisateur du club:', error);
+              }
+            );
+          },
+          (error) => {
+            console.error('Erreur lors de la tentative de quitter le club:', error); // Log des erreurs
+          }
+        );
+      } else {
+        console.error('User ID or Club ID is null, cannot leave club.');
+      }
+    }
+
 
   capitalizeWords(text: string): string {
     if (!text) return ''; // Gérer les valeurs vides ou undefined
