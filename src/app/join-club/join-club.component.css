@@ -110,3 +110,9 @@ ul {
 .club-info{
   font-size: 0.8rem;
 }
+.error-message {
+  color: red; /* Couleur rouge pour le message d'erreur */
+  margin-top: 1rem; /* Espacement au-dessus du message */
+  text-align: center; /* Centre le message d'erreur */
+}
+

@@ -18,6 +18,7 @@ export class JoinClubComponent {
   department: string = '';
   region: string = '';
   name_club: string = '';
+  errorMessage: string = '';
   clubs: any[] = []; // Définir le type d'array en fonction de votre structure de données
 
   constructor(
@@ -27,8 +28,16 @@ export class JoinClubComponent {
     private authService: AuthService
   ) {}
 
+
   // Fonction pour effectuer la recherche avec les filtres
   searchClubs() {
+
+    this.errorMessage = ''; // Réinitialiser le message d'erreur à chaque recherche
+
+    if (!this.town && !this.name_club) {
+      this.errorMessage = 'Veuillez remplir au moins un filtre pour effectuer une recherche.';
+      return; // Empêche la recherche si les filtres sont vides
+    }
     console.log('Town:', this.town);
     console.log('Department:', this.department);
     console.log('Region:', this.region);
