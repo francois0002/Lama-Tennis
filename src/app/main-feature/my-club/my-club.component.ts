@@ -101,4 +101,8 @@ export class MyClubComponent implements OnInit {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   }
+
+  navigateToJoinClub() {
+    this.router.navigate(['/home/join-club']);
+  }
 }
