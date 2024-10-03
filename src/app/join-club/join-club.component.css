@@ -95,3 +95,18 @@ ul {
   color: #88b7d5;
   line-height: 1.1;
 }
+
+.select-button {
+  background-color: #88b7d5; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  border: none; /* Supprime la bordure */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 5px 10px; /* Espacement intérieur */
+  font-size: 0.8em; /* Taille de police plus petite */
+  cursor: pointer; /* Curseur pointer */
+  transition: background-color 0.3s; /* Effet de transition */
+  margin-top: 0.5rem;
+}
+.club-info{
+  font-size: 0.8rem;
+}
