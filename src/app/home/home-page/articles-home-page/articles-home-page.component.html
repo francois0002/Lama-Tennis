@@ -1,26 +1,32 @@
 <div class="content">
   <div class="club-container" *ngIf="!user.club">
-    <a href="/home/join-club" class="button-club"><span class="plus-sign">+</span>  Rejoindre un club</a>
+    <a href="/home/join-club" class="button-club"
+      ><span class="plus-sign">+</span> Rejoindre un club</a
+    >
   </div>
 
-  <div class="club-info" *ngIf="user.club">
-    <h2>Votre Club</h2>
-    <p>Nom: {{ club.name_club }}</p>
-    <p>Adresse: {{ club.location }}</p>
-    <p>Ville: {{ club.town }}</p>
-    <p>Département: {{ club.department }}</p>
+  <div (click)="navigateToPage('/home/my-club')" class="club-info-container" *ngIf="user.club">
+    <h2>
+      <span class="material-icons tennis-icon">sports_tennis</span>Mon Club
+    </h2>
+    <div class="club-info">
+      <p><span class = "title"> {{ capitalizeWords(club?.name_club) }} </span></p>
+      <p>Ville : {{ capitalizeWords(club?.town) }}</p>
+      <p>Adresse : {{ capitalizeWords(club?.location) }}</p>
+    </div>
   </div>
 
+  <!-- ------------Articles----------------- -->
+  <div class="articles-container">
+  <h2>
+    <span class="material-icons tennis-icon"> bookmarks </span>Le lama curieux
+  </h2>
 
-    <!-- ------------Articles----------------- -->
-
-    <h2>Les articles du lama curieux</h2>
-
-        <!-- Lama Tennis Kesako? -->
-    <div class="article-content">
-      <div class = "box-article">
+  <!-- Lama Tennis Kesako? -->
+  <div class="article-content">
+    <div class="box-article">
       <a href="/home/lama-kesako">
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-2">
           <div class="photo-bubble">
             <img src="/level/lama-interrogatif.jpg" />
           </div>
@@ -31,9 +37,9 @@
     </div>
 
     <!-- Débuter sur Lama Tennis -->
-    <div class = "box-article">
+    <div class="box-article">
       <a href="/home/start-lama-tennis">
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-2">
           <div class="photo-bubble">
             <img src="/level/elegant_lama.webp" />
           </div>
@@ -44,9 +50,9 @@
     </div>
 
     <!-- Débuter sur Lama Tennis -->
-    <div class = "box-article">
+    <div class="box-article">
       <a href="/home/promote-lama-tennis">
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-2">
           <div class="photo-bubble">
             <img src="/level/love-lama-tennis.jpg" />
           </div>
@@ -56,5 +62,4 @@
       </div>
     </div>
   </div>
-
-
+</div>

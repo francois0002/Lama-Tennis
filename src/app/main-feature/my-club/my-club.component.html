@@ -1,1 +1,43 @@
-<p>my-club works!</p>
+<div class="content">
+  <div class="club-info-container" *ngIf="club">
+    <h2>
+      <span class="material-icons tennis-icon">sports_tennis</span>Mon Club
+    </h2>
+    <div class="club-info">
+      <p>
+        <span class="title">{{ capitalizeWords(club?.name_club) }}</span>
+      </p>
+      <p>Ville : {{ capitalizeWords(club?.town) }}</p>
+      <p>Adresse : {{ capitalizeWords(club?.location) }}</p>
+      <p>Région : {{ capitalizeWords(club?.region) }}</p>
+    </div>
+
+    <div class="div-promotion" *ngIf="players.length < 10">
+      <p class="promotion">
+        Peu de joueurs sont inscrits pour le moment dans ton club, n'hésite pas
+        à recommander Lama Tennis autour de toi ! <br /><br />
+        <a href="/home/promote-lama-tennis" class="link"
+          >Promouvoir Lama Tennis</a
+        >
+      </p>
+    </div>
+
+    <div class="players-list" *ngIf="players.length > 0">
+      <h2>
+        <span class="material-symbols-outlined tennis-icon">
+          user_attributes
+        </span>
+        {{ players.length }} Joueurs :
+      </h2>
+      <ul>
+        <li *ngFor="let player of players">
+          <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
+          <p>Téléphone : {{ player.phoneNumber }}</p>
+          <p>Email : {{ player.email }}</p>
+          <p>Niveau : {{ player.level }}</p>
+          <p>Classement : {{ player.ranking }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
