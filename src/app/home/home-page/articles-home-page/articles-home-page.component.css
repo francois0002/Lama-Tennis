@@ -162,3 +162,12 @@ a {
   display: block;
   text-decoration: underline;
 }
+
+
+.arrow {
+  font-size: 1.5rem; /* Taille de l'icône */
+  color: #88b7d5; /* Couleur de l'icône */
+  margin-right: 0.5rem; /* Espacement entre la flèche et le texte */
+  vertical-align: middle; /* Aligne la flèche avec le texte */
+}
+
