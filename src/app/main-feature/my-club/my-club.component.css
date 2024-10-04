@@ -60,6 +60,13 @@ h2 {
   margin-right: 0.5rem;
 }
 
+.player-icon {
+  font-size: 2.5rem; /* Taille de l'icône */
+  color: #ffffff; /* Couleur personnalisée */
+  vertical-align: middle; /* Alignement avec le texte */
+  margin-right: 0.5rem;
+}
+
 p {
   font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
@@ -100,7 +107,17 @@ p {
   text-align: center;
   display: block;
   text-decoration: underline;
+  font-family: "Poppins", sans-serif;
+}
 
+.link-list {
+  color: inherit;
+  font-size: large;
+  text-align: center;
+  display: block;
+  text-decoration: underline;
+  margin-top: 2rem ;
+  font-family: "Poppins", sans-serif;
 }
 
 .icon {
@@ -122,6 +139,7 @@ p {
   cursor: pointer;
   font-size: 1rem;
   margin-top: 1.5rem;
+  font-family: "Roboto", sans-serif;
   transition: background-color 0.3s ease;
 }
 
@@ -129,7 +147,12 @@ p {
   background-color: #ff1c1c;
 }
 
-
+.title-players{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
 
 .button-container {
   display: flex; /* Utiliser flexbox */

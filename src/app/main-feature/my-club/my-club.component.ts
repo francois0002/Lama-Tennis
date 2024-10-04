@@ -105,4 +105,7 @@ export class MyClubComponent implements OnInit {
   navigateToJoinClub() {
     this.router.navigate(['/home/join-club']);
   }
+  navigateToPartners() {
+    this.router.navigate(['/home/partners'], { fragment: 'contacts-section' });
+  }
 }

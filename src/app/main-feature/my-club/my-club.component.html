@@ -22,6 +22,23 @@
 
 
 
+
+
+    <div class="div-promotion">
+      <span class="title-players">
+        <span class="material-symbols-outlined player-icon">
+          user_attributes
+        </span>
+        {{ players.length }}
+        {{ players.length === 1 ? 'joueur inscrit' : 'joueurs inscrits' }}
+      </span>
+
+      <a href="/home/partners" class="link-list"
+      > Consulter la liste des membres</a>
+
+    </div>
+
+
     <div class="div-promotion" *ngIf="players.length < 10">
       <p class="promotion">
         <span class="material-symbols-outlined icon">
@@ -34,25 +51,6 @@
           > Recommander Lama Tennis</a
         >
       </p>
-    </div>
-
-    <div class="players-list" *ngIf="players.length > 0">
-      <h2>
-        <span class="material-symbols-outlined tennis-icon">
-          user_attributes
-        </span>
-        {{ players.length }}
-        {{ players.length === 1 ? 'joueur inscrit' : 'joueurs inscrits' }}
-      </h2>
-      <ul>
-        <li *ngFor="let player of players">
-          <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
-          <p>Téléphone : {{ player.phoneNumber }}</p>
-          <p>Email : {{ player.email }}</p>
-          <p>Niveau : {{ player.level }}</p>
-          <p>Classement : {{ player.ranking }}</p>
-        </li>
-      </ul>
     </div>
   </div>
 </div>
