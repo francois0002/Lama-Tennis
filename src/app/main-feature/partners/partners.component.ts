@@ -94,7 +94,7 @@ export class PartnersComponent implements OnInit {
     // Appel pour envoyer l'email
     this.http
       .post('http://localhost:3000/send-email', {
-        to: recipientEmails,
+        to: recipientEmails.join(','),
         subject: emailSubject,
         text: emailBody,
       })
