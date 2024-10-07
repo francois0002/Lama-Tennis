@@ -1,18 +1,35 @@
-
-
-
-.account-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1 {
+
+.content {
+  padding: 0rem 0rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  align-items: center;
+}
+
+
+.club-info-container {
   text-align: center;
-  color: #333;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 40rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
 }
 
 .user-info {
@@ -25,5 +42,70 @@ h1 {
 }
 
 strong {
-  color: #444;
+  color: #ffffff;
+}
+
+.club-info {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background-color: #5d666b;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2.1rem;
+  font-family: "Caprasimo", sans-serif;
+  color: #88b7d5;
+}
+
+.tennis-icon {
+  font-size: 2.5rem; /* Taille de l'icône */
+  color: #88b7d5; /* Couleur personnalisée */
+  vertical-align: middle; /* Alignement avec le texte */
+  margin-right: 0.5rem;
+}
+
+p {
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  font-weight: 500;;
+  padding-right: 1rem;
+  padding-left:0.2rem;
+}
+
+.icon-white {
+  font-size: 1.5rem; /* Taille de l'icône */
+  color: #ffffff; /* Couleur personnalisée */
+  vertical-align: middle; /* Alignement avec le texte */
+  margin-right: 0.5rem;
+}
+
+
+.contact-all-button {
+  background-color: #88b7d5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Ajustez la valeur selon vos besoins */
 }

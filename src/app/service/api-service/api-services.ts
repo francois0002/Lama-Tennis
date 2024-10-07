@@ -14,6 +14,10 @@ export class ClubService {
 
   constructor(private http: HttpClient) {}
 
+  getClubById(clubId: string): Observable<Club> {
+    return this.http.get<Club>(`${this.apiUrl}/${clubId}`);
+  }
+
   getClubs(
     town?: string,
     department?: string,

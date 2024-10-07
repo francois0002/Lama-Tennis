@@ -1,4 +1,6 @@
 <div class="content">
+
+     <!-- club info -->
   <div class="club-info-container" *ngIf="club">
     <h2>
       <span class="material-icons tennis-icon">sports_tennis</span>Mon Club
@@ -12,10 +14,10 @@
       <p>Région : {{ capitalizeWords(club?.region) }}</p>
 
       <div class="button-container">
-      <!-- Bouton quitter le club -->
+
     <button class="leave-club-button" (click)="leaveClub()">Quitter le club</button>
 
-    <!-- Bouton changer de club -->
+
     <button class="leave-club-button" (click)="navigateToJoinClub()">Changer de club</button>
   </div>
     </div>
@@ -23,8 +25,8 @@
 
 
 
-
-    <div class="div-promotion">
+    <!-- list players-->
+    <div class="club-info">
       <span class="title-players">
         <span class="material-symbols-outlined player-icon">
           user_attributes

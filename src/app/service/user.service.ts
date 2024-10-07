@@ -27,4 +27,9 @@ export class UserService {
   removeUserFromClub(clubId: string, userId: string): Observable<any> {
     return this.http.patch(`${this.apiUrl}/clubs/${clubId}/removeUser`, { userId });
   }
+
+  // Nouvelle fonction pour mettre à jour les informations utilisateur
+  updateUserInfo(userId: string, updatedData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/users/${userId}`, updatedData);
+  }
 }
