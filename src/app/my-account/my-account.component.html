@@ -6,50 +6,106 @@
 
     <!-- Personal Information Section -->
     <div class="club-info" *ngIf="user">
-      <h3><span class="material-symbols-outlined icon-white">info</span>Mes infos perso</h3>
+      <h3>
+        <span class="material-symbols-outlined icon-white">info</span>Mes infos
+        perso
+      </h3>
       <div *ngIf="!isEditingPersonalInfo">
         <p><strong>Prénom :</strong> {{ user.firstName }}</p>
         <p><strong>Nom :</strong> {{ user.lastName }}</p>
         <p><strong>Email :</strong> {{ user.email }}</p>
-        <p><strong>Téléphone :</strong> {{ formatPhoneNumber(user.phoneNumber) }}</p>
+        <p>
+          <strong>Téléphone :</strong> {{ formatPhoneNumber(user.phoneNumber) }}
+        </p>
 
-        <button class="contact-all-button" (click)="toggleEditPersonalInfo()">Modifier</button>
+        <button class="contact-all-button" (click)="toggleEditPersonalInfo()">
+          Modifier
+        </button>
       </div>
 
-      <form *ngIf="isEditingPersonalInfo" [formGroup]="userForm" (ngSubmit)="updatePersonalInfo()">
-        <p><strong>Prénom :</strong> <input formControlName="firstName"></p>
-        <p><strong>Nom :</strong> <input formControlName="lastName"></p>
-        <p><strong>Email :</strong> <input formControlName="email"></p>
-        <p><strong>Téléphone :</strong> <input formControlName="phoneNumber"></p>
+      <form
+        *ngIf="isEditingPersonalInfo"
+        [formGroup]="userForm"
+        (ngSubmit)="updatePersonalInfo()"
+      >
+        <p><strong>Prénom :</strong> <input formControlName="firstName" /></p>
+        <p><strong>Nom :</strong> <input formControlName="lastName" /></p>
+        <p><strong>Email :</strong> <input formControlName="email" /></p>
+        <p>
+          <strong>Téléphone :</strong> <input formControlName="phoneNumber" />
+        </p>
 
         <div class="button-container">
           <button type="submit" class="contact-all-button">Enregistrer</button>
-          <button type="button" class="contact-all-button" (click)="toggleEditPersonalInfo()">Annuler</button>
+          <button
+            type="button"
+            class="contact-all-button"
+            (click)="toggleEditPersonalInfo()"
+          >
+            Annuler
+          </button>
         </div>
       </form>
     </div>
 
     <!-- Tennis Information Section -->
     <div class="club-info" *ngIf="user">
-      <h3><span class="material-symbols-outlined icon-white">info</span>Mes infos tennis</h3>
+      <h3>
+        <span class="material-symbols-outlined icon-white">info</span>Mes infos
+        tennis
+      </h3>
       <div *ngIf="!isEditingTennisInfo">
         <p><strong>Club :</strong> {{ clubName || "Aucun club associé" }}</p>
         <p><strong>Niveau :</strong> {{ user.level }}</p>
         <p><strong>Classement :</strong> {{ user.ranking }}</p>
 
-        <button class="contact-all-button" (click)="toggleEditTennisInfo()">Modifier</button>
+        <button class="contact-all-button" (click)="toggleEditTennisInfo()">
+          Modifier
+        </button>
       </div>
 
-      <form *ngIf="isEditingTennisInfo" [formGroup]="tennisForm" (ngSubmit)="updateTennisInfo()">
+      <form
+        *ngIf="isEditingTennisInfo"
+        [formGroup]="tennisForm"
+        (ngSubmit)="updateTennisInfo()"
+      >
         <p><strong>Club :</strong> {{ clubName || "Aucun club associé" }}</p>
-        <p><strong>Niveau :</strong> <input formControlName="level"></p>
-        <p><strong>Classement :</strong> <input formControlName="ranking"></p>
+        <p><strong>Niveau :</strong> <input formControlName="level" /></p>
+        <p><strong>Classement :</strong> <input formControlName="ranking" /></p>
 
         <div class="button-container">
           <button type="submit" class="contact-all-button">Enregistrer</button>
-          <button type="button" class="contact-all-button" (click)="toggleEditPersonalInfo()">Annuler</button>
+          <button
+            type="button"
+            class="contact-all-button"
+            (click)="toggleEditPersonalInfo()"
+          >
+            Annuler
+          </button>
         </div>
       </form>
     </div>
+
+    <!-- Set up profil -->
+    <div class="club-info" *ngIf="user">
+      <h3>
+        <span class="material-symbols-outlined icon-white"> settings_applications </span
+        >Paramètres
+      </h3>
+
+      <div class="button-container">
+      <button class="leave-club-button">
+        Se déconnecter
+      </button>
+      </div>
+
+      <div class="button-container"></div>
+      <button class="leave-club-button">
+        Supprimer mon compte
+      </button>
+      </div>
+
+
+    </div>
   </div>
-</div>
+
