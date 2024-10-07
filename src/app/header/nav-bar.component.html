@@ -7,30 +7,27 @@
     ></mat-icon>
   </a>
   <div class="flex items-center gap-1">
-  <img src= "/level/logo-rond.png" alt="logo" class="logo" />
-  <h1>Lama Tennis</h1>
-</div>
+    <img src="/level/logo-rond.png" alt="logo" class="logo" />
+    <h1>Lama Tennis</h1>
+  </div>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
 
   <mat-menu #menu="matMenu">
-    <a href="/home/faq">
-    <button mat-menu-item >
-
+    <button mat-menu-item [routerLink]="'/home/faq'">
       <mat-icon>help_outline</mat-icon>
       <span>FAQ</span>
     </button>
-    </a>
-    <button mat-menu-item>
+
+    <button mat-menu-item [routerLink]="'/home/my-account'">
       <mat-icon>account_circle</mat-icon>
       <span>Mon Compte</span>
     </button>
+
     <button mat-menu-item>
       <mat-icon>exit_to_app</mat-icon>
       <span>Déconnexion</span>
     </button>
   </mat-menu>
-
-
 </nav>

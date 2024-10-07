@@ -66,6 +66,13 @@ h2 {
   margin-right: 0.5rem;
 }
 
+.icon-white {
+  font-size: 2rem; /* Taille de l'icône */
+  color: #ffffff; /* Couleur personnalisée */
+  vertical-align: middle; /* Alignement avec le texte */
+  margin-right: 0.5rem;
+}
+
 p {
   font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
@@ -179,12 +186,14 @@ p {
 }
 
 .text-review {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: "Poppins", sans-serif;
   color: #ffffff;
-  text-align: left;
+  text-align: center;
+  display: block;
   font-weight: 600;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .separator {

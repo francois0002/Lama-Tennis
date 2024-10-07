@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -14,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
+    RouterModule
   ],
   templateUrl: `./nav-bar.component.html`,
   styleUrl: './nav-bar.component.css',

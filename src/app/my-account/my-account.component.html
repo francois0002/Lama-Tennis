@@ -1,1 +1,12 @@
-<p>my-account works!</p>
+<div class="account-container">
+  <h1>Mon Compte</h1>
+  <div class="user-info" *ngIf="user">
+    <p><strong>Prénom :</strong> {{ user.firstName }}</p>
+    <p><strong>Nom :</strong> {{ user.lastName }}</p>
+    <p><strong>Email :</strong> {{ user.email }}</p>
+    <p><strong>Téléphone :</strong> {{ user.phoneNumber }}</p>
+    <p><strong>Niveau :</strong> {{ user.level }}</p>
+    <p><strong>Classement :</strong> {{ user.ranking }}</p>
+    <p><strong>Club :</strong> {{ clubName || 'Aucun club associé' }}</p>
+  </div>
+</div>
