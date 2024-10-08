@@ -29,7 +29,7 @@ export class UserService {
   }
 
   // Nouvelle fonction pour mettre à jour les informations utilisateur
-  updateUserInfo(userId: string, updatedData: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/users/${userId}`, updatedData);
+  updateUserPersonalInfo(userId: string, updatedData: any): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/users/${userId}/updatePersonalInfo`, updatedData);
   }
 }

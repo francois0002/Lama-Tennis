@@ -107,12 +107,17 @@ export class MyAccountComponent implements OnInit {
   // Update personal information
   updatePersonalInfo(): void {
     if (this.userForm.valid) {
-      this.userService.updateUserInfo(this.user._id, this.userForm.value).subscribe(() => {
+      const updatedData = {
+        ...this.userForm.value,
+        club: this.user.club // Ajoutez le club existant
+      };
+      this.userService.updateUserPersonalInfo(this.user._id, updatedData).subscribe(() => {
         this.isEditingPersonalInfo = false;
         alert('Informations personnelles mises à jour.');
       });
     }
   }
+
 
   // Update tennis information
   updateTennisInfo(): void {
