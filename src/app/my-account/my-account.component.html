@@ -70,15 +70,41 @@
         (ngSubmit)="updateTennisInfo()"
       >
         <p><strong>Club :</strong> {{ clubName || "Aucun club associé" }}</p>
-        <p><strong>Niveau :</strong> <input formControlName="level" /></p>
-        <p><strong>Classement :</strong> <input formControlName="ranking" /></p>
+
+        <p>
+          <strong>Niveau :</strong>
+          <mat-form-field appearance="fill">
+            <mat-label>Niveau</mat-label>
+            <mat-select formControlName="level">
+              <mat-option *ngFor="let level of levels" [value]="level.value">
+                {{ level.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <strong>Classement :</strong>
+          <mat-form-field appearance="fill">
+            <mat-label>Classement</mat-label>
+            <mat-select formControlName="ranking">
+
+              <ng-container *ngFor="let group of rankingGroups">
+                <mat-option *ngFor="let rank of group.ranking" [value]="rank.value">
+                  {{ rank.viewValue }}
+                </mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+        </p>
+
 
         <div class="button-container">
           <button type="submit" class="contact-all-button">Enregistrer</button>
           <button
             type="button"
             class="contact-all-button"
-            (click)="toggleEditPersonalInfo()"
+            (click)="toggleEditTennisInfo()"
           >
             Annuler
           </button>
@@ -89,23 +115,17 @@
     <!-- Set up profil -->
     <div class="club-info" *ngIf="user">
       <h3>
-        <span class="material-symbols-outlined icon-white"> settings_applications </span
+        <span class="material-symbols-outlined icon-white">
+          settings_applications </span
         >Paramètres
       </h3>
 
       <div class="button-container">
-      <button class="leave-club-button">
-        Se déconnecter
-      </button>
+        <button class="leave-club-button">Se déconnecter</button>
       </div>
 
       <div class="button-container"></div>
-      <button class="leave-club-button">
-        Supprimer mon compte
-      </button>
-      </div>
-
-
+      <button class="leave-club-button">Supprimer mon compte</button>
     </div>
   </div>
-
+</div>
