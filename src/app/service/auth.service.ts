@@ -60,6 +60,12 @@ getCurrentUserId(): string | null {
   return user ? user.id : null; // Renvoie l'ID de l'utilisateur ou null si non connecté
 }
 
+// Nouvelle fonction pour se déconnecter
+logout(): void {
+  localStorage.removeItem('token'); // Supprime le token
+}
+
+
 }
 
 

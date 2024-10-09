@@ -4,7 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -25,6 +26,8 @@ export class NavBarComponent implements OnInit {
   isHidden = false;
   lastScrollTop = 0;
 
+  constructor(private authService: AuthService, private router: Router) {}
+
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -39,5 +42,10 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  logout(): void {
+    this.authService.logout(); // Appel de la méthode logout
+    this.router.navigate(['/home-login']); // Redirection après la déconnexion
+  }
 }
 

@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { Router } from '@angular/router';
 
 interface Level {
   value: string;
@@ -93,7 +94,8 @@ export class MyAccountComponent implements OnInit {
     private authService: AuthService,
     private userService: UserService,
     private clubService: ClubService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     // Initialize forms
     this.userForm = this.fb.group({
@@ -108,6 +110,9 @@ export class MyAccountComponent implements OnInit {
       level: [''],
       ranking: [''],
     });
+
+
+
   }
 
   ngOnInit(): void {
@@ -144,6 +149,8 @@ export class MyAccountComponent implements OnInit {
       );
     }
   }
+
+
 
   loadClubInfo(clubId: string): void {
     this.userService.getClubInfo(clubId).subscribe(
@@ -211,4 +218,11 @@ export class MyAccountComponent implements OnInit {
         });
     }
   }
+
+  logout(): void {
+    this.authService.logout(); // Ajoutez une méthode dans AuthService pour gérer la déconnexion
+    this.router.navigate(['/home-login']); // Redirige vers la page de connexion
+  }
+
+
 }
