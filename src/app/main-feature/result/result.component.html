@@ -65,6 +65,10 @@
           </select>
         </p>
       </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
         <!-- Bouton d'enregistrement -->
         <button type="submit" class="contact-all-button">Enregistrer</button>
 

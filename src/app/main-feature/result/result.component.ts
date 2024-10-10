@@ -21,6 +21,7 @@ export class ResultComponent implements OnInit {
   player2_id: string = ''; // ID du joueur 2 sélectionné
   searchTerm: string = ''; // Termes de recherche pour Joueur 2
   filteredPlayers: any[] = []; // Liste des joueurs filtrés
+  errorMessage: string | null = null; // Variable pour le message d'erreur
 
   constructor(
     private userService: UserService,
@@ -99,6 +100,17 @@ export class ResultComponent implements OnInit {
 
   // Enregistrer le score du match
   saveMatchScore(): void {
+
+    if (!this.player2_id) {
+      this.errorMessage = 'Erreur : ajoute un joueur 2';
+      return; // Ne pas soumettre le formulaire
+    }
+
+    if (this.score.player1 === this.score.player2) {
+      this.errorMessage = 'Erreur : le match nul n’est pas enregistrable.';
+      return; // Ne pas envoyer le score à la base de données
+    }
+
     const matchData = {
       player1_id: this.user._id, // Joueur 1 est l'utilisateur connecté
       player2_id: this.player2_id, // Joueur 2 sélectionné
