@@ -1,0 +1,76 @@
+<div class="content">
+  <div class="club-info-container" *ngIf="club">
+    <span class="material-symbols-outlined tennis-icon">edit</span>
+    <h2>Résultat</h2>
+
+    <div class="club-info">
+      <h3>
+        <span class="material-symbols-outlined">edit_note</span> Enregistrer un
+        score
+      </h3>
+      <hr class="separator" />
+
+
+
+      <form (ngSubmit)="saveMatchScore()">
+        <!-- Joueur 1 est l'utilisateur connecté -->
+
+        <div class="score">
+        <p>
+          <span class="title">Joueur 1</span></p>
+          <span class="input-prenom"> {{ user.firstName }} {{ user.lastName }} </span>
+
+
+        <p>
+          <label for="scorePlayer1">Set :  </label>
+          <select [(ngModel)]="score.player1" name="scorePlayer1" required>
+            <option *ngFor="let score of [0, 1, 2, 3]" [value]="score">
+              {{ score }}
+            </option>
+          </select>
+        </p>
+        </div>
+
+
+        <p><span class="versus">VS</span></p>
+
+        <!-- Sélectionner le joueur 2 -->
+
+        <!-- Champ de recherche pour Joueur 2 -->
+
+        <div class="score">
+        <p><span class="title">Joueur 2</span></p>
+        <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    [ngModelOptions]="{standalone: true}"
+    (input)="filterPlayers()"
+    (keydown.space)="filterPlayers()"
+    placeholder="Entre un prénom"
+    class="input-prenom"
+    required>
+  <ul *ngIf="filteredPlayers.length > 0" class="autocomplete-list">
+    <li *ngFor="let player of filteredPlayers" (click)="selectPlayer(player)" class="autocomplete-item">
+      {{ player.firstName }} {{ player.lastName }}
+    </li>
+  </ul>
+
+        <!-- Saisie des scores -->
+        <p>
+          <label for="scorePlayer2">Set :  </label
+          ><select [(ngModel)]="score.player2" name="scorePlayer2" required>
+            <option *ngFor="let score of [0, 1, 2, 3]" [value]="score">
+              {{ score }}
+            </option>
+          </select>
+        </p>
+      </div>
+        <!-- Bouton d'enregistrement -->
+        <button type="submit" class="contact-all-button">Enregistrer</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</div>

@@ -45,4 +45,9 @@ export class UserService {
       updatedTennis
     );
   }
+
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/users/${userId}`);
+  }
+
 }

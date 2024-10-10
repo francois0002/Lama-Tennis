@@ -224,5 +224,19 @@ export class MyAccountComponent implements OnInit {
     this.router.navigate(['/home-login']); // Redirige vers la page de connexion
   }
 
+  deleteUser(): void {
+    const userId = this.user._id; // ID de l'utilisateur à supprimer
+    this.userService.deleteUser(userId).subscribe(
+      () => {
+
+        this.logout(); // Déconnexion après suppression
+      },
+      (error) => {
+        console.error("Erreur lors de la suppression du compte:", error);
+        alert("Une erreur s'est produite lors de la suppression de votre compte.");
+      }
+    );
+  }
+
 
 }
