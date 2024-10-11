@@ -13,4 +13,15 @@ export class MatchService {
   saveMatchScore(matchData: any): Observable<any> {
     return this.http.post(this.apiUrl, matchData);
   }
+
+  // Méthode pour récupérer les statistiques d'un joueur
+  getUserStatistics(userId: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/user/${userId}`);
+  }
+
+    // Méthode pour récupérer l'historique des matchs d'un utilisateur
+    getUserMatchHistory(userId: string): Observable<any> {
+      return this.http.get(`${this.apiUrl}/user/${userId}/history`);
+    }
+
 }

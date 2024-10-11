@@ -13,6 +13,7 @@ import { ArticlesHomePageComponent } from './home-page/articles-home-page/articl
 import { HomePageComponent } from './home-page/home-page.component';
 import { PartnersComponent } from '../main-feature/partners/partners.component';
 import { ResultComponent } from '../main-feature/result/result.component';
+import { StatisticsComponent } from '../main-feature/statistics/statistics.component';
 
 
 
@@ -32,7 +33,8 @@ export const routes: Routes = [
       { path: 'poules', component: PoulesComponent, canActivate: [AuthGuard]},
       { path: 'my-club',component: MyClubComponent,canActivate: [AuthGuard]},
       { path: 'partners',component: PartnersComponent,canActivate: [AuthGuard]},
-      { path: 'result',component: ResultComponent ,canActivate: [AuthGuard]}
+      { path: 'result',component: ResultComponent ,canActivate: [AuthGuard]},
+      { path: 'statistics',component: StatisticsComponent ,canActivate: [AuthGuard]}
 
 
     ],
