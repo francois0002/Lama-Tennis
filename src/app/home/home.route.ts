@@ -29,7 +29,7 @@ export const routes: Routes = [
       { path: 'my-account', component: MyAccountComponent,canActivate: [AuthGuard] },
       { path: 'promote-lama-tennis', component: PromoteLamaTennisComponent, canActivate: [AuthGuard]},
       { path: 'start-lama-tennis', component: StartWithLamaComponent,canActivate: [AuthGuard] },
-      { path: 'hauts-faits', component: HautsFaitsComponent,canActivate: [AuthGuard]},
+      { path: 'achievements', component: HautsFaitsComponent,canActivate: [AuthGuard]},
       { path: 'poules', component: PoulesComponent, canActivate: [AuthGuard]},
       { path: 'my-club',component: MyClubComponent,canActivate: [AuthGuard]},
       { path: 'partners',component: PartnersComponent,canActivate: [AuthGuard]},
