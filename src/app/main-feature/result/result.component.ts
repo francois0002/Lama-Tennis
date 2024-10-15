@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatchService } from '../../service/match.service';
+import { TrophyService } from '../../service/trophy.service';
 
 @Component({
   selector: 'app-result',
@@ -27,6 +28,7 @@ export class ResultComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private matchService: MatchService,
+    private trophyService: TrophyService,
     private router: Router
   ) {}
 
@@ -121,6 +123,16 @@ export class ResultComponent implements OnInit {
 
     this.matchService.saveMatchScore(matchData).subscribe(() => {
       console.log('Score enregistré avec succès');
+
+      this.trophyService.checkTrophy(this.user._id).subscribe(
+        (response) => {
+          console.log(response.message);
+        },
+        (error) => {
+          console.error('Erreur lors de la vérification des trophées', error);
+        }
+      );
+
       this.router.navigate(['/home']); // Rediriger après l'enregistrement du score
     }, (error) => {
       console.error('Erreur lors de l\'enregistrement du score', error);

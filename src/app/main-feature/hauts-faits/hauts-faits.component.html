@@ -24,10 +24,25 @@
           trophy
           </span> Be a lama</p>
         <p class="trophy-description">
-          Crée ton compte Lama Tennis.
+          Crée un compte Lama Tennis.
         </p>
       </div>
     </div>
 
+     <!-- Liste des trophées -->
+<div *ngFor="let trophy of trophies" class="trophy-container">
+  <!-- Afficher image en fonction du statut (débloqué ou verrouillé) -->
+  <img [src]="isTrophyUnlocked(trophy._id) ? trophy.imageUnlocked : trophy.imageLocked"
+       [alt]="trophy.name"
+       class="trophy-image" />
+  <div class="trophy-content">
+    <p class="trophy-title">
+      <span class="material-symbols-outlined icon-gold">trophy</span>
+      {{ trophy.name }}
+    </p>
+    <p class="trophy-description">{{ trophy.description }}</p>
+  </div>
+</div>
+    </div>
 
 </div>

@@ -3,6 +3,7 @@ import { UserService } from '../../service/user.service';
 import { AuthService } from '../../service/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TrophyService } from '../../service/trophy.service';
 
 
 
@@ -19,10 +20,14 @@ export class HautsFaitsComponent implements OnInit {
   club: any; // Contient les informations du club
   players: any[] = []; // Contient la liste des joueurs
   userMessage: string = ''; // Message saisi par l'utilisateur
+  trophies: any[] = []; // Contient la liste des trophées disponibles
+  unlockedTrophies: string[] = []; // Contient les trophées débloqués par l'utilisateur
+
 
   constructor(
     private userService: UserService,
     private authService: AuthService,
+    private trophyService: TrophyService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +37,10 @@ export class HautsFaitsComponent implements OnInit {
       // Récupérer les informations de l'utilisateur
       this.userService.getUserInfo(userId).subscribe((data) => {
         this.user = data;
+        this.unlockedTrophies = this.user.trophies || []; // Trophées débloqués
+
+        // Récupérer tous les trophées disponibles
+        this.loadTrophies();
 
         // Vérifier si l'utilisateur est associé à un club
         if (this.user.club) {
@@ -68,4 +77,20 @@ export class HautsFaitsComponent implements OnInit {
         }
       });
     }
+
+    // Charger tous les trophées
+  loadTrophies(): void {
+    this.trophyService.getAllTrophies().subscribe(data => {
+      this.trophies = data;
+    });
+  }
+
+  // Vérifier si un trophée est débloqué
+  isTrophyUnlocked(trophyId: string): boolean {
+    console.log('Trophées débloqués:', this.unlockedTrophies);
+console.log('Tous les trophées:', this.trophies);
+    return this.unlockedTrophies.includes(trophyId);
+  }
 }
+
+
