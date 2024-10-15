@@ -92,5 +92,3 @@ console.log('Tous les trophées:', this.trophies);
     return this.unlockedTrophies.includes(trophyId);
   }
 }
-
-
