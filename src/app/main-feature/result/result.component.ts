@@ -6,41 +6,44 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatchService } from '../../service/match.service';
 import { TrophyService } from '../../service/trophy.service';
+import { NotificationService } from '../../service/notification.service'; // Importez le service de notification
 
 @Component({
   selector: 'app-result',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Ajout du FormsModule pour ngModel
+  imports: [CommonModule, FormsModule],
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
 })
 export class ResultComponent implements OnInit {
-  club: any; // Contient les informations du club
-  user: any = {}; // Contient les informations de l'utilisateur connecté (joueur 1)
-  players: any[] = []; // Liste des membres du club pour sélectionner le joueur 2
-  score = { player1: 0, player2: 0 }; // Scores des deux joueurs
-  player2_id: string = ''; // ID du joueur 2 sélectionné
-  searchTerm: string = ''; // Termes de recherche pour Joueur 2
-  filteredPlayers: any[] = []; // Liste des joueurs filtrés
-  errorMessage: string | null = null; // Variable pour le message d'erreur
+  club: any;
+  user: any = {};
+  players: any[] = [];
+  score = { player1: 0, player2: 0 };
+  player2_id: string = '';
+  searchTerm: string = '';
+  filteredPlayers: any[] = [];
+  errorMessage: string | null = null;
+  notificationCount: number = 0; // Compteur de notifications
 
   constructor(
     private userService: UserService,
     private authService: AuthService,
     private matchService: MatchService,
     private trophyService: TrophyService,
+    private notificationService: NotificationService, // Ajoutez le service de notification
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    const userId = this.authService.getCurrentUserId(); // Récupérer l'ID de l'utilisateur connecté
+    const userId = this.authService.getCurrentUserId();
 
     if (userId) {
       this.userService.getUserInfo(userId).subscribe(data => {
-        this.user = data; // L'utilisateur connecté est joueur 1
+        this.user = data;
 
         if (this.user.club) {
-          this.fetchClubInfo(this.user.club); // Récupérer les membres du club
+          this.fetchClubInfo(this.user.club);
         }
       });
     } else {
@@ -48,75 +51,64 @@ export class ResultComponent implements OnInit {
     }
   }
 
-  // Récupérer les informations du club et les membres
   fetchClubInfo(clubId: string): void {
     this.userService.getClubInfo(clubId).subscribe(clubData => {
       this.club = clubData;
-
-      // Récupérer les membres du club (joueurs)
       this.fetchPlayers(clubData.userIds);
     });
   }
 
-  // Récupérer la liste des membres du club
   fetchPlayers(userIds: string[]): void {
-    this.players = []; // Réinitialiser la liste des joueurs
+    this.players = [];
 
     userIds.forEach(userId => {
-      if (userId && userId !== this.user._id) {  // Exclure l'utilisateur connecté de la liste
+      if (userId && userId !== this.user._id) {
         this.userService.getUserInfo(userId).subscribe(playerData => {
-          this.players.push(playerData);  // Ajouter chaque joueur récupéré à la liste
+          this.players.push(playerData);
         });
       }
     });
   }
 
-    // Filtrer les joueurs en fonction du terme de recherche
-    filterPlayers(): void {
-      const search = this.searchTerm.toLowerCase();
-      this.filteredPlayers = this.players.filter(player =>
-        player.firstName.toLowerCase().includes(search)
-      );
-    }
-
-  // Sélectionner un joueur dans la liste filtrée
-  selectPlayer(player: any): void {
-    this.player2_id = player._id;
-    this.searchTerm = `${player.firstName} ${player.lastName}`; // Afficher le nom complet dans le champ de recherche
-    this.filteredPlayers = []; // Cacher la liste après sélection
+  filterPlayers(): void {
+    const search = this.searchTerm.toLowerCase();
+    this.filteredPlayers = this.players.filter(player =>
+      player.firstName.toLowerCase().includes(search)
+    );
   }
 
-   // Écouteur d'événement pour détecter les clics en dehors
-   @HostListener('document:click', ['$event'])
-   handleClick(event: MouseEvent): void {
-     const target = event.target as HTMLElement;
-     const inputElement = document.querySelector('input[type="text"]');
-     const dropdownElement = document.querySelector('.autocomplete-list');
+  selectPlayer(player: any): void {
+    this.player2_id = player._id;
+    this.searchTerm = `${player.firstName} ${player.lastName}`;
+    this.filteredPlayers = [];
+  }
 
-     // Ferme la liste si l'utilisateur clique en dehors de l'input ou de la liste
-     if (inputElement && dropdownElement && !inputElement.contains(target) && !dropdownElement.contains(target)) {
-       this.filteredPlayers = []; // Vide la liste
-     }
-   }
+  @HostListener('document:click', ['$event'])
+  handleClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    const inputElement = document.querySelector('input[type="text"]');
+    const dropdownElement = document.querySelector('.autocomplete-list');
 
+    if (inputElement && dropdownElement && !inputElement.contains(target) && !dropdownElement.contains(target)) {
+      this.filteredPlayers = [];
+    }
+  }
 
-  // Enregistrer le score du match
   saveMatchScore(): void {
-
     if (!this.player2_id) {
       this.errorMessage = 'Erreur : ajoute un joueur 2';
-      return; // Ne pas soumettre le formulaire
+      return;
     }
 
     if (this.score.player1 === this.score.player2) {
       this.errorMessage = 'Erreur : le match nul n’est pas enregistrable.';
-      return; // Ne pas envoyer le score à la base de données
+      return;
     }
 
     const matchData = {
-      player1_id: this.user._id, // Joueur 1 est l'utilisateur connecté
-      player2_id: this.player2_id, // Joueur 2 sélectionné
-      score: this.score, // Scores des deux joueurs
+      player1_id: this.user._id,
+      player2_id: this.player2_id,
+      score: this.score,
       winner_id: this.score.player1 > this.score.player2 ? this.user._id : this.player2_id,
       date_add: new Date(),
     };
@@ -124,16 +116,29 @@ export class ResultComponent implements OnInit {
     this.matchService.saveMatchScore(matchData).subscribe(() => {
       console.log('Score enregistré avec succès');
 
+      console.log('Vérification des trophées pour l\'utilisateur:', this.user._id);
+
       this.trophyService.checkTrophy(this.user._id).subscribe(
-        (response) => {
-          console.log(response.message);
-        },
-        (error) => {
-          console.error('Erreur lors de la vérification des trophées', error);
-        }
+          (response) => {
+              console.log('réponse');
+              console.log(response.message); // Log de la réponse
+
+              // Ajoutez l'appel à sendNotification ici
+              this.notificationService.sendNotification(response.message); // <-- Ajoutez cette ligne
+
+              // S'abonner aux notifications de trophées
+              this.notificationService.sendNotification$.subscribe((message) => {
+                  console.log('Notification reçue :', message); // Log pour vérifier si la notification est bien reçue
+                  this.notificationCount++; // Incrémenter le nombre de notifications
+              });
+          },
+          (error) => {
+              console.error('Erreur lors de la vérification des trophées', error);
+          }
       );
 
-      this.router.navigate(['/home']); // Rediriger après l'enregistrement du score
+
+      this.router.navigate(['/home']);
     }, (error) => {
       console.error('Erreur lors de l\'enregistrement du score', error);
     });

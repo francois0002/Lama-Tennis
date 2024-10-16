@@ -1,15 +1,32 @@
 <nav [class.hidden]="isHidden" class="flex items-center justify-between">
   <a href="/home">
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Example home icon"
-      fontIcon="home"
-    ></mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
   </a>
   <div class="flex items-center gap-1">
     <img src="/level/logo-rond.png" alt="logo" class="logo" />
     <h1>Lama Tennis</h1>
   </div>
+
+  <!-- Icône de notification avec badge -->
+
+  <!-- Autres éléments de navigation -->
+  <div class="notification-icon" (click)="toggleNotifications()">
+    <div class="icon-container">
+      <span class="material-icons">notifications</span>
+      <span class="badge" *ngIf="notificationCount > 0">{{notificationCount}}</span>
+    </div>
+    <span class="cdk-visually-hidden">Notifications</span>
+  </div>
+
+  <div *ngIf="showNotifications" class="notification-banner">
+    <div *ngFor="let notification of notifications" class="notification-item">
+      <span>{{notification}}</span>
+      <button (click)="removeNotification(notification)">✖</button>
+    </div>
+  </div>
+
+
+
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
@@ -34,6 +51,5 @@
       <mat-icon>exit_to_app</mat-icon>
       <span>Déconnexion</span>
     </button>
-
   </mat-menu>
 </nav>
