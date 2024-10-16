@@ -1,0 +1,58 @@
+<!-- Template of the registration process in 3 steps-->
+
+<!-- Back button -->
+<div class="back-button">
+  <button (click)="previousStep()">
+    <img src="/icone/back.png">
+  </button>
+</div>
+
+<!-- Allow a free navigation on the same an uniq component -->
+@switch (currentStep) {
+
+  @case(1) {
+    <app-inscription-step1 (validityChange)="updateStep1Validity($event)"></app-inscription-step1>
+  }
+  @case(2) {
+    <app-inscription-step2 (validityChange)="updateStep2Validity($event)" ></app-inscription-step2>
+  }
+
+  @case(3) {
+    <app-inscription-step3 (validityChange)="updateStep3Validity($event)"></app-inscription-step3>
+  }
+
+}
+
+<!-- Next button -->
+<div class="container-button">
+  <button
+  *ngIf="currentStep !== 3"
+    mat-flat-button
+    class="button-login-registration"
+    (click)="nextStep()"
+    [disabled]="!canProceed()"> <!-- Disable button if the form is invalid -->
+    Continuer
+  </button>
+</div>
+
+
+<!-- registration button -->
+<div class="container-button">
+  <button
+  *ngIf="currentStep == 3"
+    mat-flat-button
+    class="button-login-registration"
+    (click)="register()"
+    [disabled]="!canProceed()"
+    >
+    M'inscrire
+  </button>
+</div>
+
+
+<!-- Progress bar -->
+
+<div class="div-content-bar">
+
+  <app-progress-bar [currentStep]="currentStep"></app-progress-bar>
+</div>

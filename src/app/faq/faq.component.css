@@ -1,0 +1,35 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.faq-container {
+  width: 90%;
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom: 40rem;
+}
+.title {
+  color: #7aaec4;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  padding: 2rem ;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom : 2rem;
+  margin-top : 2rem;
+}

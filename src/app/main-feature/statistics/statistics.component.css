@@ -1,0 +1,140 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.content {
+  padding: 0rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.club-info-container {
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 40rem;
+}
+
+.club-info {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background-color: #5d666b;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 2.1rem;
+  font-family: "Caprasimo", sans-serif;
+  color: #88b7d5;
+}
+
+.tennis-icon {
+  font-size: 2.5rem; /* Taille de l'icône */
+  color: #88b7d5; /* Couleur personnalisée */
+  vertical-align: middle; /* Alignement avec le texte */
+  margin-right: 0.5rem;
+}
+.icon-white {
+  font-size: 2rem; /* Taille de l'icône */
+  color: #ffffff; /* Couleur personnalisée */
+  vertical-align: middle; /* Alignement avec le texte */
+  margin-right: 0.5rem;
+}
+
+p {
+  font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+  font-weight: 500;;
+  padding-right: 1rem;
+  padding-left:0.2rem;
+}
+
+.match-history {
+  max-height: 350px; /* Limiter la hauteur */
+  overflow-y: auto; /* Barre déroulante pour le contenu */
+}
+
+.match-list {
+  list-style: none;
+  padding: 0;
+}
+
+.match-card {
+  background-color: #f3f4f6;
+  color: #333;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.match-date {
+  font-weight: bold;
+  color: #555;
+}
+
+.match-player {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: #88b7d5;
+}
+
+.match-result {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2e7d32; /* Vert pour les victoires */
+  margin-top: 0.5rem;
+}
+
+.match-score {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.separator {
+  border: none;
+  border-top: 2px solid #ffffff;
+  border-radius: 5rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+/* Styliser la barre de défilement */
+.match-history::-webkit-scrollbar {
+  width: 8px;
+}
+
+.match-history::-webkit-scrollbar-thumb {
+  background-color: #88b7d5;
+  border-radius: 10px;
+}
+
+.result-win {
+  color: #2e7d32; /* Vert pour les victoires */
+}
+
+.result-loss {
+  color: #d32f2f; /* Rouge pour les défaites */
+}

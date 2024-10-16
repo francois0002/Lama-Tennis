@@ -1,0 +1,18 @@
+.btn-back {
+  display: inline-block;
+  width: 30px; /* Largeur du bouton */
+  height: 30px; /* Hauteur du bouton */
+  background-image: url('/icone/back.png'); /* Chemin vers l'image dans le dossier assets */
+  background-size: cover;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.btn-back:hover {
+  opacity: 0.8;
+}
+

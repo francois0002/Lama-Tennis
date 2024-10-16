@@ -1,0 +1,58 @@
+<div class="content">
+
+     <!-- club info -->
+  <div class="club-info-container" *ngIf="club">
+    <h2>
+      <span class="material-icons tennis-icon">sports_tennis</span>Mon Club
+    </h2>
+    <div class="club-info">
+      <p>
+        <span class="title">{{ capitalizeWords(club?.name_club) }}</span>
+      </p>
+      <p>Ville : {{ capitalizeWords(club?.town) }}</p>
+      <p>Adresse : {{ capitalizeWords(club?.location) }}</p>
+      <p>Région : {{ capitalizeWords(club?.region) }}</p>
+
+      <div class="button-container">
+
+    <button class="leave-club-button" (click)="leaveClub()">Quitter le club</button>
+
+
+    <button class="leave-club-button" (click)="navigateToJoinClub()">Changer de club</button>
+  </div>
+    </div>
+
+
+
+
+    <!-- list players-->
+    <div class="club-info">
+      <span class="title-players">
+        <span class="material-symbols-outlined player-icon">
+          user_attributes
+        </span>
+        {{ players.length }}
+        {{ players.length === 1 ? 'joueur inscrit' : 'joueurs inscrits' }}
+      </span>
+
+      <a href="/home/partners" class="link-list"
+      > Consulter la liste des membres</a>
+
+    </div>
+
+
+    <div class="div-promotion" *ngIf="players.length < 10">
+      <p class="promotion">
+        <span class="material-symbols-outlined icon">
+          campaign
+          </span>
+        Peu de joueurs sont inscrits pour le moment dans ton club, n'hésite pas
+        à parler de  Lama Tennis autour de toi ! <br /><br />
+
+        <a href="/home/promote-lama-tennis" class="link"
+          > Recommander Lama Tennis</a
+        >
+      </p>
+    </div>
+  </div>
+</div>

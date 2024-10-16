@@ -1,0 +1,34 @@
+<!-- join-club.component.html -->
+<div class="title-container">
+  <h1 class="title">Trouve ton club !</h1>
+  <form (ngSubmit)="searchClubs()">
+    <div>
+
+
+      <label for="town">Filtrer par  la ville du club:</label>
+      <input type="text" [(ngModel)]="town" name="town" class="town-input"/>
+    </div>
+    <div>
+      <label for="name_club">et/ou par le nom du club:</label>
+      <input type="text" [(ngModel)]="name_club" name="name_club" class="town-input"/>
+    </div>
+
+    <button type="submit" class="button-search">Rechercher</button>
+
+     <!-- Message d'erreur -->
+     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+</div>
+
+<div class="result-container">
+  <h1 class="title">Résultats:</h1>
+  <ul>
+    <li *ngFor="let club of clubs" class="club-item">
+     <h4 class="club-name"> {{ club.name_club }}</h4>
+     <span class="club-info">
+      Ville : {{ club.town }} - {{ club.department }} <br>
+      Adresse : {{ club.location }} <br></span>
+      <button (click)="selectClub(club._id)" class="select-button">Sélectionner ce club</button>
+    </li>
+  </ul>
+</div>

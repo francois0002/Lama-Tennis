@@ -1,0 +1,8 @@
+<div class="progress-container">
+  <div class="progress-bar" [style.width.%]="progress"></div>
+</div>
+<div class="step-indicators">
+  <div *ngFor="let step of steps; let i = index" class="step" [class.active]="i < currentStep">
+    <span>{{ i + 1 }}</span>
+  </div>
+</div>

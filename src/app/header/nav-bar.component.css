@@ -1,0 +1,100 @@
+
+
+:host {
+  display: block;
+}
+
+mat-icon {
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin : 0;
+}
+
+nav {
+  background-color: #5d666b;
+  color: #ffffff;
+  position: fixed;
+  padding: 0 1rem;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  height: 4rem;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+width: 2.5rem;
+height: auto;
+}
+
+nav {
+  transition: top 0.3s ease-in-out;
+}
+
+nav.hidden {
+  top: -100px; /* Déplace la barre de navigation vers le haut */
+}
+
+.notification-icon {
+  position: relative;
+}
+
+.notification-icon {
+  position: relative;
+  cursor: pointer;
+  display: inline-block; /* Pour permettre le positionnement de l'icône */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.material-icons {
+  font-size: 24px; /* Taille de l'icône */
+}
+
+.badge {
+  position: absolute;
+  top: -5px; /* Ajustez la position selon vos besoins */
+  right: -10px; /* Ajustez la position selon vos besoins */
+  background-color: white; /* Couleur de fond du badge */
+  color: black; /* Couleur du texte du badge */
+  border-radius: 50%; /* Pour faire un cercle */
+  width: 20px; /* Largeur du badge */
+  height: 20px; /* Hauteur du badge */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrer le texte */
+  font-size: 12px; /* Taille du texte */
+  font-weight: bold; /* Gras pour le texte */
+  border: 2px solid #007bff; /* Bordure si nécessaire */
+}
+
+.notification-banner {
+  position: absolute; /* Positionnement absolu pour le bandeau */
+  top: 50px; /* Ajustez selon vos besoins */
+  right: 0; /* Aligné à droite */
+  background-color: white; /* Couleur de fond du bandeau */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 4px; /* Coins arrondis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre */
+  padding: 10px; /* Espacement interne */
+  z-index: 1000; /* Pour superposer au-dessus des autres éléments */
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between; /* Espace entre le texte et le bouton */
+  margin: 5px 0; /* Espacement entre les notifications */
+}
+

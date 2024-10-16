@@ -1,0 +1,88 @@
+<div class="content">
+  <div class="club-info-container" *ngIf="club">
+    <span class="material-symbols-outlined tennis-icon"> groups </span>
+    <h2>Partenaires</h2>
+
+    <!-- Ask for a partner-->
+    <div class="club-info">
+      <h3>
+        <span class="material-symbols-outlined icon-white"> mail </span> Envoyer
+        une demande
+      </h3>
+
+      <hr class="separator" />
+      <p>
+        Tu recherches quelqu'un avec qui jouer? Nous enverrons une alerte auprès
+        des joueurs de ton club.
+      </p>
+
+      <p><b>Message (facultatif) : </b><br /></p>
+      <textarea
+        class="message-input"
+        [(ngModel)]="userMessage"
+        maxlength="300"
+        placeholder="Tu peux indiquer ton niveau, ton classement, tes disponibilités..."
+        rows="4"
+        class="message-input"
+      ></textarea>
+      <p>{{ userMessage.length }}/300 caractères</p>
+
+      <button class="contact-all-button" (click)="contactAllPlayers()">
+        Trouver un partenaire
+      </button>
+    </div>
+
+    <!-- list players-->
+    <div class="club-info">
+      <h3>
+        <span class="material-symbols-outlined icon-white">
+          contact_phone
+        </span>
+        Contacts
+      </h3>
+
+      <hr class="separator" />
+      <p>
+        Retrouve ci-dessous la liste des joueurs de ton club, tu peux les
+        contacter directement pour leur proposer une partie !
+      </p>
+      <p>
+        <span class="text-review">
+          {{ players.length }}
+          {{ players.length === 1 ? 'joueur inscrit' : 'joueurs inscrits' }}
+        </span>
+      </p>
+      <span class="material-symbols-outlined icon-white">
+        keyboard_arrow_down
+        </span>
+    </div>
+
+    <div class="players-list" id="contacts-section" *ngIf="players.length > 0">
+      <ul>
+        <li *ngFor="let player of players">
+          <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
+          <p>Téléphone : {{ player.phoneNumber }}</p>
+          <p>Email : {{ player.email }}</p>
+          <p>Niveau : {{ player.level }}</p>
+          <p>Classement : {{ player.ranking }}</p>
+        </li>
+      </ul>
+    </div>
+
+      <!-- Promote Lama Tennis-->
+
+  <div class="div-promotion" *ngIf="players.length < 10">
+    <p class="promotion">
+      <span class="material-symbols-outlined icon"> campaign </span>
+      Peu de joueurs sont inscrits pour le moment dans ton club, n'hésite pas à
+      parler de Lama Tennis autour de toi ! <br /><br />
+
+      <a href="/home/promote-lama-tennis" class="link">
+        Recommander Lama Tennis</a
+      >
+    </p>
+  </div>
+  </div>
+
+
+</div>

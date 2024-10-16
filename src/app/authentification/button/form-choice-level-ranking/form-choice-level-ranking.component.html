@@ -1,0 +1,14 @@
+
+<mat-form-field>
+  <mat-label>Classement</mat-label>
+  <mat-select [formControl]="rankingControl">
+    @for (group of rankingGroups; track group) {
+      <mat-optgroup [label]="group.name"
+                    [disabled]="group.disabled">
+        @for (ranking of group.ranking; track ranking) {
+          <mat-option [value]="ranking.value">{{ranking.viewValue}}</mat-option>
+        }
+      </mat-optgroup>
+    }
+  </mat-select>
+</mat-form-field>

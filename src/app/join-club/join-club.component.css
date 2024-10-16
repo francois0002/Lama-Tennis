@@ -1,0 +1,118 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.result-container {
+  width: 90%;
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom: 40rem;
+}
+.title {
+  color: #7aaec4;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  padding: 2rem ;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom : 2rem;
+  margin-top : 2rem;
+}
+.result-container {
+  width: 90%;
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom: 25rem;
+  background-color: white;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  text-align: left; /* Justification à gauche */
+}
+
+.button-search {
+  background-color: #88b7d5; /* Bleu */
+  opacity:  0.90;
+  border: 2px solid white;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+}
+
+
+.town-input {
+  width: 100%; /* Occupe toute la largeur disponible */
+  max-width: 20rem; /* Limite la largeur maximale pour les grands écrans */
+  padding: 12px; /* Augmente l'espace intérieur */
+  font-size: 1.1rem; /* Augmente la taille du texte */
+  border: 2px solid #ccc; /* Bordure légère */
+  border-radius: 5px; /* Coins arrondis */
+  margin-top: 0.5rem; /* Espace au-dessus du champ de texte */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet d'élévation */
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style-type: none; /* Enlève les puces de la liste */
+  padding: 0;
+}
+
+.club-item strong {
+  font-size: 1.2rem; /* Optionnel : augmenter la taille du nom du club pour le rendre plus visible */
+}
+
+.club-item {
+  padding: 1.5rem;
+  border-bottom: 1px solid #ccc; /* Optionnel : ajoute une ligne de séparation entre les résultats */
+}
+
+.club-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #88b7d5;
+  line-height: 1.1;
+}
+
+.select-button {
+  background-color: #88b7d5; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  border: none; /* Supprime la bordure */
+  border-radius: 5px; /* Coins arrondis */
+  padding: 5px 10px; /* Espacement intérieur */
+  font-size: 0.8em; /* Taille de police plus petite */
+  cursor: pointer; /* Curseur pointer */
+  transition: background-color 0.3s; /* Effet de transition */
+  margin-top: 0.5rem;
+}
+.club-info{
+  font-size: 0.8rem;
+}
+.error-message {
+  color: red; /* Couleur rouge pour le message d'erreur */
+  margin-top: 1rem; /* Espacement au-dessus du message */
+  text-align: center; /* Centre le message d'erreur */
+}
+
