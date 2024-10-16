@@ -19,8 +19,13 @@ RUN npm run build --prod
 # Étape 2 : Serveur Nginx pour servir l'application Angular
 FROM nginx:alpine
 
+RUN rm /etc/nginx/conf.d/default.conf
+
+RUN rm -rf /usr/share/nginx/html/*
+
+
 # Copier les fichiers buildés de l'étape précédente vers le dossier nginx
-COPY --from=build /app/dist/lama-tennis /usr/share/nginx/html
+COPY --from=build /app/dist/lama-tennis/browser /usr/share/nginx/html
 
 # Copier le fichier de configuration personnalisé de Nginx (si nécessaire)
 COPY nginx.conf /etc/nginx/nginx.conf
