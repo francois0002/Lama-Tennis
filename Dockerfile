@@ -25,8 +25,14 @@ COPY --from=build /app/dist/lama-tennis /usr/share/nginx/html
 # Copier le fichier de configuration personnalisé de Nginx (si nécessaire)
 COPY nginx.conf /etc/nginx/nginx.conf
 
+ENV NODE_ENV=production
+
+ENV PORT=8080
+
 # Exposer le port sur lequel Nginx tourne
 EXPOSE 8080
+
+
 
 # Démarrer Nginx
 CMD ["nginx", "-g", "daemon off;"]
