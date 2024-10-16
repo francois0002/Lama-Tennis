@@ -20,7 +20,7 @@
 
   <div *ngIf="showNotifications" class="notification-banner">
     <div *ngFor="let notification of notifications" class="notification-item">
-      <span>{{notification}}</span>
+      <span class="notification-text">{{ notification }}</span>
       <button (click)="removeNotification(notification)">✖</button>
     </div>
   </div>

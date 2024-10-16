@@ -116,25 +116,20 @@ export class ResultComponent implements OnInit {
     this.matchService.saveMatchScore(matchData).subscribe(() => {
       console.log('Score enregistré avec succès');
 
-      console.log('Vérification des trophées pour l\'utilisateur:', this.user._id);
-
       this.trophyService.checkTrophy(this.user._id).subscribe(
-          (response) => {
-              console.log('réponse');
-              console.log(response.message); // Log de la réponse
-
-              // Ajoutez l'appel à sendNotification ici
-              this.notificationService.sendNotification(response.message); // <-- Ajoutez cette ligne
-
-              // S'abonner aux notifications de trophées
-              this.notificationService.sendNotification$.subscribe((message) => {
-                  console.log('Notification reçue :', message); // Log pour vérifier si la notification est bien reçue
-                  this.notificationCount++; // Incrémenter le nombre de notifications
-              });
-          },
-          (error) => {
-              console.error('Erreur lors de la vérification des trophées', error);
+        (response) => {
+          // Vérifiez si des trophées ont été gagnés
+          if (response.message && response.message.trim() !== '') { // Vérifiez si le message n'est pas vide
+            this.notificationService.sendNotification(response.message); // Envoyez le message des trophées gagnés
+            this.notificationCount++; // Incrémenter le compteur de notifications
+          } else {
+            // Pas de nouveaux trophées, donc pas de notification
+            console.log('Aucun nouveau trophée gagné ou déjà acquis');
           }
+        },
+        (error) => {
+          console.error('Erreur lors de la vérification des trophées', error);
+        }
       );
 
 

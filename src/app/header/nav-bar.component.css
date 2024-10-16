@@ -67,21 +67,22 @@ nav.hidden {
   position: absolute;
   top: -5px; /* Ajustez la position selon vos besoins */
   right: -10px; /* Ajustez la position selon vos besoins */
-  background-color: white; /* Couleur de fond du badge */
-  color: black; /* Couleur du texte du badge */
+  color: white;
+  background-color: #88b7d5;; /* Couleur de fond du badge */
   border-radius: 50%; /* Pour faire un cercle */
-  width: 20px; /* Largeur du badge */
-  height: 20px; /* Hauteur du badge */
+  width: 15px; /* Largeur du badge */
+  height: 15px; /* Hauteur du badge */
   display: flex;
   align-items: center;
   justify-content: center; /* Centrer le texte */
   font-size: 12px; /* Taille du texte */
   font-weight: bold; /* Gras pour le texte */
-  border: 2px solid #007bff; /* Bordure si nécessaire */
+  border: 2px solid #88b7d5; /* Bordure si nécessaire */
 }
 
 .notification-banner {
   position: absolute; /* Positionnement absolu pour le bandeau */
+  min-width: 20rem;
   top: 50px; /* Ajustez selon vos besoins */
   right: 0; /* Aligné à droite */
   background-color: white; /* Couleur de fond du bandeau */
@@ -96,5 +97,12 @@ nav.hidden {
   display: flex;
   justify-content: space-between; /* Espace entre le texte et le bouton */
   margin: 5px 0; /* Espacement entre les notifications */
+}
+
+.notification-text {
+  /* Couleur du texte des notifications */
+  color: #5d666b; /* Change cette valeur pour la couleur que tu veux */
+  font-weight: bold;
+  margin-right: 1rem;
 }
 

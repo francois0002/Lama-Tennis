@@ -10,7 +10,10 @@ import { NotificationService } from './notification.service';
 export class TrophyService {
   private apiUrl = 'http://localhost:3000/trophies'; // URL de l'API pour les trophées
 
-  constructor(private http: HttpClient, private notificationService: NotificationService) {}
+  constructor(
+    private http: HttpClient,
+    private notificationService: NotificationService
+  ) {}
 
   // Vérifier si l'utilisateur a gagné un trophée
   checkTrophy(userId: string): Observable<any> {
@@ -18,9 +21,13 @@ export class TrophyService {
       tap((response: any) => {
         console.log('Vérification des trophées:', response);
         if (response.trophies && response.trophies.length > 0) {
-          // Si des trophées sont gagnés, envoyer une notification
-          const trophiesWon = response.trophies.map((trophy: any) => trophy.name).join(', ');
-          this.notificationService.sendNotification(`Félicitations ! Vous avez gagné les trophées suivants : ${trophiesWon}`);
+          // Construire un message pour chaque trophée gagné avec nom et description
+          const trophiesWon = response.trophies
+            .map((trophy: any) => `${trophy.name}`)
+            .join('\n'); // Ajoute un saut de ligne pour chaque trophée
+
+          // Envoyer une notification avec la liste des trophées gagnés
+          this.notificationService.sendNotification(`🏆 Haut-fait obtenu : \n${trophiesWon}`);
         }
       })
     );
