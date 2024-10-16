@@ -26,7 +26,7 @@ COPY --from=build /app/dist/lama-tennis /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Exposer le port sur lequel Nginx tourne
-EXPOSE 80
+EXPOSE 8080
 
 # Démarrer Nginx
 CMD ["nginx", "-g", "daemon off;"]
