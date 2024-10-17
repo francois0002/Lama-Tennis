@@ -20,14 +20,19 @@ export class TrophyService {
     return this.http.get(`${this.apiUrl}/check/${userId}`).pipe(
       tap((response: any) => {
         console.log('Vérification des trophées:', response);
-        if (response.trophies && response.trophies.length > 0) {
+
+        if (response && response.trophies && response.trophies.length > 0) {
           // Construire un message pour chaque trophée gagné avec nom et description
           const trophiesWon = response.trophies
             .map((trophy: any) => `${trophy.name}`)
             .join('\n'); // Ajoute un saut de ligne pour chaque trophée
 
           // Envoyer une notification avec la liste des trophées gagnés
-          this.notificationService.sendNotification(`🏆 Haut-fait obtenu : \n${trophiesWon}`);
+          this.notificationService.sendNotification(
+            `🏆 Haut-fait obtenu : \n${trophiesWon}`
+          );
+        } else {
+          console.log("Aucun trophée gagné ou réponse invalide.");
         }
       })
     );

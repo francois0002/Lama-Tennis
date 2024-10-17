@@ -118,12 +118,12 @@ export class ResultComponent implements OnInit {
 
       this.trophyService.checkTrophy(this.user._id).subscribe(
         (response) => {
-          // Vérifiez si des trophées ont été gagnés
-          if (response.message && response.message.trim() !== '') { // Vérifiez si le message n'est pas vide
+          if (response && response.message && response.message.trim() !== '') {
+            // Vérifiez si le message n'est pas vide
             this.notificationService.sendNotification(response.message); // Envoyez le message des trophées gagnés
             this.notificationCount++; // Incrémenter le compteur de notifications
           } else {
-            // Pas de nouveaux trophées, donc pas de notification
+            // Pas de nouveaux trophées, ou le message est vide
             console.log('Aucun nouveau trophée gagné ou déjà acquis');
           }
         },

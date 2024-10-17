@@ -52,6 +52,7 @@ nav.hidden {
   position: relative;
   cursor: pointer;
   display: inline-block; /* Pour permettre le positionnement de l'icône */
+  margin-right: 0.3rem;
 }
 
 .icon-container {
@@ -100,7 +101,8 @@ nav.hidden {
 }
 
 .notification-text {
-  /* Couleur du texte des notifications */
+  white-space: pre-line; /* Permet l'affichage des retours à la ligne (\n) */
+  word-wrap: break-word; /* Permet de couper les mots longs */
   color: #5d666b; /* Change cette valeur pour la couleur que tu veux */
   font-weight: bold;
   margin-right: 1rem;

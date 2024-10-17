@@ -10,6 +10,8 @@
   <!-- Icône de notification avec badge -->
 
   <!-- Autres éléments de navigation -->
+
+  <div>
   <div class="notification-icon" (click)="toggleNotifications()">
     <div class="icon-container">
       <span class="material-icons">notifications</span>
@@ -19,10 +21,17 @@
   </div>
 
   <div *ngIf="showNotifications" class="notification-banner">
-    <div *ngFor="let notification of notifications" class="notification-item">
-      <span class="notification-text">{{ notification }}</span>
-      <button (click)="removeNotification(notification)">✖</button>
+    <div *ngIf="notifications.length > 0; else noNotifications">
+      <div *ngFor="let notification of notifications" class="notification-item">
+        <span class="notification-text">{{ notification }}</span>
+        <button (click)="removeNotification(notification)">✖</button>
+      </div>
     </div>
+    <ng-template #noNotifications>
+      <div class="notification-item">
+        <span class="notification-text">Aucune notification pour le moment</span>
+      </div>
+    </ng-template>
   </div>
 
 
@@ -52,4 +61,6 @@
       <span>Déconnexion</span>
     </button>
   </mat-menu>
+
+</div>
 </nav>
