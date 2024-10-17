@@ -15,6 +15,8 @@
   color: #7aaec4;
   margin-bottom: 20px;
   text-align: center;
+  font-size: 2.1rem;
+  font-family: "Caprasimo", sans-serif;
 }
 
 .title-container {
@@ -48,7 +50,8 @@
 .button-search {
   background-color: #88b7d5; /* Bleu */
   opacity:  0.90;
-  border: 2px solid white;
+  border: none;
+  border-radius: 5px;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -56,10 +59,9 @@
   display: inline-block;
   font-size: 1.2rem;
   cursor: pointer;
-  border-radius: 4px;
-  font-weight: 600;
+  margin-top: 2rem;
   font-family: "Poppins", sans-serif;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 
