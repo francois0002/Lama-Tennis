@@ -61,8 +61,14 @@
       <ul>
         <li *ngFor="let player of players">
           <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
-          <p>Téléphone : {{ player.phoneNumber }}</p>
-          <p>Email : {{ player.email }}</p>
+          <p>
+            <span class="material-symbols-outlined icone-contact"> phone_iphone </span>
+            {{ formatPhoneNumber(player.phoneNumber) }}
+          </p>
+
+          <p><span class="material-symbols-outlined icone-contact">
+            mail
+            </span> {{ player.email }}</p>
           <p>Niveau : {{ player.level }}</p>
           <p>Classement : {{ player.ranking }}</p>
         </li>

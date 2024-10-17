@@ -1,10 +1,14 @@
 <div class="content">
 
      <!-- club info -->
+
   <div class="club-info-container" *ngIf="club">
+
+    <span class="material-icons tennis-icon">sports_tennis</span>
     <h2>
-      <span class="material-icons tennis-icon">sports_tennis</span>Mon Club
+     Mon Club
     </h2>
+
     <div class="club-info">
       <p>
         <span class="title">{{ capitalizeWords(club?.name_club) }}</span>

@@ -51,9 +51,9 @@ export class InscriptionStep3Component implements OnInit {
   levelControl = new FormControl('');
 
   levels: Level[] = [
-    { value: 'Debutant', viewValue: 'Débutant' },
+    { value: 'Débutant', viewValue: 'Débutant' },
     { value: 'Intermediaire', viewValue: 'Intermédiaire' },
-    { value: 'Confirme', viewValue: 'Confirmé' },
+    { value: 'Confirmé', viewValue: 'Confirmé' },
   ];
 
   rankingGroups: RankingGroup[] = [
