@@ -30,7 +30,7 @@ h3 {
   padding: 2rem ;
   text-align: center;
   width: 95%;
-  max-width: 40rem;
+  max-width: 60rem;
   margin: 0 auto;
   margin-bottom : 2rem;
   margin-top : 2rem;
@@ -66,7 +66,6 @@ p {
   font-family: "Poppins", sans-serif;
   text-align: left;
   font-weight: 500;;
-  padding-right: 1rem;
   padding-left:0.2rem;
 }
 
@@ -101,10 +100,6 @@ p {
   font-family: "Poppins", sans-serif;
   color: white;
   text-align: center;
-  display: block;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-
 }
 
 
@@ -194,17 +189,34 @@ label {
   opacity: 1; /* S'assure que le texte d'espace réservé est visible */
 }
 
+/* Pour les petits écrans, on empile les divs */
+.score-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Pour les grands écrans, on place les divs côte à côte */
+@media (min-width: 768px) {
+  .score-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 .score {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;
-  border-radius: 10px; /* Coins arrondis pour un look plus moderne */
-  padding: 2rem; /* Ajout de rembourrage plus large pour plus d'espace */
-  background-color: #f9fafb; /* Fond clair pour contraster avec le texte */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Effet d'ombre pour un aspect plus profond */
-  max-width: 30rem; /* Limite la largeur pour un meilleur alignement */
-  margin-bottom: 2rem; /* Espace entre les sections */
+  border-radius: 10px;
+  padding: 2rem;
+  background-color: #f9fafb;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 30rem;
+  margin-bottom: 2rem;
 }
 
 

@@ -24,7 +24,7 @@
   padding: 2rem ;
   text-align: center;
   width: 95%;
-  max-width: 40rem;
+  max-width: 60rem;
   margin: 0 auto;
   margin-bottom : 2rem;
   margin-top : 2rem;
@@ -37,6 +37,7 @@
   background-color: #5d666b;
   color: white;
   margin-bottom: 3rem;
+  max-width: 20rem;
 }
 
 .players-list ul {
@@ -165,6 +166,13 @@ p {
   gap: 1rem;/* Ajustez cet espace entre les boutons */
   justify-content: center; /* Centrer horizontalement */
   align-items: center;
+  flex-direction: row;
+}
+@media (max-width: 600px) {
+  .button-container {
+    flex-direction: column; /* Passer à une disposition en colonne pour les petits écrans */
+    gap: 0.5rem; /* Réduire l'espace entre les boutons si nécessaire */
+  }
 }
 
 

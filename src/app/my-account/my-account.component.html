@@ -6,11 +6,13 @@
     </h2>
 
     <!-- Personal Information Section -->
+     <div class="account-content">
     <div class="club-info" *ngIf="user">
       <h3>
         <span class="material-symbols-outlined icon-white">info</span>Mes infos
         perso
       </h3>
+
       <div *ngIf="!isEditingPersonalInfo">
         <p><strong>Prénom :</strong> {{ user.firstName }}</p>
         <p><strong>Nom :</strong> {{ user.lastName }}</p>
@@ -128,7 +130,7 @@
 
       <div class="button-container"></div>
       <button class="leave-club-button" (click)="deleteUser()">Supprimer mon compte</button>
-
+    </div>
     </div>
   </div>
 </div>

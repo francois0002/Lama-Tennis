@@ -30,7 +30,7 @@ h3 {
   padding: 1rem ;
   text-align: center;
   width: 95%;
-  max-width: 40rem;
+  max-width: 60rem;
   margin: 0 auto;
   margin-bottom : 2rem;
   margin-top : 2rem;
@@ -43,19 +43,34 @@ h3 {
   background-color: #5d666b;
   color: white;
   margin-bottom: 3rem;
+  max-width: 50rem;
+}
+
+.box-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .players-list ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
+  display: flex; /* Permet d'aligner les boîtes de contact en ligne */
+  flex-wrap: wrap; /* Permet le retour à la ligne si l'espace est insuffisant */
+  gap: 1.5rem; /* Espacement entre les boîtes */
+  justify-content: center; /* Centrer les boîtes */
 }
 
 .players-list li {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 5px;
   background-color: #f0f0f0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 5px;
+  width: 250px; /* Largeur fixe pour les boîtes de contact */
+  display: flex;
+  flex-direction: column; /* Garder les coordonnées en colonne */
+  align-items: flex-start; /* Aligner le contenu à gauche */
 }
 
 h2 {
@@ -165,6 +180,11 @@ p {
   justify-content: center; /* Centrer horizontalement */
   align-items: center;
 }
+.message-forms{
+  display: flex;
+  align-items: left;
+  margin-bottom: 1rem;
+}
 
 .message-input {
   width: 100%;
@@ -173,7 +193,6 @@ p {
   padding: 1rem;
   font-size: 1rem;
   border-radius: 8px;
-  border: 1px solid #88b7d5;
   background-color: #f0f0f0;
   color: #333;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -181,6 +200,8 @@ p {
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   font-family: "Poppins", sans-serif;
+
+
 }
 
 .message-input:focus {
