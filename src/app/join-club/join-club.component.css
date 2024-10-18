@@ -15,6 +15,8 @@
   color: #7aaec4;
   margin-bottom: 20px;
   text-align: center;
+  font-size: 2.1rem;
+  font-family: "Caprasimo", sans-serif;
 }
 
 .title-container {
@@ -23,18 +25,17 @@
   justify-content: center;
   flex-direction: column;
   background-color: white;
-  gap: 1rem;
   border-radius: 0.5rem;
   padding: 2rem ;
   text-align: center;
-  width: 90%;
+  width: 95%;
   max-width: 40rem;
   margin: 0 auto;
   margin-bottom : 2rem;
   margin-top : 2rem;
 }
 .result-container {
-  width: 90%;
+  width: 95%;
   max-width: 40rem;
   margin: 0 auto;
   margin-bottom: 25rem;
@@ -48,7 +49,8 @@
 .button-search {
   background-color: #88b7d5; /* Bleu */
   opacity:  0.90;
-  border: 2px solid white;
+  border: none;
+  border-radius: 5px;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -56,10 +58,9 @@
   display: inline-block;
   font-size: 1.2rem;
   cursor: pointer;
-  border-radius: 4px;
-  font-weight: 600;
+  margin-top: 1rem;
   font-family: "Poppins", sans-serif;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 
@@ -114,5 +115,12 @@ ul {
   color: red; /* Couleur rouge pour le message d'erreur */
   margin-top: 1rem; /* Espacement au-dessus du message */
   text-align: center; /* Centre le message d'erreur */
+}
+
+.tennis-icon {
+  font-size: 2.5rem; /* Taille de l'icône */
+  color: #88b7d5; /* Couleur personnalisée */
+  vertical-align: middle; /* Alignement avec le texte */
+  margin-right: 0.5rem;
 }
 

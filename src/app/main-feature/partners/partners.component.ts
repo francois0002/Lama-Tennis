@@ -122,4 +122,10 @@ export class PartnersComponent implements OnInit {
   navigateToJoinClub() {
     this.router.navigate(['/home/join-club']);
   }
+
+  formatPhoneNumber(phoneNumber: string): string {
+    if (!phoneNumber) return ''; // Si le numéro est vide ou null, on renvoie une chaîne vide
+    return phoneNumber.replace(/(\d{2})(?=\d)/g, '$1 ');
+  }
+
 }

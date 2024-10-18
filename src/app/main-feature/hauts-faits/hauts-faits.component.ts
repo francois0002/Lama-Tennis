@@ -87,8 +87,6 @@ export class HautsFaitsComponent implements OnInit {
 
   // Vérifier si un trophée est débloqué
   isTrophyUnlocked(trophyId: string): boolean {
-    console.log('Trophées débloqués:', this.unlockedTrophies);
-console.log('Tous les trophées:', this.trophies);
     return this.unlockedTrophies.includes(trophyId);
   }
 }

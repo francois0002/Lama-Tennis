@@ -15,14 +15,19 @@
 
 
 .club-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1rem ;
   text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-  width: 100%;
+  width: 95%;
   max-width: 40rem;
+  margin: 0 auto;
+  margin-bottom : 2rem;
+  margin-top : 2rem;
 }
 
 h3 {
@@ -47,6 +52,7 @@ strong {
 
 .club-info {
   border-radius: 5px;
+  min-width: 20rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   background-color: #5d666b;
@@ -55,7 +61,8 @@ strong {
 }
 
 h2 {
-  font-size: 2.1rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   font-family: "Caprasimo", sans-serif;
   color: #88b7d5;
 }
@@ -128,3 +135,4 @@ input {
 .leave-club-button:hover {
   background-color: #ff1c1c;
 }
+

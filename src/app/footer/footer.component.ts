@@ -37,7 +37,7 @@ export class FooterComponent {
     if (userId) {
       // Obtenez les informations de l'utilisateur
       this.userService.getUserInfo(userId).subscribe(user => {
-        if (!user.club && (page === '/home/my-club' || page === '/home/partners')) {
+        if (!user.club && (page === '/home/my-club' || page === '/home/partners'|| page === '/home/result')) {
           // Si l'utilisateur n'a pas de club, ouvrez la pop-up
           this.openJoinClubDialog();
         } else {

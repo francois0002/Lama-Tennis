@@ -1,6 +1,11 @@
 <!-- join-club.component.html -->
 <div class="title-container">
+
+  <span class="material-symbols-outlined tennis-icon">
+    content_paste_search
+    </span>
   <h1 class="title">Trouve ton club !</h1>
+
   <form (ngSubmit)="searchClubs()">
     <div>
 
@@ -21,7 +26,7 @@
 </div>
 
 <div class="result-container">
-  <h1 class="title">Résultats:</h1>
+  <h1 class="title">Résultats :</h1>
   <ul>
     <li *ngFor="let club of clubs" class="club-item">
      <h4 class="club-name"> {{ club.name_club }}</h4>
