@@ -1,0 +1,51 @@
+<div class="content">
+  <div class="club-info-container">
+    <span class="material-symbols-outlined tennis-icon"> groups </span>
+    <h2>Contactez-nous</h2>
+
+    <!-- Ask for a partner-->
+    <div class="club-info">
+      <h3>
+        <span class="material-symbols-outlined icon-white"> mail </span> Envoyer un message
+      </h3>
+      <p><b>Objet de la demande :</b></p>
+      <div class="message-forms">
+        <div class="custom-select-container">
+          <select [(ngModel)]="selectedSubject" class="custom-select">
+            <option value="Demande d'informations">Demande d'informations</option>
+            <option value="Partenariat">Partenariat</option>
+            <option value="Reporter un bug ou problème">Reporter un bug ou problème</option>
+            <option value="Reporter un joueur">Reporter un joueur</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+      </div>
+
+
+      <hr class="separator" />
+
+
+      <p><b>Message</b><br /></p>
+      <div class="message-forms">
+      <textarea
+        class="message-input"
+        [(ngModel)]="userMessage"
+        maxlength="300"
+        rows="4"
+        class="message-input"
+      ></textarea>
+    </div>
+      <p>{{ userMessage.length }}/300 caractères</p>
+
+      <p *ngIf="errorMessage" class="error-message"><span class="material-symbols-outlined icon-warning">
+        warning
+        </span>{{ errorMessage }}</p>
+
+      <button class="contact-all-button" (click)="contactAdmin()">
+        Envoyer
+      </button>
+    </div>
+
+
+  </div>
+</div>

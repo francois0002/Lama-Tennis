@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SignUpService {
 
-  private apiUrl = 'http://localhost:3000/api/inscription';
+  private apiUrl = 'http://localhost:3000/auth/inscription';
 
   constructor(private http: HttpClient) {}
 

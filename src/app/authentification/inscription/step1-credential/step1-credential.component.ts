@@ -5,7 +5,8 @@ import { FormService } from '../../../service/form.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserLoginComponent } from '../../user-login/user-login.component';
-import { EmailService } from '../../../service/email.service';
+import { AuthService } from '../../../service/auth.service';
+
 
 @Component({
   selector: 'app-inscription-step1',
@@ -28,7 +29,7 @@ export class InscriptionStep1Component implements OnInit {
   @Output() validityChange = new EventEmitter<boolean>();
   emailError: string = '';
 
-  constructor(private service: FormService, private emailService: EmailService) {}
+  constructor(private service: FormService, private checkEmailService: AuthService) {}
 
   ngOnInit() {
     const formData = this.service.getFormData();
@@ -61,7 +62,7 @@ export class InscriptionStep1Component implements OnInit {
   }
 
   checkEmailAvailability(email: string) {
-    this.emailService.checkEmail(email).subscribe({
+    this.checkEmailService.checkEmail(email).subscribe({
       next: (response) => {
         this.emailError = '';
         this.emailAvailabilityChange.emit(true); // Notifier le parent que l'email est disponible

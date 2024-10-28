@@ -14,6 +14,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PartnersComponent } from '../main-feature/partners/partners.component';
 import { ResultComponent } from '../main-feature/result/result.component';
 import { StatisticsComponent } from '../main-feature/statistics/statistics.component';
+import { ContactUsComponent } from '../contact-us/contact-us.component';
 
 
 
@@ -34,6 +35,7 @@ export const routes: Routes = [
       { path: 'my-club',component: MyClubComponent,canActivate: [AuthGuard]},
       { path: 'partners',component: PartnersComponent,canActivate: [AuthGuard]},
       { path: 'result',component: ResultComponent ,canActivate: [AuthGuard]},
+      { path: 'contact-us',component: ContactUsComponent ,canActivate: [AuthGuard]},
       { path: 'statistics',component: StatisticsComponent ,canActivate: [AuthGuard]}
 
 

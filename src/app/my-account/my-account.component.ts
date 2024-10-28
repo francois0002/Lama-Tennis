@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { UserService } from '../service/user.service';
-import { ClubService } from '../service/api-service/api-services';
+import { ClubService } from '../service/clubs-services';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -153,7 +153,7 @@ export class MyAccountComponent implements OnInit {
 
 
   loadClubInfo(clubId: string): void {
-    this.userService.getClubInfo(clubId).subscribe(
+    this.clubService.getClubInfo(clubId).subscribe(
       (clubData) => {
         if (clubData) {
           this.clubName = clubData.name_club;
