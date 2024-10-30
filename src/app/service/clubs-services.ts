@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Club } from '../interface/club.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClubService {
-  private apiUrl = 'http://localhost:3000/clubs';
+  private apiUrl = `${environment.apiUrl}/clubs`;
   private clubSubject = new BehaviorSubject<any>(null);
   public club$ = this.clubSubject.asObservable();
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { StandartButtonComponent } from '../../../form&button/standart-button/standart-button.component';
-import { HelloWorldComponent } from '../../../hello-world/hello-world.component';
 import { UserService } from '../../../service/user.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../service/auth.service';
@@ -10,7 +9,7 @@ import { ClubService } from '../../../service/clubs-services';
 @Component({
   selector: 'app-articles-home-page',
   standalone: true,
-  imports: [StandartButtonComponent, HelloWorldComponent, CommonModule],
+  imports: [StandartButtonComponent, CommonModule],
   templateUrl: './articles-home-page.component.html',
   styleUrl: './articles-home-page.component.css',
 })

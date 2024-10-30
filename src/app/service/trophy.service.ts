@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { NotificationService } from './notification.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrophyService {
-  private apiUrl = 'http://localhost:3000/trophies'; // URL de l'API pour les trophées
+
+  private apiUrl = `${environment.apiUrl}/trophies`;
 
   constructor(
     private http: HttpClient,
