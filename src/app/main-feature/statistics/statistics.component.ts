@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../service/user.service';
 import { AuthService } from '../../service/auth.service';
-import { MatchService } from '../../service/match.service';
 import { CommonModule } from '@angular/common';
+import { ClubService } from '../../service/clubs-services';
+import { StatsService } from '../../service/stats.service';
 
 // Définition du type Match directement dans le fichier
-interface Match {
-  date: string; // Utiliser 'Date' si tu préfères un objet Date
-  opponent: { name: string };
-  result: string; // 'Victoire' ou 'Défaite'
-  score: { player1: number; player2: number };
-}
 
 @Component({
   selector: 'app-statistics',
@@ -30,12 +25,14 @@ export class StatisticsComponent {
     winStreak: 0,
     bestWinStreak: 0,
   }; // Contient les statistiques de l'utilisateur
-  matchHistory: any[] = []; // Contient l'historique des matchs
+  matchHistory: any[] = []; // Pour stocker l'historique des matchs
+
 
   constructor(
     private userService: UserService,
+    private clubService: ClubService,
     private authService: AuthService,
-    private matchService: MatchService // Ajout du service MatchService
+    private statsService: StatsService
   ) {}
 
   ngOnInit(): void {
@@ -46,11 +43,10 @@ export class StatisticsComponent {
       this.userService.getUserInfo(userId).subscribe((data) => {
         this.user = data;
 
+
         this.fetchUserStatistics(userId);
+        this.fetchMatchHistory(userId);
 
-
-      // Appeler la méthode pour récupérer l'historique des matchs ici
-      this.fetchMatchHistory(userId);
 
         // Vérifier si l'utilisateur est associé à un club
         if (this.user.club) {
@@ -64,7 +60,7 @@ export class StatisticsComponent {
 
   // Récupérer les informations du club
   fetchClubInfo(clubId: string): void {
-    this.userService.getClubInfo(clubId).subscribe((clubData) => {
+    this.clubService.getClubInfo(clubId).subscribe((clubData) => {
       this.club = clubData;
 
       // Récupérer les joueurs associés au club
@@ -88,14 +84,10 @@ export class StatisticsComponent {
 
   // Méthode pour récupérer les statistiques de l'utilisateur
   fetchUserStatistics(userId: string): void {
-    this.matchService.getUserStatistics(userId).subscribe(
+    this.statsService.getUserStatistics(userId).subscribe(
       (statistics) => {
         console.log('Statistiques récupérées :', statistics); // Ajout du log
         this.statistics = statistics;
-        this.matchHistory = []; // Assurez-vous que l'historique des matchs est réinitialisé
-
-        // Si vous avez une méthode pour récupérer l'historique, appelez-la ici
-        // this.fetchMatchHistory(userId);
       },
       (error) => {
         console.error(
@@ -105,17 +97,16 @@ export class StatisticsComponent {
       }
     );
   }
+    // Méthode pour récupérer l'historique des matchs
+    fetchMatchHistory(userId: string): void {
+      this.statsService.getUserMatchHistory(userId).subscribe(
+        (history) => {
+          this.matchHistory = history; // Stocker l'historique des matchs
+        },
+        (error) => {
+          console.error('Erreur lors de la récupération de l\'historique des matchs :', error);
+        }
+      );
+    }
 
-   // Méthode pour récupérer l'historique des matchs de l'utilisateur
-   fetchMatchHistory(userId: string): void {
-    this.matchService.getUserMatchHistory(userId).subscribe(
-      (matchHistory: Match[]) => { // Spécifie le type ici
-        console.log('Historique des matchs récupéré :', matchHistory);
-        this.matchHistory = matchHistory.sort((a: Match, b: Match) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération de l\'historique des matchs :', error);
-      }
-    );
-  }
 }

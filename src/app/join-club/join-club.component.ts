@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Pour ngModel
 import { CommonModule } from '@angular/common'; // Pour ngFor
-import { ClubService } from '../service/api-service/api-services';
+import { ClubService } from '../service/clubs-services';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';

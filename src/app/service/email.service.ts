@@ -3,21 +3,32 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmailService {
-
-  private apiUrl = 'http://localhost:3000/api/check-email';
+  private apiUrl = 'http://localhost:3000/email';
 
   constructor(private http: HttpClient) {}
 
-  // Méthode pour vérifier si l'email existe
-  checkEmail(email: string): Observable<any> {
-    return this.http.post('http://localhost:3000/api/check-email',
-      { email },
-      {
-        headers: { 'Content-Type': 'application/json' }
-      }
-    );
+  sendEmailAll(to: string[], subject: string, text: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/send-email`, { to: to.join(','), subject, text }); // Join array into a single string
+  }
+
+  // Envoi d'un email à l'administrateur
+  sendEmailAdmin(
+    userEmail: string,
+    message: string,
+    subject: string
+  ): Observable<any> {
+    console.log('email:', userEmail, 'message:', message, 'subject:', subject);
+    const body = {
+      userEmail: userEmail,
+      message: message,
+      subject: subject,
+    };
+
+    return this.http.post(`${this.apiUrl}/send-email-to-admin`, body, {
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }

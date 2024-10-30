@@ -4,6 +4,7 @@ import { AuthService } from '../../service/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TrophyService } from '../../service/trophy.service';
+import { ClubService } from '../../service/clubs-services';
 
 
 
@@ -27,6 +28,7 @@ export class HautsFaitsComponent implements OnInit {
   constructor(
     private userService: UserService,
     private authService: AuthService,
+    private clubService: ClubService,
     private trophyService: TrophyService
   ) {}
 
@@ -56,7 +58,7 @@ export class HautsFaitsComponent implements OnInit {
 
     // Récupérer les informations du club
     fetchClubInfo(clubId: string): void {
-      this.userService.getClubInfo(clubId).subscribe((clubData) => {
+      this.clubService.getClubInfo(clubId).subscribe((clubData) => {
         this.club = clubData;
 
         // Récupérer les joueurs associés au club

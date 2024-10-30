@@ -24,7 +24,7 @@ previousStep() {
   private router = inject(Router);
 
   // Méthode appelée lors de la soumission du formulaire
-  onLogin() {
+  resetPassword() {
     // Vérification de la validité du formulaire avant l'envoi
     if (this.isFormValid()) {
       this.authService.login(this.email, this.password).subscribe({

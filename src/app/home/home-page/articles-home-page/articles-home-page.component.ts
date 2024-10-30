@@ -5,6 +5,7 @@ import { UserService } from '../../../service/user.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../service/auth.service';
 import { Router } from '@angular/router';
+import { ClubService } from '../../../service/clubs-services';
 
 @Component({
   selector: 'app-articles-home-page',
@@ -19,6 +20,7 @@ export class ArticlesHomePageComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private clubsService: ClubService,
     private authservice: AuthService,
     private router: Router
   ) {}
@@ -43,7 +45,7 @@ export class ArticlesHomePageComponent implements OnInit {
 
   // Fonction pour récupérer les informations du club
   fetchClubInfo(clubId: string): void {
-    this.userService.getClubInfo(clubId).subscribe((data) => {
+    this.clubsService.getClubInfo(clubId).subscribe((data) => {
       this.club = data;
     });
   }

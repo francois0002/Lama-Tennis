@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatchService } from '../../service/match.service';
 import { TrophyService } from '../../service/trophy.service';
 import { NotificationService } from '../../service/notification.service'; // Importez le service de notification
+import { ClubService } from '../../service/clubs-services';
 
 @Component({
   selector: 'app-result',
@@ -28,6 +29,7 @@ export class ResultComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private clubService: ClubService,
     private authService: AuthService,
     private matchService: MatchService,
     private trophyService: TrophyService,
@@ -52,7 +54,7 @@ export class ResultComponent implements OnInit {
   }
 
   fetchClubInfo(clubId: string): void {
-    this.userService.getClubInfo(clubId).subscribe(clubData => {
+    this.clubService.getClubInfo(clubId).subscribe(clubData => {
       this.club = clubData;
       this.fetchPlayers(clubData.userIds);
     });
@@ -118,12 +120,11 @@ export class ResultComponent implements OnInit {
 
       this.trophyService.checkTrophy(this.user._id).subscribe(
         (response) => {
-          if (response && response.message && response.message.trim() !== '') {
-            // Vérifiez si le message n'est pas vide
-            this.notificationService.sendNotification(response.message); // Envoyez le message des trophées gagnés
+          if (response && response.message && response.message.trim() !== '' && !response.message.includes("Aucun nouveau trophée gagné")) {
+            // Envoyez le message des trophées gagnés uniquement s'il y a un nouveau trophée
+            this.notificationService.sendNotification(response.message);
             this.notificationCount++; // Incrémenter le compteur de notifications
           } else {
-            // Pas de nouveaux trophées, ou le message est vide
             console.log('Aucun nouveau trophée gagné ou déjà acquis');
           }
         },

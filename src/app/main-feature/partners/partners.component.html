@@ -17,6 +17,7 @@
       </p>
 
       <p><b>Message (facultatif) : </b><br /></p>
+      <div class="message-forms">
       <textarea
         class="message-input"
         [(ngModel)]="userMessage"
@@ -25,6 +26,7 @@
         rows="4"
         class="message-input"
       ></textarea>
+    </div>
       <p>{{ userMessage.length }}/300 caractères</p>
 
       <button class="contact-all-button" (click)="contactAllPlayers()">
@@ -49,46 +51,51 @@
       <p>
         <span class="text-review">
           {{ players.length }}
-          {{ players.length === 1 ? 'joueur inscrit' : 'joueurs inscrits' }}
+          {{ players.length === 1 ? "joueur inscrit" : "joueurs inscrits" }}
         </span>
       </p>
       <span class="material-symbols-outlined icon-white">
         keyboard_arrow_down
-        </span>
+      </span>
     </div>
 
     <div class="players-list" id="contacts-section" *ngIf="players.length > 0">
-      <ul>
-        <li *ngFor="let player of players">
-          <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
-          <p>
-            <span class="material-symbols-outlined icone-contact"> phone_iphone </span>
-            {{ formatPhoneNumber(player.phoneNumber) }}
-          </p>
+      <div class="box-contact">
+        <ul>
+          <li *ngFor="let player of players">
+            <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
+            <p>
+              <span class="material-symbols-outlined icone-contact">
+                phone_iphone
+              </span>
+              {{ formatPhoneNumber(player.phoneNumber) }}
+            </p>
 
-          <p><span class="material-symbols-outlined icone-contact">
-            mail
-            </span> {{ player.email }}</p>
-          <p>Niveau : {{ player.level }}</p>
-          <p>Classement : {{ player.ranking }}</p>
-        </li>
-      </ul>
+            <p>
+              <span class="material-symbols-outlined icone-contact">
+                mail
+              </span>
+              {{ player.email }}
+            </p>
+            <p>Niveau : {{ player.level }}</p>
+            <p>Classement : {{ player.ranking }}</p>
+          </li>
+        </ul>
+      </div>
     </div>
 
-      <!-- Promote Lama Tennis-->
+    <!-- Promote Lama Tennis-->
 
-  <div class="div-promotion" *ngIf="players.length < 10">
-    <p class="promotion">
-      <span class="material-symbols-outlined icon"> campaign </span>
-      Peu de joueurs sont inscrits pour le moment dans ton club, n'hésite pas à
-      parler de Lama Tennis autour de toi ! <br /><br />
+    <div class="div-promotion" *ngIf="players.length < 10">
+      <p class="promotion">
+        <span class="material-symbols-outlined icon"> campaign </span>
+        Peu de joueurs sont inscrits pour le moment dans ton club, n'hésite pas
+        à parler de Lama Tennis autour de toi ! <br /><br />
 
-      <a href="/home/promote-lama-tennis" class="link">
-        Recommander Lama Tennis</a
-      >
-    </p>
+        <a href="/home/promote-lama-tennis" class="link">
+          Recommander Lama Tennis</a
+        >
+      </p>
+    </div>
   </div>
-  </div>
-
-
 </div>

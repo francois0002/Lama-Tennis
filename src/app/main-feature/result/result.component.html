@@ -14,7 +14,7 @@
 
       <form (ngSubmit)="saveMatchScore()">
         <!-- Joueur 1 est l'utilisateur connecté -->
-
+        <div class="score-container">
         <div class="score">
         <p>
           <span class="title">Joueur 1</span></p>
@@ -65,6 +65,7 @@
           </select>
         </p>
       </div>
+    </div>
 
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}

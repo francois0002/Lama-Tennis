@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ClubService } from '../../service/clubs-services';
+import { EmailService } from '../../service/email.service';
 
 
 @Component({
@@ -23,6 +25,8 @@ export class PartnersComponent implements OnInit {
   constructor(
     private userService: UserService,
     private authService: AuthService,
+    private clubService: ClubService,
+    private emailService: EmailService,
     private router: Router,
     private http: HttpClient
   ) {}
@@ -49,7 +53,7 @@ export class PartnersComponent implements OnInit {
 
   // Récupérer les informations du club
   fetchClubInfo(clubId: string): void {
-    this.userService.getClubInfo(clubId).subscribe((clubData) => {
+    this.clubService.getClubInfo(clubId).subscribe((clubData) => {
       this.club = clubData;
 
       // Récupérer les joueurs associés au club
@@ -71,7 +75,6 @@ export class PartnersComponent implements OnInit {
     });
   }
 
-  // Fonction pour contacter tous les joueurs
   contactAllPlayers(): void {
     if (this.players.length < 2) {
       alert('Il doit y avoir au moins 2 joueurs dans le club pour envoyer un message.');
@@ -91,24 +94,17 @@ export class PartnersComponent implements OnInit {
       return;
     }
 
-    // Appel pour envoyer l'email
-    this.http
-      .post('http://localhost:3000/send-email', {
-        to: recipientEmails.join(','),
-        subject: emailSubject,
-        text: emailBody,
-      })
-      .subscribe(
-        () => {
-          alert('Message envoyé aux autres joueurs du club.');
-        },
-        (error) => {
-          console.error('Erreur lors de l\'envoi des emails:', error);
-          alert('Une erreur est survenue lors de l\'envoi des emails.');
-        }
-      );
-  }
-
+    // Utiliser le service d'e-mail pour envoyer l'e-mail
+    this.emailService.sendEmailAll(recipientEmails, emailSubject, emailBody).subscribe(
+      () => {
+        alert('Message envoyé aux autres joueurs du club.');
+      },
+      (error) => {
+        console.error('Erreur lors de l\'envoi des emails:', error);
+        alert('Une erreur est survenue lors de l\'envoi des emails.');
+      }
+    );
+}
 
   capitalizeWords(text: string): string {
     if (!text) return ''; // Gérer les valeurs vides ou undefined
