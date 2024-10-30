@@ -6,19 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/auth'; // URL de votre serveur
+
 
   constructor(private http: HttpClient) {}
 
   // Fonction pour se connecter
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/connexion`, { email, password });
+    return this.http.post(`/auth/connexion`, { email, password });
   }
 
   // Méthode pour vérifier si l'email existe
   checkEmail(email: string): Observable<any> {
     return this.http.post(
-      `${this.apiUrl}/connexion/check-email`,
+      `/auth/connexion/check-email`,
       { email },
       {
         headers: { 'Content-Type': 'application/json' },
