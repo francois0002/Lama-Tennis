@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  // Pour envoyer des données au serveur (MongoDB)
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SignUpService {
 
-  private apiUrl = 'http://localhost:3000/auth/inscription';
+
+  private apiUrl = `${environment.apiUrl}/auth/inscription`;
 
   constructor(private http: HttpClient) {}
 

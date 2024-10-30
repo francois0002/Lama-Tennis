@@ -1,24 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-
+  private apiUrl = `${environment.apiUrl}/auth`;
 
   constructor(private http: HttpClient) {}
 
   // Fonction pour se connecter
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`/auth/connexion`, { email, password });
+    return this.http.post(`${this.apiUrl}/connexion`, { email, password });
   }
 
   // Méthode pour vérifier si l'email existe
   checkEmail(email: string): Observable<any> {
     return this.http.post(
-      `/auth/connexion/check-email`,
+      `${this.apiUrl}/connexion/check-email`,
       { email },
       {
         headers: { 'Content-Type': 'application/json' },
@@ -62,10 +63,6 @@ export class AuthService {
     }
   }
 
-  getUserWithClub(): Observable<any> {
-    const userId = this.getCurrentUserId(); // méthode pour obtenir l'ID de l'utilisateur
-    return this.http.get(`/api/users/${userId}`); // Assurez-vous d'avoir une API qui retourne l'utilisateur avec les détails du club
-  }
 
   //fonction pour récupérer le token
   getToken() {
