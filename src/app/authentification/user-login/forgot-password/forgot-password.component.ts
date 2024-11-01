@@ -25,23 +25,21 @@ previousStep() {
 
   // Méthode appelée lors de la soumission du formulaire
   resetPassword() {
-    // Vérification de la validité du formulaire avant l'envoi
-    if (this.isFormValid()) {
-      this.authService.login(this.email, this.password).subscribe({
-        next: (response) => {
-          // Connexion réussie : stocker le token et rediriger vers /home
-          this.authService.setToken(response.token);
-          this.router.navigate(['/home']);
-        },
-        error: (err) => {
-          // En cas d'erreur, afficher un message
-          this.errorMessage = err.error.message || "Une erreur s'est produite lors de la connexion";
-        }
-      });
-    } else {
-      this.errorMessage = 'Veuillez entrer un email et un mot de passe valides.';
+    if (!this.email) {
+      this.errorMessage = 'Veuillez entrer un email valide.';
+      return;
     }
+  
+    this.authService.requestPasswordReset(this.email).subscribe({
+      next: () => {
+        this.router.navigate(['/home-login/send-mail-reset']);
+      },
+      error: (err) => {
+        this.errorMessage = err.error.message || "Erreur lors de la réinitialisation du mot de passe";
+      }
+    });
   }
+  
 
   // Méthode pour valider tous les champs
   isFormValid(): boolean {

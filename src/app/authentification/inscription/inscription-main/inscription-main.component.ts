@@ -101,7 +101,7 @@ nextStep() {
         next: (response) => {
           console.log('Inscription réussie:', response);
           // Rediriger ou informer l'utilisateur
-          this.router.navigate(['/home-login']); // Redirection vers la page de connexion
+          this.router.navigate(['/home-login/confirm-mail']); // Redirection vers la page de connexion
         },
         error: (error) => {
           console.error('Erreur lors de l\'inscription:', error);

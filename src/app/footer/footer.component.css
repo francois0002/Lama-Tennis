@@ -1,24 +1,31 @@
 .footer {
   display: flex;
   justify-content: space-around;
-  align-items: lighter;
-  padding-top: 0.5rem;
-  background-color: #88b7d5;
+  align-items: center;
+  padding: 0.3rem 0; /* Plus d'espace en haut et en bas */
+  background-color: #88b7d5; /* Une couleur verte plus sombre pour le fond */
   color: #ffffff;
-  font-weight: 400;
+  font-weight: 500; /* Une légère augmentation du poids de la police */
   position: sticky;
   bottom: 0;
   width: 100%;
-  border-top: 0.15rem solid #ffffff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre */
 }
 
 .footer div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.1rem;
+  padding: 0.5rem; /* Ajout d'un padding pour plus d'espace */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transition pour le mouvement */
+  margin-bottom: 0.5rem;
+  border-radius: 8px; /* Arrondir les coins des éléments */
+  position: relative; /* Pour positionner le trait de séparation */
 }
 
+.footer div:hover {
+  transform: translateY(-3px); /* Léger effet de levitation au survol */
+  background-color: rgba(255, 255, 255, 0.2); /* Légère transparence au survol */
+}
 
