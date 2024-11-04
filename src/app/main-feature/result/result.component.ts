@@ -8,11 +8,13 @@ import { MatchService } from '../../service/match.service';
 import { TrophyService } from '../../service/trophy.service';
 import { NotificationService } from '../../service/notification.service'; // Importez le service de notification
 import { ClubService } from '../../service/clubs-services';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { JoinClubDialogComponent } from '../../footer/join-club-pop-up/join-club-pop-up.component';
 
 @Component({
   selector: 'app-result',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,MatDialogModule],
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
 })
@@ -34,7 +36,8 @@ export class ResultComponent implements OnInit {
     private matchService: MatchService,
     private trophyService: TrophyService,
     private notificationService: NotificationService, // Ajoutez le service de notification
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -44,13 +47,26 @@ export class ResultComponent implements OnInit {
       this.userService.getUserInfo(userId).subscribe(data => {
         this.user = data;
 
-        if (this.user.club) {
+        if (!this.user.club) {
+          this.openJoinClubDialog(); // Ouvre la boîte de dialogue si l'utilisateur n'a pas de club
+        } else {
           this.fetchClubInfo(this.user.club);
         }
       });
     } else {
       console.error('User ID is null');
     }
+  }
+
+  openJoinClubDialog(): void {
+    const dialogRef = this.dialog.open(JoinClubDialogComponent, {
+      width: '300px',
+    });
+
+    // Gérer la fermeture de la boîte de dialogue si besoin
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('La boîte de dialogue a été fermée', result);
+    });
   }
 
   fetchClubInfo(clubId: string): void {

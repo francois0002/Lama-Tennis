@@ -3,16 +3,18 @@ import { UserService } from '../../service/user.service';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClubService } from '../../service/clubs-services';
 import { EmailService } from '../../service/email.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { JoinClubDialogComponent } from '../../footer/join-club-pop-up/join-club-pop-up.component';
+
 
 
 @Component({
   selector: 'app-partners',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatDialogModule],
   templateUrl: './partners.component.html',
   styleUrl: './partners.component.css',
 })
@@ -28,7 +30,7 @@ export class PartnersComponent implements OnInit {
     private clubService: ClubService,
     private emailService: EmailService,
     private router: Router,
-    private http: HttpClient
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +42,9 @@ export class PartnersComponent implements OnInit {
         this.user = data;
 
         // Vérifier si l'utilisateur est associé à un club
-        if (this.user.club) {
+        if (!this.user.club) {
+          this.openJoinClubDialog(); // Ouvre la boîte de dialogue si l'utilisateur n'a pas de club
+        } else {
           this.fetchClubInfo(this.user.club);
         }
 
@@ -49,7 +53,22 @@ export class PartnersComponent implements OnInit {
     } else {
       console.error('User ID is null');
     }
+    
   }
+  openJoinClubDialog(): void {
+    const dialogRef = this.dialog.open(JoinClubDialogComponent, {
+      width: '300px',
+    });
+
+    // Gérer la fermeture de la boîte de dialogue si besoin
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('La boîte de dialogue a été fermée', result);
+    });
+  }
+
+
+  
+
 
   // Récupérer les informations du club
   fetchClubInfo(clubId: string): void {

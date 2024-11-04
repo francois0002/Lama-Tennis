@@ -4,11 +4,13 @@ import { AuthService } from '../../service/auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ClubService } from '../../service/clubs-services';
+import { JoinClubDialogComponent } from '../../footer/join-club-pop-up/join-club-pop-up.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-club',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,MatDialogModule],
   templateUrl: './my-club.component.html',
   styleUrls: ['./my-club.component.css'],
 })
@@ -21,7 +23,8 @@ export class MyClubComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private clubsService: ClubService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -33,7 +36,9 @@ export class MyClubComponent implements OnInit {
         this.user = data;
 
         // Vérifier si l'utilisateur est associé à un club
-        if (this.user.club) {
+        if (!this.user.club) {
+          this.openJoinClubDialog(); // Ouvre la boîte de dialogue si l'utilisateur n'a pas de club
+        } else {
           this.fetchClubInfo(this.user.club);
         }
       });
@@ -41,6 +46,19 @@ export class MyClubComponent implements OnInit {
       console.error('User ID is null');
     }
   }
+
+  openJoinClubDialog(): void {
+    const dialogRef = this.dialog.open(JoinClubDialogComponent, {
+      width: '300px',
+    });
+
+    // Gérer la fermeture de la boîte de dialogue si besoin
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('La boîte de dialogue a été fermée', result);
+    });
+  }
+
+
 
   // Récupérer les informations du club
   fetchClubInfo(clubId: string): void {
