@@ -1,0 +1,23 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h1>Supprimer mon compte</h1>
+    <button class="close-button" (click)="onClose()">×</button>
+  </div>
+  <div class="dialog-body">
+    <p>
+      Cette action supprimera mon compte définitivement ainsi que toutes les
+      informations associées : Trophées, statistiques, historique des matchs...
+      Je suis conscient que cette action est irréversible et je souhaite continuer. <br /><br />
+    </p>
+    <mat-form-field appearance="fill" class="password-field">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput [(ngModel)]="password" type="password" />
+    </mat-form-field>
+    <div *ngIf="passwordError" class="error-message">{{ passwordError }}</div>
+  </div>
+  <div class="dialog-footer">
+    <button mat-button class="join-button" (click)="onDeleteAccount()">
+      Supprimer mon compte
+    </button>
+  </div>
+</div>

@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DeleteAccountDialogComponent } from './delete-account-pop-up/delete-account-pop-up.component';
 
 interface Level {
   value: string;
@@ -34,7 +36,8 @@ interface Club {
     ReactiveFormsModule,
     MatFormFieldModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.css'],
@@ -95,7 +98,8 @@ export class MyAccountComponent implements OnInit {
     private userService: UserService,
     private clubService: ClubService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {
     // Initialize forms
     this.userForm = this.fb.group({
@@ -236,6 +240,17 @@ export class MyAccountComponent implements OnInit {
         alert("Une erreur s'est produite lors de la suppression de votre compte.");
       }
     );
+  }
+
+  openJoinClubDialog(): void {
+    const dialogRef = this.dialog.open(DeleteAccountDialogComponent, {
+      width: '300px',
+    });
+
+    // Gérer la fermeture de la boîte de dialogue si besoin
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('La boîte de dialogue a été fermée', result);
+    });
   }
 
 

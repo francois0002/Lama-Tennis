@@ -1,0 +1,68 @@
+.dialog-container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dialog-header h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+  outline: none;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.dialog-body {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.dialog-body p {
+  font-size: 1rem;
+  color: #666;
+  text-align: left;
+}
+
+.dialog-footer {
+  text-align: center;
+}
+
+.join-button {
+  background-color: #ff4b4b; /* Couleur bleu clair */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+  background-color: #ff4b4b;
+}
