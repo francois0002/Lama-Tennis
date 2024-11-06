@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../service/auth.service';
-import { UserService } from '../service/user.service';
-import { ClubService } from '../service/clubs-services';
+import { AuthService } from '../../service/auth.service';
+import { UserService } from '../../service/user.service';
+import { ClubService } from '../../service/clubs-services';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';

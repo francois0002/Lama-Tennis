@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-join-club-pop-up',
-  templateUrl: './join-club-pop-up.component.html',
-  styleUrl: './join-club-pop-up.component.css',
+  selector: 'send-mail-admin-pop-up',
+  templateUrl: './send-mail-admin-pop-up.component.html',
+  styleUrl: './send-mail-admin-pop-up.component.css',
   standalone: true,
 })
-export class JoinClubDialogComponent {
+export class SendMailAdminDialogComponent {
 
-  constructor(public dialogRef: MatDialogRef<JoinClubDialogComponent>) {}
+  constructor(public dialogRef: MatDialogRef<SendMailAdminDialogComponent>) {}
 
   onHome(): void {
     this.dialogRef.close();

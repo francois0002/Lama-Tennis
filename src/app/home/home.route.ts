@@ -2,19 +2,20 @@ import { Routes } from '@angular/router';
 import { LamaKesakoComponent } from '../blog-articles/lama-kesako/lama-kesako.component';
 import { PromoteLamaTennisComponent } from '../blog-articles/promote-lama-tennis/promote-lama-tennis.component';
 import { StartWithLamaComponent } from '../blog-articles/start-with-lama/start-with-lama.component';
-import { FaqComponent } from '../faq/faq.component';
+import { FaqComponent } from '../menu/faq/faq.component';
 import { AuthGuard } from '../guard/auth.guard';
 import { JoinClubComponent } from '../join-club/join-club.component';
 import { HautsFaitsComponent } from '../main-feature/hauts-faits/hauts-faits.component';
 import { MyClubComponent } from '../main-feature/my-club/my-club.component';
 import { PoulesComponent } from '../main-feature/poules/poules.component';
-import { MyAccountComponent } from '../my-account/my-account.component';
+import { MyAccountComponent } from '../menu/my-account/my-account.component';
 import { ArticlesHomePageComponent } from './home-page/articles-home-page/articles-home-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PartnersComponent } from '../main-feature/partners/partners.component';
 import { ResultComponent } from '../main-feature/result/result.component';
-import { StatisticsComponent } from '../main-feature/statistics/statistics.component';
-import { ContactUsComponent } from '../contact-us/contact-us.component';
+import { StatisticsComponent } from '../menu/statistics/statistics.component';
+import { ContactUsComponent } from '../menu/contact-us/contact-us.component';
+
 
 
 
