@@ -1,8 +1,8 @@
 .btn-back {
   display: inline-block;
-  width: 30px; /* Largeur du bouton */
-  height: 30px; /* Hauteur du bouton */
-  background-image: url('/icone/back.png'); /* Chemin vers l'image dans le dossier assets */
+  width: 30px; 
+  height: 30px; 
+  background-image: url('/icone/back.png');
   background-size: cover;
   background-position: center;
   border: none;

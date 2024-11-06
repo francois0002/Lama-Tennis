@@ -8,9 +8,8 @@ import { MatInput } from '@angular/material/input';
 @Component({
   selector: 'app-user-info-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,MatFormFieldModule, MatInput],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInput],
   templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.css']
 })
 export class UserInfoFormComponent {
   userForm: FormGroup;
@@ -19,10 +18,13 @@ export class UserInfoFormComponent {
     this.userForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.maxLength(50)]],
       lastName: ['', [Validators.required, Validators.maxLength(50)]],
-      phoneNumber: ['', [
-        Validators.required,
-        Validators.pattern(/^(0[1-9](?:[ .-]?\d{2}){4})$/) // Regex pour valider les numéros de téléphone internationaux
-      ]]
+      phoneNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^(0[1-9](?:[ .-]?\d{2}){4})$/), // Regex pour valider les numéros de téléphone internationaux
+        ],
+      ],
     });
   }
 

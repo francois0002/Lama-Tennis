@@ -10,60 +10,53 @@ import { CommonModule } from '@angular/common';
 import { SignUpService } from '../../../service/on-sign-up.service';
 import { FormService } from '../../../service/form.service';
 
-
-
-
-
 @Component({
   selector: 'app-inscription-main',
   standalone: true,
-  imports:[InscriptionStep1Component, ProgressBarComponent,
-    InscriptionStep2Component, BackButtonComponent,
-    Step0HomeLoginComponent, InscriptionStep3Component, CommonModule],
+  imports: [
+    InscriptionStep1Component,
+    ProgressBarComponent,
+    InscriptionStep2Component,
+    BackButtonComponent,
+    Step0HomeLoginComponent,
+    InscriptionStep3Component,
+    CommonModule,
+  ],
   templateUrl: './inscription-main.component.html',
-  styleUrl: './inscription-main.component.css'
-
-
-
+  styleUrl: './inscription-main.component.css',
 })
 export class InscriptionMainComponent {
-
-
   isStep1Valid = false; // Variable to track if step 1 is valid
   isStep2Valid = false; // Variable to track if step 2 is valid
   isStep3Valid = false; // Variable to track if step 3 is valid
   currentStep = 1;
   isEmailAvailable = true;
 
+  constructor(private router: Router, private signUpService: SignUpService) {}
 
+  // Method to update email availability
+  updateEmailAvailability(isAvailable: boolean) {
+    this.isEmailAvailable = isAvailable;
+  }
 
-  constructor(private router: Router,  private signUpService: SignUpService) {}
-
-    // Méthode appelée lorsque la disponibilité de l'email change
-    updateEmailAvailability(isAvailable: boolean) {
-      this.isEmailAvailable = isAvailable;
+  // Method to control the 'Next' button state
+  canProceed(): boolean {
+    if (this.currentStep === 1) {
+      return this.isStep1Valid && this.isEmailAvailable; // // Validation du Step 1
+    } else if (this.currentStep === 2) {
+      return this.isStep2Valid; // Validation du Step 2
+    } else if (this.currentStep === 3) {
+      return this.isStep3Valid; // Validation du Step 3
     }
 
-
- // Method to control the 'Next' button state
-canProceed(): boolean {
-  if (this.currentStep === 1) {
-    return this.isStep1Valid && this.isEmailAvailable; // // Validation du Step 1
-  } else if (this.currentStep === 2) {
-    return this.isStep2Valid; // Validation du Step 2
+    return true;
   }
-  else if (this.currentStep === 3) {
-    return this.isStep3Valid; // Validation du Step 3
+  // Method to move to the next step
+  nextStep() {
+    if (this.currentStep < 3 && this.canProceed()) {
+      this.currentStep++;
+    }
   }
-
-  return true
-}
-// Method to move to the next step
-nextStep() {
-  if (this.currentStep < 3 && this.canProceed()) {
-    this.currentStep++;
-  }
-}
 
   // redirect to home-login page if the user is on the first step
   previousStep() {
@@ -74,40 +67,39 @@ nextStep() {
     }
   }
 
-    // This method will be called by child component to update step 1 validity
-    updateStep1Validity(isValid: boolean) {
-      this.isStep1Valid = isValid;
-    }
+  // Method will be called by child component to update step 1 validity
+  updateStep1Validity(isValid: boolean) {
+    this.isStep1Valid = isValid;
+  }
 
-    // This method will be called by child component to update step 2 validity
-    updateStep2Validity(isValid: boolean) {
+  // Method will be called by child component to update step 2 validity
+  updateStep2Validity(isValid: boolean) {
     this.isStep2Valid = isValid;
-    }
+  }
 
-     // This method will be called by child component to update step 3 validity
-    updateStep3Validity(isValid: boolean) {
-      this.isStep3Valid = isValid;
-    }
+  // Method will be called by child component to update step 3 validity
+  updateStep3Validity(isValid: boolean) {
+    this.isStep3Valid = isValid;
+  }
 
+  private service = inject(FormService);
 
-    private service = inject(FormService);
+  // Method to register the user
+  register() {
+    const formData = this.service.getFormData();
+    console.log('Données à envoyer :', formData);
 
-    register() {
-
-      const formData = this.service.getFormData();
-      console.log('Données à envoyer :', formData); // Vérifiez ici
-
-      this.signUpService.saveToDatabase(formData).subscribe({
-        next: (response) => {
-          console.log('Inscription réussie:', response);
-          // Rediriger ou informer l'utilisateur
-          this.router.navigate(['/home-login/confirm-mail']); // Redirection vers la page de connexion
-        },
-        error: (error) => {
-          console.error('Erreur lors de l\'inscription:', error);
-          alert('Une erreur est survenue lors de l\'inscription. Veuillez vérifier vos informations et réessayer.');
-          // Afficher un message d'erreur à l'utilisateur
-        }
-      });
-}
+    this.signUpService.saveToDatabase(formData).subscribe({
+      next: (response) => {
+        console.log('Inscription réussie:', response);
+        this.router.navigate(['/home-login/confirm-mail']);
+      },
+      error: (error) => {
+        console.error("Erreur lors de l'inscription:", error);
+        alert(
+          "Une erreur est survenue lors de l'inscription. Veuillez vérifier vos informations et réessayer."
+        );
+      },
+    });
+  }
 }
