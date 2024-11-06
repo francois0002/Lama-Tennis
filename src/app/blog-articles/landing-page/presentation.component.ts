@@ -26,6 +26,25 @@ export class PresentationLamaTennisComponent {
       description: 'Trouve des autres joueurs de tennis au sein de ton club'
     },
 
+    {
+      url: '/level/result.png',
+      title: 'Résultats',
+      description: 'Enregistre les résultats des matchs joués'
+    },
+
+    {
+      url: '/level/trophees.png',
+      title: 'Trophées',
+      description: 'Collection de trophées gagnés par le joueur suite à sa progression'
+    },
+
+    {
+      url: '/level/stats.png',
+      title: 'Statistiques',
+      description: 'Vision sur les différentes statistiques du joueur et de son historique de matchs'
+    },
+
+
 
 
   ];

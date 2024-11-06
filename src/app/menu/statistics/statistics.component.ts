@@ -101,7 +101,7 @@ export class StatisticsComponent {
     fetchMatchHistory(userId: string): void {
       this.statsService.getUserMatchHistory(userId).subscribe(
         (history) => {
-          this.matchHistory = history; // Stocker l'historique des matchs
+          this.matchHistory = history.sort((a: any, b: any)=> new Date(b.date_add).getTime() - new Date(a.date_add).getTime());
         },
         (error) => {
           console.error('Erreur lors de la récupération de l\'historique des matchs :', error);

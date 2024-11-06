@@ -40,18 +40,28 @@
         <div *ngIf="matchHistory.length > 0; else noHistory">
           <div *ngFor="let match of matchHistory" class="match-card">
             <p class="match-date">
-              {{ match.date_add | date: "dd/MM/yyyy" }} :
+              {{ match.date_add | date : "dd/MM/yyyy" }} :
               <span class="match-player">
                 <!-- Affichage du nom de l'adversaire -->
-                {{ match.player1_id._id === user._id ? match.player2_id.firstName + ' ' + match.player2_id.lastName : match.player1_id.firstName + ' ' + match.player1_id.lastName }}
-                
-            
+                {{
+                  match.player1_id._id === user._id
+                    ? match.player2_id.firstName +
+                      " " +
+                      match.player2_id.lastName
+                    : match.player1_id.firstName +
+                      " " +
+                      match.player1_id.lastName
+                }}
               </span>
             </p>
-      
+
             <p class="match-result">
-              <span class="result-win" *ngIf="match.winner_id === user._id">Victoire</span>
-              <span class="result-loss" *ngIf="match.winner_id !== user._id">Défaite</span>
+              <span class="result-win" *ngIf="match.winner_id === user._id"
+                >Victoire</span
+              >
+              <span class="result-loss" *ngIf="match.winner_id !== user._id"
+                >Défaite</span
+              >
               <span class="match-score">
                 {{ match.score.player1 }} - {{ match.score.player2 }}
               </span>
@@ -59,12 +69,10 @@
           </div>
         </div>
       </div>
-      
 
-        <ng-template #noHistory>
-          <p>Aucun match joué pour le moment.</p>
-        </ng-template>
-      </div>
+      <ng-template #noHistory>
+        <p>Aucun match joué pour le moment.</p>
+      </ng-template>
     </div>
   </div>
-
+</div>

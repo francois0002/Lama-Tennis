@@ -63,7 +63,7 @@
       <div class="box-contact">
         <ul>
           <li *ngFor="let player of players">
-            <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
+            <p class="name">{{ player.firstName }} {{ player.lastName }}</p>
             <p class="contact-details">
               <span class="material-symbols-outlined icone-contact">
                 phone_iphone
@@ -86,7 +86,7 @@
 
     <!-- Promote Lama Tennis-->
 
-    <div class="div-promotion" *ngIf="players.length < 10">
+    <div class="div-promotion" *ngIf="players.length < 20">
       <p class="promotion">
         <span class="material-symbols-outlined icon"> campaign </span>
         Peu de joueurs sont inscrits pour le moment dans ton club, n'hésite pas
