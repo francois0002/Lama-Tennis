@@ -1,0 +1,109 @@
+<div class="level-container">
+  <img src="/level/logo-rond.png" class="img-logo" />
+  <h1 class="title">Lama Tennis</h1>
+  <p class="subtitle">
+    "Trouvez et challengez d'autres joueurs dans votre club de tennis !"
+  </p>
+</div>
+
+<div class="level-container">
+  <section class="about">
+    <div class="container">
+      <h2 class="section-title">Challenge !</h2>
+      <p class="section-description">
+        Lama Tennis est l'application qui permet de simplifier la pratique du
+        tennis pour les joueurs d'un club. <br /><br />Trouve facilement des
+        partenaires, organise des matchs, enregistre tes résultat et monte en
+        progression ! Gagne des trophées en fonction de tes résultats : plus tu
+        joues, plus tu es récompensé.
+      </p>
+    </div>
+  </section>
+</div>
+
+<div class="level-container">
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Les avantages</h2>
+      <ul class="features-list">
+        <li>🔍 Organisation des rencontres selon le niveau des joueurs</li>
+        <li>🎖️ Système de Haut Faits récompensant la progression</li>
+        <li>🤝 Rencontre constante de nouveaux joueurs</li>
+        <li>📋 15 000 clubs référencés à travers la France</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<div class="level-container">
+  <section class="Pictures">
+    <div class="container">
+      <h2 class="section-title">En images</h2>
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-header">
+            <h3 class="carousel-title">{{ images[currentIndex].title }}</h3>
+            <p class="carousel-description">{{ images[currentIndex].description }}</p>
+          </div>
+          <img [src]="images[currentIndex].url" alt="Carousel Image" class="carousel-item">
+        </div>
+        <button class="prev" (click)="moveSlide(-1)">&#10094;</button>
+        <button class="next" (click)="moveSlide(1)">&#10095;</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="level-container">
+  <section class="futur">
+    <div class="container">
+      <h2 class="section-title">Les développements futurs</h2>
+      <ul class="features-list">
+        <li>🎯 Classement compétitif au sein du club</li>
+        <li>🏆 Poules de 3 à 5 joueurs pour des compétitions sur 2 mois</li>
+        <li>🥇 Tournois loisirs organisable par un club</li>
+        <li>🏸 Ajout d'autres sports : Padel, Squash, Badminton</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<div class="level-container">
+  <section class="creator">
+    <div class="container">
+      <img src="/level/francois.jpeg" class="img-logo-profil" />
+      <h2 class="section-title">François Gosselin</h2>
+      <p class="section-description">
+        C'est moi ! Le créateur de Lama Tennis. <br /><br />Je suis un ancien
+        pratiquant et j'ai joué toute ma jeunesse au tennis. Après un long
+        arrêt, j'ai décidé de m'y remettre et j'ai constaté que la recherche de
+        partenaires n'est pas une partie de plaisir ! <br /><br />
+        C'est pourquoi j'ai créé Lama Tennis, pour faciliter la recherche de
+        partenaires et rendre la pratique du tennis plus excitante.
+
+        <br /><br />
+
+        Lien vers mon profil LinkedIn :
+        <a href="https://www.linkedin.com/in/fran%C3%A7ois-gosselin-267b1ba5/"
+          >François Gosselin</a
+        > <br /><br />
+        Lien vers le projet Github :
+        <a href="https://github.com/francois0002/lama-tennis"
+          >Github Lama Tennis</a
+        >
+      </p>
+    </div>
+  </section>
+</div>
+
+<section class="cta">
+  <div class="container">
+    <h2 class="cta-title">Rejoignez Lama Tennis dès aujourd'hui !</h2>
+    <p class="cta-text">
+      Simplifiez et rendez votre pratique du tennis plus excitante. Découvrez
+      dès maintenant comment Lama Tennis peut vous aider à trouver des
+      partenaires et à progresser dans votre club.
+    </p>
+    <a href="/home-login" class="cta-button">Rejoindre Lama Tennis</a>
+  </div>
+</section>

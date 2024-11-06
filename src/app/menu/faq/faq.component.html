@@ -1,48 +1,207 @@
-<div class = "title-container">
+<div class="title-container">
+  <span class="material-symbols-outlined tennis-icon"> help </span>
+  <h2 class="title">FAQ</h2>
 
-  <span class="material-symbols-outlined tennis-icon">
-    help
-    </span>
-<h2 class="title">FAQ</h2>
+  <div class="faq-container">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Qu'est-ce que Lama Tennis ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Lama Tennis est une application qui permet aux joueurs de tennis de
+          trouver et de challenger d’autres joueurs au sein de leur club. <br />
+          <br />Elle vise à simplifier et à rendre la pratique du tennis plus
+          exaltante.
+        </p>
+      </mat-expansion-panel>
 
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Comment rejoindre un club ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Il suffit de se rendre
+          <a routerLink="/home/join-club">sur cette page</a> et de choisir son
+          club parmi les 15 000 disponibles partout en France. <br /><br />Pour
+          retrouver ton club, tu peux filtrer par sa ville ou par son nom.
+        </p>
+      </mat-expansion-panel>
 
-<div class="faq-container">
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Qu'est-ce que Lama Tennis ?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>Lama Tennis est une application qui permet aux joueurs de tennis de trouver et de challenger d’autres joueurs au sein de leur club. Elle vise à simplifier et rendre la pratique du tennis plus exaltante.</p>
-    </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Je ne trouve pas mon club ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Si tu ne retrouves pas ton club parmi la liste des clubs disponibles,
+          tu peux nous contacter directement
+          <a routerLink="/home/contact-us">sur cette page</a>.<br /><br />
+          Pense bien à nous communiquer toutes les informations dont tu disposes
+          sur le club (Ville, adresse, numéro de téléphone etc.).
+          <br /><br />Nous ferons de notre mieux pour ajouter ton club à notre
+          base de données.
+        </p>
+      </mat-expansion-panel>
 
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Comment fonctionne le système de classement ?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>Les joueurs sont inscrits dans une poule de 3 à 5 joueurs et disposent de 2 mois pour effectuer leurs matchs. Les meilleurs joueurs de chaque poule montent dans la poule supérieure, tandis que les moins performants descendent dans la poule inférieure. Cela permet d'équilibrer les niveaux et d'encourager les joueurs à se challenger.</p>
-    </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Est-ce que je peux changer de club ?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Tu as la possibilité de changer de club à tout moment. Pour cela, il
+          suffit de se rendre sur
+          <a routerLink="/home/my-club">sur cette page</a>. <br /><br />Tu
+          pourras cliquer sur le bouton "Changer de club" et choisir un nouveau
+          club parmi la liste des clubs disponibles.
+        </p>
+      </mat-expansion-panel>
 
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Le système de gamification, comment ça marche ?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>Le système de gamification récompense les joueurs avec des récompenses virtuelles basées sur leurs succès et performances dans les matchs. Cela ajoute un aspect ludique et motivant à la pratique du tennis.</p>
-    </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Comment trouver un partenaire ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Pour trouver un partenaire, tu dois avoir rejoint un club. Une fois
+          que tu es rattaché à un club, tu peux te rendre
+          <a routerLink="/home/partners">sur cette page</a>. <br /><br />Tu
+          pourras envoyer automatiquement un message à tous les joueurs du club
+          pour trouver un partenaire. Tu as également la possibilité d'indiquer
+          tes disponibilités et ton niveau dans le message envoyé. <br /><br />
+          Tu as également accès à la liste des joueurs inscrits, si tu souhaites
+          contacter directement un joueur.
+        </p>
+      </mat-expansion-panel>
 
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Lama Tennis est-il lié aux compétitions officielles ?
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>Non, Lama Tennis fonctionne indépendamment des compétitions officielles organisées par la Fédération Française de Tennis. Le système de classement et de compétition est uniquement au sein d’un club.</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Comment enregistrer un score ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Suite à un match, tu peux enregistrer le score en te rendant
+          <a routerLink="/home/result">sur cette page</a>. <br /><br />Il te
+          suffira ensuite de rechercher ton adversaire et d'indiquer les sets
+          marqués par chacun.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Les trophées, comment ça marche ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Un système de gamification récompense les joueurs avec des trophées
+          basées sur leurs succès et performances dans les matchs. Cela ajoute
+          un aspect ludique et motivant à la pratique du tennis. <br /><br />
+          Plus tu joues, plus tu es récompensé ! 🏆 Tu peux consulter la liste
+          de tous les trophées
+          <a routerLink="/home/achievements">sur cette page</a>.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Lama Tennis est-il lié aux compétitions officielles ?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Non, Lama Tennis fonctionne indépendamment des compétitions
+          officielles organisées par la Fédération Française de Tennis.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Comment changer mes informations de profil ?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Pour modifier tes informations de profil, tu peux te rendre
+          <a routerLink="/home/my-account">sur cette page</a>. Tu pourras
+          modifier tes coordonnées et ton classement.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Comment supprimer mon compte ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Si tu souhaites supprimer ton compte Lama Tennis, tu peux te rendre
+          <a routerLink="/home/my-account">sur cette page</a> et cliquer sur le
+          bouton "Supprimer mon compte". <br /><br />Attention, cette action est
+          irréversible, tu perdras toutes tes données : matchs, trophées
+          gagnées, historique des matchs.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Comment signaler un joueur ? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Si un joueur ne respecte pas les règles de fair-play ou si tu as
+          constaté un comportement inapproprié, tu peux nous contacter
+          directement
+          <a routerLink="/home/contact-us">sur cette page</a>. <br /><br />En
+          fonction des signalements reçus, nous prendrons les mesures
+          nécessaires.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            C'est réservé uniquement pour le tennis ?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Pour l'instant oui, Lama Tennis est uniquement dédié au tennis.
+          Cependant, nous envisageons d'ajouter d'autres sports dans le futur.
+          Notement le padel, le squash et le badminton.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Je suis une femme, est ce que je peux m'inscrire?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Oui bien sûr, Lama Tennis est ouvert à tous les joueurs, hommes et
+          femmes. Nous encourageons la mixité dans la pratique du tennis.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Où trouver les règles du tennis? </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Tu débutes le tennis ou tu souhaites simplement te rafraîchir la
+          mémoire sur les règles? Tu peux trouver sur le
+          <a href="https://www.fft.fr/nos-sports/tennis/les-regles-tennis">site de la
+            féderation française de tennis</a> les règles du tennis.
+        </p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Que faire si j'ai d'autres questions ?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          Si tu trouves aucune réponse à tes questions dans cette FAQ, tu peux
+          nous contacter directement
+          <a routerLink="/home/contact-us">sur cette page</a>. Nous reviendrons
+          vers toi le plus rapidement possible.
+        </p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 </div>

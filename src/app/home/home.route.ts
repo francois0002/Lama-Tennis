@@ -15,6 +15,7 @@ import { PartnersComponent } from '../main-feature/partners/partners.component';
 import { ResultComponent } from '../main-feature/result/result.component';
 import { StatisticsComponent } from '../menu/statistics/statistics.component';
 import { ContactUsComponent } from '../menu/contact-us/contact-us.component';
+import { PresentationLamaTennisComponent } from '../blog-articles/landing-page/presentation.component';
 
 
 
@@ -37,7 +38,9 @@ export const routes: Routes = [
       { path: 'partners',component: PartnersComponent,canActivate: [AuthGuard]},
       { path: 'result',component: ResultComponent ,canActivate: [AuthGuard]},
       { path: 'contact-us',component: ContactUsComponent ,canActivate: [AuthGuard]},
-      { path: 'statistics',component: StatisticsComponent ,canActivate: [AuthGuard]}
+      { path: 'statistics',component: StatisticsComponent ,canActivate: [AuthGuard]},
+      { path: 'presentation',component: PresentationLamaTennisComponent},
+      
 
 
     ],
