@@ -18,15 +18,15 @@
 
       <p><b>Message (facultatif) : </b><br /></p>
       <div class="message-forms">
-      <textarea
-        class="message-input"
-        [(ngModel)]="userMessage"
-        maxlength="300"
-        placeholder="Tu peux indiquer ton niveau, ton classement, tes disponibilités..."
-        rows="4"
-        class="message-input"
-      ></textarea>
-    </div>
+        <textarea
+          class="message-input"
+          [(ngModel)]="userMessage"
+          maxlength="300"
+          placeholder="Tu peux indiquer ton niveau, ton classement, tes disponibilités..."
+          rows="4"
+          class="message-input"
+        ></textarea>
+      </div>
       <p>{{ userMessage.length }}/300 caractères</p>
 
       <button class="contact-all-button" (click)="contactAllPlayers()">
@@ -64,21 +64,21 @@
         <ul>
           <li *ngFor="let player of players">
             <p class="name">{{ player.lastName }} {{ player.firstName }}</p>
-            <p>
+            <p class="contact-details">
               <span class="material-symbols-outlined icone-contact">
                 phone_iphone
               </span>
               {{ formatPhoneNumber(player.phoneNumber) }}
             </p>
 
-            <p>
+            <p class="contact-details">
               <span class="material-symbols-outlined icone-contact">
                 mail
               </span>
               {{ player.email }}
             </p>
-            <p>Niveau : {{ player.level }}</p>
-            <p>Classement : {{ player.ranking }}</p>
+            <p class="contact-details">Niveau : {{ player.level }}</p>
+            <p class="contact-details">Classement : {{ player.ranking }}</p>
           </li>
         </ul>
       </div>

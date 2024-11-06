@@ -13,6 +13,7 @@ export class AuthService {
 
   // Fonction pour se connecter
   login(email: string, password: string): Observable<any> {
+    console.log('Email et mot de passe envoyés pour connexion :', email, password); // Vérifiez ici les données 
     return this.http.post(`${this.apiUrl}/connexion`, { email, password });
   }
 
@@ -86,4 +87,29 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token'); // Supprime le token
   }
+
+// fonction pour reset password
+  requestPasswordReset(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/forgot-password`, { email });
+  }
+
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/reset-password`, { token, newPassword });
+  }
+
+
+// fonction  qui permet de valider avec confirmation du mot de passe
+
+
+  validatePassword(userId: string, password: string): Observable<boolean> {
+    const data = { userId, password };
+    console.log("Données envoyées pour validation du mot de passe :", data); // Vérifiez ici les données
+    return this.http.post<boolean>(`${this.apiUrl}/validate-password`, data);
+  }
+  
+  
+  
 }
+
+
+

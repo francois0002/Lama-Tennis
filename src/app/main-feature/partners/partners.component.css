@@ -62,15 +62,20 @@ h3 {
   justify-content: center; /* Centrer les boîtes */
 }
 
+.contact-details {
+  font-size: 0.7rem;
+}
+
 .players-list li {
   background-color: #f0f0f0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   border-radius: 5px;
-  width: 250px; /* Largeur fixe pour les boîtes de contact */
+  width: 100%;
   display: flex;
   flex-direction: column; /* Garder les coordonnées en colonne */
   align-items: flex-start; /* Aligner le contenu à gauche */
+  word-wrap: break-word;
 }
 
 h2 {
@@ -131,6 +136,7 @@ p {
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 2rem;
+  margin-top: 2rem;
   background-color: #88b7d5;
   padding: 2rem;
   border-radius: 5px;
