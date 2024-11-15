@@ -16,7 +16,7 @@ import { SendMailAdminDialogComponent } from './join-club-pop-up/send-mail-admin
 export class ContactUsComponent {
   userMessage: string = '';
   errorMessage: string = '';
-  selectedSubject: string = "Demande d'informations"; // Valeur par défaut
+  selectedSubject: string = "Demande d'informations";
 
   constructor(
     private emailService: EmailService,
@@ -25,13 +25,12 @@ export class ContactUsComponent {
   ) {}
 
   contactAdmin() {
-    const userEmail = this.authService.getUserEmail(); // Récupérer l'email de l'utilisateur connecté
-    console.log(userEmail);
+    const userEmail = this.authService.getUserEmail(); // Fecth the user email
 
     if (!userEmail) {
       this.errorMessage =
         "Votre email n'a pas pu être récupéré. Veuillez vérifier si vous êtes bien connecté.";
-      return; // Sortir de la fonction si l'email est null
+      return; 
     }
     if (!this.userMessage) {
       this.errorMessage = "Veuillez entrer un message avant de l'envoyer.";
@@ -43,8 +42,8 @@ export class ContactUsComponent {
       .subscribe(
         (response) => {
           console.log('Message envoyé avec succès', response);
-          this.userMessage = ''; // Réinitialiser le champ du message
-          this.errorMessage = ''; // Réinitialiser le message d'erreur
+          this.userMessage = '';
+          this.errorMessage = ''; 
           this.openJoinClubDialog();
         },
         (error) => {
@@ -60,7 +59,6 @@ export class ContactUsComponent {
       width: '300px',
     });
 
-    // Gérer la fermeture de la boîte de dialogue si besoin
     dialogRef.afterClosed().subscribe((result) => {
       console.log('La boîte de dialogue a été fermée', result);
     });

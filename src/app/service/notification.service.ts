@@ -6,13 +6,13 @@ import { Subject } from 'rxjs';
 })
 export class NotificationService {
   private notificationSubject = new Subject<string>();
-  sendNotification$ = this.notificationSubject.asObservable(); // Observable pour les abonnements
+  sendNotification$ = this.notificationSubject.asObservable(); 
 
   constructor() {}
 
-  // Méthode pour envoyer une notification
+
   sendNotification(message: string): void {
-    console.log('Envoi de la notification :', message); // Log pour vérifier l'envoi
-    this.notificationSubject.next(message); // Émettre la notification
+    console.log('Envoi de la notification :', message); 
+    this.notificationSubject.next(message); 
   }
 }

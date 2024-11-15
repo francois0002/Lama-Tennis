@@ -57,30 +57,22 @@ h2 {
 
 .tennis-icon {
   font-size: 2.5rem;
-  /* Taille de l'icône */
   color: #88b7d5;
-  /* Couleur personnalisée */
   vertical-align: middle;
-  /* Alignement avec le texte */
   margin-right: 0.5rem;
 }
 
 .icon-white {
   font-size: 2rem;
-  /* Taille de l'icône */
   color: #ffffff;
-  /* Couleur personnalisée */
   vertical-align: middle;
-  /* Alignement avec le texte */
   margin-right: 0.5rem;
 }
 
 .icone-contact {
   font-size: 1rem;
-  /* Taille de l'icône */
   margin-right: 0.5rem;
   vertical-align: middle;
-  /* Alignement avec le texte */
 }
 
 p {
@@ -125,7 +117,6 @@ p {
 .icon-warning {
   color: rgb(230, 26, 26);
   vertical-align: middle;
-  /* Alignement avec le texte */
   margin-right: 0.5rem;
 
 
@@ -203,10 +194,8 @@ p {
 .separator {
   border: none;
   border-top: 2px solid #ffffff;
-  /* Couleur et épaisseur de la ligne */
   border-radius: 5rem;
   width: 100%;
-  /* Largeur de la ligne */
   margin: 0 auto;
   margin-bottom: 1.5rem;
 }
@@ -238,7 +227,6 @@ p {
 
 .custom-select-container:after {
   content: '\25BC';
-  /* Down arrow */
   position: absolute;
   right: 15px;
   top: 50%;

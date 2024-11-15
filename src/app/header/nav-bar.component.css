@@ -1,5 +1,3 @@
-
-
 :host {
   display: block;
 }
@@ -11,7 +9,7 @@ mat-icon {
 
 h1 {
   font-size: 1.6rem;
-  margin : 0;
+  margin: 0;
 }
 
 nav {
@@ -32,8 +30,8 @@ mat-toolbar {
 }
 
 .logo {
-width: 2.5rem;
-height: auto;
+  width: 2.5rem;
+  height: auto;
 }
 
 nav {
@@ -41,7 +39,7 @@ nav {
 }
 
 nav.hidden {
-  top: -100px; /* Déplace la barre de navigation vers le haut */
+  top: -100px;
 }
 
 .notification-icon {
@@ -51,7 +49,7 @@ nav.hidden {
 .notification-icon {
   position: relative;
   cursor: pointer;
-  display: inline-block; /* Pour permettre le positionnement de l'icône */
+  display: inline-block;
   margin-right: 0.3rem;
 }
 
@@ -61,50 +59,49 @@ nav.hidden {
 }
 
 .material-icons {
-  font-size: 24px; /* Taille de l'icône */
+  font-size: 24px;
 }
 
 .badge {
   position: absolute;
-  top: -5px; /* Ajustez la position selon vos besoins */
-  right: -10px; /* Ajustez la position selon vos besoins */
+  top: -5px;
+  right: -10px;
   color: white;
-  background-color: #88b7d5;; /* Couleur de fond du badge */
-  border-radius: 50%; /* Pour faire un cercle */
-  width: 15px; /* Largeur du badge */
-  height: 15px; /* Hauteur du badge */
+  background-color: #88b7d5;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centrer le texte */
-  font-size: 12px; /* Taille du texte */
-  font-weight: bold; /* Gras pour le texte */
-  border: 2px solid #88b7d5; /* Bordure si nécessaire */
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  border: 2px solid #88b7d5;
 }
 
 .notification-banner {
-  position: absolute; /* Positionnement absolu pour le bandeau */
+  position: absolute;
   min-width: 20rem;
-  top: 50px; /* Ajustez selon vos besoins */
-  right: 0; /* Aligné à droite */
-  background-color: white; /* Couleur de fond du bandeau */
-  border: 1px solid #ccc; /* Bordure */
-  border-radius: 4px; /* Coins arrondis */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre */
-  padding: 10px; /* Espacement interne */
-  z-index: 1000; /* Pour superposer au-dessus des autres éléments */
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 1000;
 }
 
 .notification-item {
   display: flex;
-  justify-content: space-between; /* Espace entre le texte et le bouton */
-  margin: 5px 0; /* Espacement entre les notifications */
+  justify-content: space-between;
+  margin: 5px 0;
 }
 
 .notification-text {
-  white-space: pre-line; /* Permet l'affichage des retours à la ligne (\n) */
-  word-wrap: break-word; /* Permet de couper les mots longs */
-  color: #5d666b; /* Change cette valeur pour la couleur que tu veux */
+  white-space: pre-line;
+  word-wrap: break-word;
+  color: #5d666b;
   font-weight: bold;
   margin-right: 1rem;
 }
-

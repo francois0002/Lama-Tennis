@@ -14,7 +14,7 @@ import { JoinClubDialogComponent } from '../../footer/join-club-pop-up/join-club
 @Component({
   selector: 'app-result',
   standalone: true,
-  imports: [CommonModule, FormsModule,MatDialogModule],
+  imports: [CommonModule, FormsModule, MatDialogModule],
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css'],
 })
@@ -27,7 +27,7 @@ export class ResultComponent implements OnInit {
   searchTerm: string = '';
   filteredPlayers: any[] = [];
   errorMessage: string | null = null;
-  notificationCount: number = 0; // Compteur de notifications
+  notificationCount: number = 0;
 
   constructor(
     private userService: UserService,
@@ -35,7 +35,7 @@ export class ResultComponent implements OnInit {
     private authService: AuthService,
     private matchService: MatchService,
     private trophyService: TrophyService,
-    private notificationService: NotificationService, // Ajoutez le service de notification
+    private notificationService: NotificationService,
     private router: Router,
     private dialog: MatDialog
   ) {}
@@ -44,11 +44,11 @@ export class ResultComponent implements OnInit {
     const userId = this.authService.getCurrentUserId();
 
     if (userId) {
-      this.userService.getUserInfo(userId).subscribe(data => {
+      this.userService.getUserInfo(userId).subscribe((data) => {
         this.user = data;
 
         if (!this.user.club) {
-          this.openJoinClubDialog(); // Ouvre la boîte de dialogue si l'utilisateur n'a pas de club
+          this.openJoinClubDialog();
         } else {
           this.fetchClubInfo(this.user.club);
         }
@@ -63,14 +63,13 @@ export class ResultComponent implements OnInit {
       width: '300px',
     });
 
-    // Gérer la fermeture de la boîte de dialogue si besoin
     dialogRef.afterClosed().subscribe((result) => {
       console.log('La boîte de dialogue a été fermée', result);
     });
   }
 
   fetchClubInfo(clubId: string): void {
-    this.clubService.getClubInfo(clubId).subscribe(clubData => {
+    this.clubService.getClubInfo(clubId).subscribe((clubData) => {
       this.club = clubData;
       this.fetchPlayers(clubData.userIds);
     });
@@ -79,9 +78,9 @@ export class ResultComponent implements OnInit {
   fetchPlayers(userIds: string[]): void {
     this.players = [];
 
-    userIds.forEach(userId => {
+    userIds.forEach((userId) => {
       if (userId && userId !== this.user._id) {
-        this.userService.getUserInfo(userId).subscribe(playerData => {
+        this.userService.getUserInfo(userId).subscribe((playerData) => {
           this.players.push(playerData);
         });
       }
@@ -90,7 +89,7 @@ export class ResultComponent implements OnInit {
 
   filterPlayers(): void {
     const search = this.searchTerm.toLowerCase();
-    this.filteredPlayers = this.players.filter(player =>
+    this.filteredPlayers = this.players.filter((player) =>
       player.firstName.toLowerCase().includes(search)
     );
   }
@@ -107,7 +106,12 @@ export class ResultComponent implements OnInit {
     const inputElement = document.querySelector('input[type="text"]');
     const dropdownElement = document.querySelector('.autocomplete-list');
 
-    if (inputElement && dropdownElement && !inputElement.contains(target) && !dropdownElement.contains(target)) {
+    if (
+      inputElement &&
+      dropdownElement &&
+      !inputElement.contains(target) &&
+      !dropdownElement.contains(target)
+    ) {
       this.filteredPlayers = [];
     }
   }
@@ -127,32 +131,39 @@ export class ResultComponent implements OnInit {
       player1_id: this.user._id,
       player2_id: this.player2_id,
       score: this.score,
-      winner_id: this.score.player1 > this.score.player2 ? this.user._id : this.player2_id,
+      winner_id:
+        this.score.player1 > this.score.player2
+          ? this.user._id
+          : this.player2_id,
       date_add: new Date(),
     };
 
-    this.matchService.saveMatchScore(matchData).subscribe(() => {
-      console.log('Score enregistré avec succès');
-
-      this.trophyService.checkTrophy(this.user._id).subscribe(
-        (response) => {
-          if (response && response.message && response.message.trim() !== '' && !response.message.includes("Aucun nouveau trophée gagné")) {
-            // Envoyez le message des trophées gagnés uniquement s'il y a un nouveau trophée
-            this.notificationService.sendNotification(response.message);
-            this.notificationCount++; // Incrémenter le compteur de notifications
-          } else {
-            console.log('Aucun nouveau trophée gagné ou déjà acquis');
+    this.matchService.saveMatchScore(matchData).subscribe(
+      () => {
+        this.trophyService.checkTrophy(this.user._id).subscribe(
+          (response) => {
+            if (
+              response &&
+              response.message &&
+              response.message.trim() !== '' &&
+              !response.message.includes('Aucun nouveau trophée gagné')
+            ) {
+              this.notificationService.sendNotification(response.message);
+              this.notificationCount++;
+            } else {
+              console.log('Aucun nouveau trophée gagné ou déjà acquis');
+            }
+          },
+          (error) => {
+            console.error('Erreur lors de la vérification des trophées', error);
           }
-        },
-        (error) => {
-          console.error('Erreur lors de la vérification des trophées', error);
-        }
-      );
+        );
 
-
-      this.router.navigate(['/home']);
-    }, (error) => {
-      console.error('Erreur lors de l\'enregistrement du score', error);
-    });
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.error("Erreur lors de l'enregistrement du score", error);
+      }
+    );
   }
 }

@@ -10,19 +10,19 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [MatIconModule, JoinClubDialogComponent],
+  imports: [MatIconModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
   constructor(
     private router: Router,
-    private userService: UserService, // Injectez le service utilisateur
-    private dialog: MatDialog, // Injectez MatDialog pour la pop-up
-    private authService: AuthService // Injectez le service d'authentification
+    private userService: UserService,
+    private dialog: MatDialog,
+    private authService: AuthService
   ) {}
 
-  // Méthode pour ouvrir la pop-up si l'utilisateur n'a pas de club
+  // Open the dialog to join a club
   openJoinClubDialog() {
     this.dialog.open(JoinClubDialogComponent, {
       width: '300px',
@@ -30,23 +30,20 @@ export class FooterComponent {
     });
   }
 
-  // Méthode pour naviguer, avec vérification du club pour "Mon club" et "Partenaires"
+  // Method to navigate to a page home my club, home partners or home result
   navigateToPage(page: string) {
-    const userId = this.authService.getCurrentUserId(); // Remplacez par l'ID de l'utilisateur
+    const userId = this.authService.getCurrentUserId(); 
 
     if (userId) {
-      // Obtenez les informations de l'utilisateur
+      // get user info
       this.userService.getUserInfo(userId).subscribe(user => {
         if (!user.club && (page === '/home/my-club' || page === '/home/partners'|| page === '/home/result')) {
-          // Si l'utilisateur n'a pas de club, ouvrez la pop-up
           this.openJoinClubDialog();
         } else {
-          // Sinon, naviguez normalement
           this.router.navigate([page]);
         }
       });
     } else {
-      // Handle the case when userId is null
       console.error('User ID is null');
     }
   }

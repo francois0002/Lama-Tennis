@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,12 +13,11 @@ h3 {
 }
 .content {
   padding: 0rem 0rem;
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   align-items: center;
 }
-
 
 .club-info-container {
   display: flex;
@@ -27,13 +26,13 @@ h3 {
   flex-direction: column;
   background-color: white;
   border-radius: 0.5rem;
-  padding: 1rem ;
+  padding: 1rem;
   text-align: center;
   width: 95%;
   max-width: 60rem;
   margin: 0 auto;
-  margin-bottom : 2rem;
-  margin-top : 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .club-info {
@@ -56,10 +55,10 @@ h3 {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Permet d'aligner les boîtes de contact en ligne */
-  flex-wrap: wrap; /* Permet le retour à la ligne si l'espace est insuffisant */
-  gap: 1.5rem; /* Espacement entre les boîtes */
-  justify-content: center; /* Centrer les boîtes */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
 }
 
 .contact-details {
@@ -73,8 +72,8 @@ h3 {
   border-radius: 5px;
   width: 100%;
   display: flex;
-  flex-direction: column; /* Garder les coordonnées en colonne */
-  align-items: flex-start; /* Aligner le contenu à gauche */
+  flex-direction: column;
+  align-items: flex-start;
   word-wrap: break-word;
 }
 
@@ -86,32 +85,32 @@ h2 {
 }
 
 .tennis-icon {
-  font-size: 2.5rem; /* Taille de l'icône */
-  color: #88b7d5; /* Couleur personnalisée */
-  vertical-align: middle; /* Alignement avec le texte */
+  font-size: 2.5rem;
+  color: #88b7d5;
+  vertical-align: middle;
   margin-right: 0.5rem;
 }
 
 .icon-white {
-  font-size: 2rem; /* Taille de l'icône */
-  color: #ffffff; /* Couleur personnalisée */
-  vertical-align: middle; /* Alignement avec le texte */
+  font-size: 2rem;
+  color: #ffffff;
+  vertical-align: middle;
   margin-right: 0.5rem;
 }
 
-.icone-contact{
-  font-size: 1rem; /* Taille de l'icône */
+.icone-contact {
+  font-size: 1rem;
   margin-right: 0.5rem;
-  vertical-align: middle; /* Alignement avec le texte */
+  vertical-align: middle;
 }
 
 p {
   font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
   text-align: left;
-  font-weight: 500;;
+  font-weight: 500;
   padding-right: 1rem;
-  padding-left:0.2rem;
+  padding-left: 0.2rem;
 }
 
 .title {
@@ -131,7 +130,7 @@ p {
   display: block;
   margin-bottom: 1.5rem;
 }
-.div-promotion{
+.div-promotion {
   font-size: 1.1rem;
   font-weight: 600;
   color: #ffffff;
@@ -148,17 +147,13 @@ p {
   text-align: center;
   display: block;
   text-decoration: underline;
-
 }
 
 .icon {
-
   font-size: 3rem;
   text-align: center;
   display: block;
   margin-bottom: 1rem;
-
-
 }
 
 .contact-all-button {
@@ -178,15 +173,13 @@ p {
   background-color: #ff1c1c;
 }
 
-
-
 .button-container {
-  display: flex; /* Utiliser flexbox */
-  gap: 1rem;/* Ajustez cet espace entre les boutons */
-  justify-content: center; /* Centrer horizontalement */
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   align-items: center;
 }
-.message-forms{
+.message-forms {
   display: flex;
   align-items: left;
   margin-bottom: 1rem;
@@ -206,8 +199,6 @@ p {
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   font-family: "Poppins", sans-serif;
-
-
 }
 
 .message-input:focus {
@@ -239,9 +230,9 @@ p {
 
 .separator {
   border: none;
-  border-top: 2px solid #ffffff; /* Couleur et épaisseur de la ligne */
+  border-top: 2px solid #ffffff;
   border-radius: 5rem;
-  width: 100%; /* Largeur de la ligne */
-  margin : 0 auto;
+  width: 100%;
+  margin: 0 auto;
   margin-bottom: 1.5rem;
 }

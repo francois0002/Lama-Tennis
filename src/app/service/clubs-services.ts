@@ -34,17 +34,15 @@ export class ClubService {
     return this.http.get<Club[]>(`${this.apiUrl}/filter-clubs`, { params });
   }
 
-  // méthode pour récupérer les informations du club
+// funtion to fetch club info
   getClubInfo(clubId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${clubId}`);
   }
 
-  // Correction de la méthode pour ajouter un utilisateur au club
   addUserToClub(clubId: string, userId: string): Observable<any> {
     return this.http.patch(`${this.apiUrl}/${clubId}/addUser`, { userId });
   }
 
-  // fontion pour supprimer un utilisateur dans la collection club
   removeUserFromClub(clubId: string, userId: string): Observable<any> {
     return this.http.patch(`${this.apiUrl}/${clubId}/removeUser`, {
       userId,

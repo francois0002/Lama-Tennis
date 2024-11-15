@@ -28,9 +28,9 @@
       </div>
     </div>
 
-    <!-- Liste des trophées -->
+    <!-- Trophee list -->
     <div *ngFor="let trophy of trophies" class="trophy-container">
-      <!-- Afficher image en fonction du statut (débloqué ou verrouillé) -->
+      <!-- Display image if lock or unlock -->
       <img
         [src]="
           isTrophyUnlocked(trophy._id)

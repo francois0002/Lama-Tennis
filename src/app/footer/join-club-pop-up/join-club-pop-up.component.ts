@@ -13,7 +13,7 @@ export class JoinClubDialogComponent {
 
   onJoinClub(): void {
     this.dialogRef.close();
-    window.location.href = '/home/join-club'; // Redirige l'utilisateur vers la page de join club
+    window.location.href = '/home/join-club';
   }
 
   onClose(): void {

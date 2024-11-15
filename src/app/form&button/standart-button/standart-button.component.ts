@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrl: './standart-button.component.css',
 })
 export class StandartButtonComponent {
-  @Input() buttonText: string = 'Cliquez-ici'; // Texte par défaut
-  @Input() navigateTo: string | null = null; // URL pour la navigation
+  @Input() buttonText: string = 'Cliquez-ici'; 
+  @Input() navigateTo: string | null = null; 
 
   constructor(private router: Router) {}
 

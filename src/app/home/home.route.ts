@@ -7,7 +7,6 @@ import { AuthGuard } from '../guard/auth.guard';
 import { JoinClubComponent } from '../join-club/join-club.component';
 import { HautsFaitsComponent } from '../main-feature/hauts-faits/hauts-faits.component';
 import { MyClubComponent } from '../main-feature/my-club/my-club.component';
-import { PoulesComponent } from '../main-feature/poules/poules.component';
 import { MyAccountComponent } from '../menu/my-account/my-account.component';
 import { ArticlesHomePageComponent } from './home-page/articles-home-page/articles-home-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -33,7 +32,6 @@ export const routes: Routes = [
       { path: 'promote-lama-tennis', component: PromoteLamaTennisComponent, canActivate: [AuthGuard]},
       { path: 'start-lama-tennis', component: StartWithLamaComponent,canActivate: [AuthGuard] },
       { path: 'achievements', component: HautsFaitsComponent,canActivate: [AuthGuard]},
-      { path: 'poules', component: PoulesComponent, canActivate: [AuthGuard]},
       { path: 'my-club',component: MyClubComponent,canActivate: [AuthGuard]},
       { path: 'partners',component: PartnersComponent,canActivate: [AuthGuard]},
       { path: 'result',component: ResultComponent ,canActivate: [AuthGuard]},
