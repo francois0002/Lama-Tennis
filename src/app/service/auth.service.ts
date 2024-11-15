@@ -11,13 +11,17 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  // Fonction pour se connecter
+  // function to login
   login(email: string, password: string): Observable<any> {
-    console.log('Email et mot de passe envoyés pour connexion :', email, password); // Vérifiez ici les données 
+    console.log(
+      'Email et mot de passe envoyés pour connexion :',
+      email,
+      password
+    ); // Vérifiez ici les données
     return this.http.post(`${this.apiUrl}/connexion`, { email, password });
   }
 
-  // Méthode pour vérifier si l'email existe
+  // function to check if email exists
   checkEmail(email: string): Observable<any> {
     return this.http.post(
       `${this.apiUrl}/connexion/check-email`,
@@ -28,17 +32,17 @@ export class AuthService {
     );
   }
 
-  // Stocker le token après la connexion
+  // Stock toker afeter login
   setToken(token: string): void {
     localStorage.setItem('token', token);
   }
 
-  // Vérifier si l'utilisateur est authentifié
+  // check if user is authenticated
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
   }
 
-  // fonction pour récupérer l'utilisateur connecté
+  // function to fetch user connected
   getUser() {
     const token = this.getToken();
     if (!token) {
@@ -53,63 +57,48 @@ export class AuthService {
   getUserEmail(): string | null {
     const user = this.getUser();
     if (user && user.email) {
-      // Vérifie si l'email existe dans le token
-      return user.email; // Retourne l'email trouvé
+      return user.email;
     } else if (user && user.username) {
-      // Si l'email n'existe pas, vérifie s'il est dans 'username'
-      return user.username; // Retourne l'email qui est en fait dans 'username'
+      return user.username;
     } else {
       console.log('Email non trouvé dans le token');
       return null;
     }
   }
 
-
-  //fonction pour récupérer le token
   getToken() {
     return localStorage.getItem('token');
   }
 
-  // fonction pour décoder le token
   decodeToken(token: string): any {
     const payload = token.split('.')[1];
     const decoded = window.atob(payload);
     return JSON.parse(decoded);
   }
 
-  // Nouvelle fonction pour récupérer l'ID de l'utilisateur connecté
   getCurrentUserId(): string | null {
     const user = this.getUser();
-    return user ? user.id : null; // Renvoie l'ID de l'utilisateur ou null si non connecté
+    return user ? user.id : null;
   }
 
-  // Nouvelle fonction pour se déconnecter
   logout(): void {
-    localStorage.removeItem('token'); // Supprime le token
+    localStorage.removeItem('token');
   }
 
-// fonction pour reset password
   requestPasswordReset(email: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/forgot-password`, { email });
   }
 
   resetPassword(token: string, newPassword: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/reset-password`, { token, newPassword });
+    return this.http.post(`${this.apiUrl}/reset-password`, {
+      token,
+      newPassword,
+    });
   }
-
-
-// fonction  qui permet de valider avec confirmation du mot de passe
-
 
   validatePassword(userId: string, password: string): Observable<boolean> {
     const data = { userId, password };
-    console.log("Données envoyées pour validation du mot de passe :", data); // Vérifiez ici les données
+    console.log('Données envoyées pour validation du mot de passe :', data);
     return this.http.post<boolean>(`${this.apiUrl}/validate-password`, data);
   }
-  
-  
-  
 }
-
-
-

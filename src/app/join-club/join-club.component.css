@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -26,13 +25,13 @@
   flex-direction: column;
   background-color: white;
   border-radius: 0.5rem;
-  padding: 2rem ;
+  padding: 2rem;
   text-align: center;
   width: 95%;
   max-width: 40rem;
   margin: 0 auto;
-  margin-bottom : 2rem;
-  margin-top : 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 .result-container {
   width: 95%;
@@ -43,12 +42,12 @@
   gap: 1rem;
   border-radius: 0.5rem;
   padding: 2rem;
-  text-align: left; /* Justification à gauche */
+  text-align: left;
 }
 
 .button-search {
-  background-color: #88b7d5; /* Bleu */
-  opacity:  0.90;
+  background-color: #88b7d5;
+  opacity: 0.9;
   border: none;
   border-radius: 5px;
   color: white;
@@ -63,31 +62,30 @@
   font-weight: 600;
 }
 
-
 .town-input {
-  width: 100%; /* Occupe toute la largeur disponible */
-  max-width: 20rem; /* Limite la largeur maximale pour les grands écrans */
-  padding: 12px; /* Augmente l'espace intérieur */
-  font-size: 1.1rem; /* Augmente la taille du texte */
-  border: 2px solid #ccc; /* Bordure légère */
-  border-radius: 5px; /* Coins arrondis */
-  margin-top: 0.5rem; /* Espace au-dessus du champ de texte */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère pour un effet d'élévation */
+  width: 100%;
+  max-width: 20rem;
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
 
 ul {
-  list-style-type: none; /* Enlève les puces de la liste */
+  list-style-type: none;
   padding: 0;
 }
 
 .club-item strong {
-  font-size: 1.2rem; /* Optionnel : augmenter la taille du nom du club pour le rendre plus visible */
+  font-size: 1.2rem;
 }
 
 .club-item {
   padding: 1.5rem;
-  border-bottom: 1px solid #ccc; /* Optionnel : ajoute une ligne de séparation entre les résultats */
+  border-bottom: 1px solid #ccc;
 }
 
 .club-name {
@@ -98,29 +96,28 @@ ul {
 }
 
 .select-button {
-  background-color: #88b7d5; /* Couleur de fond */
-  color: white; /* Couleur du texte */
-  border: none; /* Supprime la bordure */
-  border-radius: 5px; /* Coins arrondis */
-  padding: 5px 10px; /* Espacement intérieur */
-  font-size: 0.8em; /* Taille de police plus petite */
-  cursor: pointer; /* Curseur pointer */
-  transition: background-color 0.3s; /* Effet de transition */
+  background-color: #88b7d5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: background-color 0.3s;
   margin-top: 0.5rem;
 }
-.club-info{
+.club-info {
   font-size: 0.8rem;
 }
 .error-message {
-  color: red; /* Couleur rouge pour le message d'erreur */
-  margin-top: 1rem; /* Espacement au-dessus du message */
-  text-align: center; /* Centre le message d'erreur */
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 .tennis-icon {
-  font-size: 2.5rem; /* Taille de l'icône */
-  color: #88b7d5; /* Couleur personnalisée */
-  vertical-align: middle; /* Alignement avec le texte */
+  font-size: 2.5rem;
+  color: #88b7d5;
+  vertical-align: middle;
   margin-right: 0.5rem;
 }
-

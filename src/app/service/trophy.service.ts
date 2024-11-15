@@ -9,7 +9,6 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class TrophyService {
-
   private apiUrl = `${environment.apiUrl}/trophies`;
 
   constructor(
@@ -17,30 +16,27 @@ export class TrophyService {
     private notificationService: NotificationService
   ) {}
 
-  // Vérifier si l'utilisateur a gagné un trophée
+  // check if user has won any trophies
   checkTrophy(userId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/check/${userId}`).pipe(
       tap((response: any) => {
         console.log('Vérification des trophées:', response);
 
         if (response && response.trophies && response.trophies.length > 0) {
-          // Construire un message pour chaque trophée gagné avec nom et description
           const trophiesWon = response.trophies
             .map((trophy: any) => `${trophy.name}`)
-            .join('\n'); // Ajoute un saut de ligne pour chaque trophée
+            .join('\n');
 
-          // Envoyer une notification avec la liste des trophées gagnés
           this.notificationService.sendNotification(
             `🏆 Haut-fait obtenu : \n${trophiesWon}`
           );
         } else {
-          console.log("Aucun trophée gagné ou réponse invalide.");
+          console.log('Aucun trophée gagné ou réponse invalide.');
         }
       })
     );
   }
 
-  // Récupérer tous les trophées
   getAllTrophies(): Observable<any> {
     return this.http.get(this.apiUrl);
   }

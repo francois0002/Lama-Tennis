@@ -15,7 +15,6 @@ export class EmailService {
     return this.http.post(`${this.apiUrl}/send-email`, { to: to.join(','), subject, text }); // Join array into a single string
   }
 
-  // Envoi d'un email à l'administrateur
   sendEmailAdmin(
     userEmail: string,
     message: string,

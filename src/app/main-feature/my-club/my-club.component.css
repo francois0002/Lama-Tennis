@@ -61,16 +61,16 @@ h2 {
 }
 
 .tennis-icon {
-  font-size: 2.5rem; /* Taille de l'icône */
-  color: #88b7d5; /* Couleur personnalisée */
-  vertical-align: middle; /* Alignement avec le texte */
+  font-size: 2.5rem; 
+  color: #88b7d5; 
+  vertical-align: middle; 
   margin-right: 0.5rem;
 }
 
 .player-icon {
-  font-size: 2.5rem; /* Taille de l'icône */
-  color: #ffffff; /* Couleur personnalisée */
-  vertical-align: middle; /* Alignement avec le texte */
+  font-size: 2.5rem; 
+  color: #ffffff; 
+  vertical-align: middle; 
   margin-right: 0.5rem;
 }
 
@@ -162,16 +162,16 @@ p {
 }
 
 .button-container {
-  display: flex; /* Utiliser flexbox */
-  gap: 1rem;/* Ajustez cet espace entre les boutons */
-  justify-content: center; /* Centrer horizontalement */
+  display: flex; 
+  gap: 1rem;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
 }
 @media (max-width: 600px) {
   .button-container {
-    flex-direction: column; /* Passer à une disposition en colonne pour les petits écrans */
-    gap: 0.5rem; /* Réduire l'espace entre les boutons si nécessaire */
+    flex-direction: column; 
+    gap: 0.5rem; 
   }
 }
 

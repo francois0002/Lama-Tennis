@@ -42,7 +42,7 @@
             <p class="match-date">
               {{ match.date_add | date : "dd/MM/yyyy" }} :
               <span class="match-player">
-                <!-- Affichage du nom de l'adversaire -->
+                <!-- Display name opponent -->
                 {{
                   match.player1_id._id === user._id
                     ? match.player2_id.firstName +

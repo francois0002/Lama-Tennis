@@ -19,7 +19,7 @@ export class JoinClubComponent {
   region: string = '';
   name_club: string = '';
   errorMessage: string = '';
-  clubs: any[] = []; // Définir le type d'array en fonction de votre structure de données
+  clubs: any[] = [];
 
   constructor(
     private clubService: ClubService,
@@ -28,14 +28,14 @@ export class JoinClubComponent {
     private authService: AuthService
   ) {}
 
-  // Fonction pour effectuer la recherche avec les filtres
+  // function to search clubs
   searchClubs() {
-    this.errorMessage = ''; // Réinitialiser le message d'erreur à chaque recherche
+    this.errorMessage = '';
 
     if (!this.town && !this.name_club) {
       this.errorMessage =
         'Veuillez remplir au moins un filtre pour effectuer une recherche.';
-      return; // Empêche la recherche si les filtres sont vides
+      return;
     }
 
     this.clubService
@@ -45,7 +45,7 @@ export class JoinClubComponent {
           console.log('Data:', data);
           this.clubs = data;
 
-          // Vérifier si aucun club n'a été trouvé
+          // check if there are clubs
           if (this.clubs.length === 0) {
             this.errorMessage = 'Aucun club trouvé pour ces critères.';
           }
@@ -56,23 +56,23 @@ export class JoinClubComponent {
       });
   }
 
-  // Fonction pour sélectionner un club
+  // function to select a club
 
   selectClub(clubId: string) {
-    const userId = this.authService.getUser().id; // ID de l'utilisateur actuel
+    const userId = this.authService.getUser().id;
 
-    // Mettre à jour l'utilisateur avec le club sélectionné
+    // update user club
     this.userService.updateUserClub(userId, clubId).subscribe({
       next: () => {
         console.log("Club mis à jour avec succès pour l'utilisateur");
 
-        // Ajouter l'utilisateur au club
+        // Add user to club
 
         console.log(clubId);
         this.clubService.addUserToClub(clubId, userId).subscribe({
           next: () => {
             console.log('Utilisateur ajouté avec succès au club');
-            // Redirige vers la page d'accueil
+            // Redirect to home page
             this.router.navigate(['/home']);
           },
           error: (err) => {

@@ -23,9 +23,8 @@ interface Ranking {
 }
 
 interface Club {
-  _id: string; // Assurez-vous que l'ID est de type string
+  _id: string; 
   name_club: string;
-  // Ajoutez d'autres propriétés pertinentes pour votre application
 }
 
 @Component({
@@ -45,7 +44,7 @@ interface Club {
 export class MyAccountComponent implements OnInit {
   user: any;
   clubName: string = '';
-  clubId: string = ''; // Stocker l'ID du club ici
+  clubId: string = ''; 
   isEditingPersonalInfo: boolean = false;
   isEditingTennisInfo: boolean = false;
 
@@ -110,7 +109,7 @@ export class MyAccountComponent implements OnInit {
     });
 
     this.tennisForm = this.fb.group({
-      club: [''], // Vous pouvez garder cette ligne pour le cas où vous utilisez un sélecteur
+      club: [''],
       level: [''],
       ranking: [''],
     });
@@ -161,8 +160,8 @@ export class MyAccountComponent implements OnInit {
       (clubData) => {
         if (clubData) {
           this.clubName = clubData.name_club;
-          this.clubId = clubData._id; // Récupérer l'ID ici
-          this.tennisForm.patchValue({ club: clubData._id }); // Optionnel, mais si vous voulez montrer l'ID du club
+          this.clubId = clubData._id; 
+          this.tennisForm.patchValue({ club: clubData._id }); 
         }
       },
       (error) => {
@@ -208,12 +207,12 @@ export class MyAccountComponent implements OnInit {
     if (this.tennisForm.valid) {
       const updatedTennis = {
         ...this.tennisForm.value,
-        club: this.clubId, // Envoyer l'ID du club
+        club: this.clubId,
       };
-      console.log('Valeurs mises à jour:', updatedTennis); // Debugging
+ 
 
       this.userService
-        .updateTennisInfo(this.user._id, updatedTennis) // Utilisation de la nouvelle méthode
+        .updateTennisInfo(this.user._id, updatedTennis) 
         .subscribe(() => {
           this.isEditingTennisInfo = false;
           window.location.reload();
@@ -224,16 +223,16 @@ export class MyAccountComponent implements OnInit {
   }
 
   logout(): void {
-    this.authService.logout(); // Ajoutez une méthode dans AuthService pour gérer la déconnexion
-    this.router.navigate(['/home-login']); // Redirige vers la page de connexion
+    this.authService.logout(); 
+    this.router.navigate(['/home-login']); 
   }
 
   deleteUser(): void {
-    const userId = this.user._id; // ID de l'utilisateur à supprimer
+    const userId = this.user._id; 
     this.userService.deleteUser(userId).subscribe(
       () => {
 
-        this.logout(); // Déconnexion après suppression
+        this.logout(); 
       },
       (error) => {
         console.error("Erreur lors de la suppression du compte:", error);
@@ -247,7 +246,6 @@ export class MyAccountComponent implements OnInit {
       width: '300px',
     });
 
-    // Gérer la fermeture de la boîte de dialogue si besoin
     dialogRef.afterClosed().subscribe((result) => {
       console.log('La boîte de dialogue a été fermée', result);
     });

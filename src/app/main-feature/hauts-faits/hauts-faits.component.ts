@@ -6,9 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { TrophyService } from '../../service/trophy.service';
 import { ClubService } from '../../service/clubs-services';
 
-
-
-
 @Component({
   selector: 'app-achievements',
   standalone: true,
@@ -17,13 +14,12 @@ import { ClubService } from '../../service/clubs-services';
   styleUrl: './hauts-faits.component.css',
 })
 export class HautsFaitsComponent implements OnInit {
-  user: any = {}; // Contient les informations de l'utilisateur
-  club: any; // Contient les informations du club
-  players: any[] = []; // Contient la liste des joueurs
-  userMessage: string = ''; // Message saisi par l'utilisateur
-  trophies: any[] = []; // Contient la liste des trophées disponibles
-  unlockedTrophies: string[] = []; // Contient les trophées débloqués par l'utilisateur
-
+  user: any = {};
+  club: any;
+  players: any[] = [];
+  userMessage: string = '';
+  trophies: any[] = [];
+  unlockedTrophies: string[] = [];
 
   constructor(
     private userService: UserService,
@@ -33,61 +29,55 @@ export class HautsFaitsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userId = this.authService.getCurrentUserId(); // Récupérer l'ID de l'utilisateur connecté
+    const userId = this.authService.getCurrentUserId();
 
     if (userId) {
-      // Récupérer les informations de l'utilisateur
+      // fetch user info
       this.userService.getUserInfo(userId).subscribe((data) => {
         this.user = data;
-        this.unlockedTrophies = this.user.trophies || []; // Trophées débloqués
+        this.unlockedTrophies = this.user.trophies || []; // unlock trophies
 
-        // Récupérer tous les trophées disponibles
+        // fetch all trophies
         this.loadTrophies();
 
-        // Vérifier si l'utilisateur est associé à un club
+        // check if the user has a club
         if (this.user.club) {
           this.fetchClubInfo(this.user.club);
         }
-
-
       });
     } else {
       console.error('User ID is null');
     }
   }
 
-    // Récupérer les informations du club
-    fetchClubInfo(clubId: string): void {
-      this.clubService.getClubInfo(clubId).subscribe((clubData) => {
-        this.club = clubData;
+  fetchClubInfo(clubId: string): void {
+    this.clubService.getClubInfo(clubId).subscribe((clubData) => {
+      this.club = clubData;
 
-        // Récupérer les joueurs associés au club
-        this.fetchPlayers(clubData.userIds);
-      });
-    }
+      this.fetchPlayers(clubData.userIds);
+    });
+  }
 
-    // Récupérer la liste des joueurs du club
-    fetchPlayers(userIds: string[]): void {
-      this.players = []; // Réinitialiser la liste des joueurs
+  // fetch players
+  fetchPlayers(userIds: string[]): void {
+    this.players = [];
 
-      userIds.forEach((userId) => {
-        if (userId) {
-          // Vérifier que l'ID n'est pas null
-          this.userService.getUserInfo(userId).subscribe((playerData) => {
-            this.players.push(playerData); // Ajouter chaque joueur récupéré à la liste
-          });
-        }
-      });
-    }
+    userIds.forEach((userId) => {
+      if (userId) {
+        this.userService.getUserInfo(userId).subscribe((playerData) => {
+          this.players.push(playerData);
+        });
+      }
+    });
+  }
 
-    // Charger tous les trophées
   loadTrophies(): void {
-    this.trophyService.getAllTrophies().subscribe(data => {
+    this.trophyService.getAllTrophies().subscribe((data) => {
       this.trophies = data;
     });
   }
 
-  // Vérifier si un trophée est débloqué
+  // check if a trophy is unlocked
   isTrophyUnlocked(trophyId: string): boolean {
     return this.unlockedTrophies.includes(trophyId);
   }

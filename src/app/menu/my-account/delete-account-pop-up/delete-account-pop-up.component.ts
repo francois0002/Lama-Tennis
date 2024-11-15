@@ -28,7 +28,7 @@ export class DeleteAccountDialogComponent {
   
 
   onDeleteAccount(): void {
-    // Récupérer l'utilisateur connecté
+    // fetch user ID
     const user = this.authService.getUser();
     const userId = user ? user.id : null;
   
@@ -38,16 +38,15 @@ export class DeleteAccountDialogComponent {
       return;
     }
   
-    // Vérification du mot de passe en passant userId
+    // check if the password is valid
     this.authService.validatePassword(userId, this.password).subscribe(
       (isValid) => {
         if (isValid) {
-          // Supprimer l'utilisateur si l'ID est valide
           this.userService.deleteUser(userId).subscribe(
             () => {
               this.dialogRef.close();
               this.authService.logout();
-              window.location.href = '/home-login'; // Redirige vers la page de connexion
+              window.location.href = '/home-login';
             },
             (error) => {
               console.error("Erreur lors de la suppression du compte :", error);

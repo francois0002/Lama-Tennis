@@ -1,24 +1,22 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 .content {
   padding: 0rem 0rem;
-  display:flex;
-  flex-direction:column;
-  gap:0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   align-items: center;
 }
 
-
 .club-container {
   display: flex;
-  justify-content: center; /* Centre horizontalement */
-  align-items: center;    /* Centre verticalement si nécessaire */        /* Hauteur de la vue pour centrer verticalement, ajustez si nécessaire */
-  background-image: url('/level/terrain-tennis-terre.jpg');
+  justify-content: center;
+  align-items: center;
+  background-image: url("/level/terrain-tennis-terre.jpg");
   background-size: cover;
   background-position: center;
   border-radius: 0.5rem;
@@ -26,7 +24,7 @@
   max-width: 40rem;
   padding: 2.5rem 0;
   margin-top: 3%;
-  margin-bottom:1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .level-container {
@@ -45,17 +43,16 @@
 }
 
 .article-content {
-padding: 0 1.5rem;
-margin-top: 1.5rem;
+  padding: 0 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .box-article {
-
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding : 0rem 1.7rem;
+  padding: 0rem 1.7rem;
   margin-bottom: 1rem;
-  background-color :#f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .club-info {
@@ -75,13 +72,13 @@ margin-top: 1.5rem;
   flex-direction: column;
   background-color: white;
   border-radius: 0.5rem;
-  padding: 1rem ;
+  padding: 1rem;
   text-align: center;
   width: 95%;
   max-width: 60rem;
   margin: 0 auto;
-  margin-bottom : 1rem;
-  margin-top : 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
 
 .articles-container {
@@ -91,12 +88,12 @@ margin-top: 1.5rem;
   flex-direction: column;
   background-color: white;
   border-radius: 0.5rem;
-  padding: 1rem ;
+  padding: 1rem;
   text-align: center;
   width: 95%;
   max-width: 60rem;
   margin: 0 auto;
-  margin-bottom : 2rem;
+  margin-bottom: 2rem;
 }
 
 .photo-bubble {
@@ -116,7 +113,6 @@ margin-top: 1.5rem;
   object-fit: cover;
 }
 
-
 h2 {
   font-size: 2rem;
   margin: 0;
@@ -125,7 +121,7 @@ h2 {
   font-weight: 600;
   text-decoration: underline;
 }
-.lama-curious{
+.lama-curious {
   font-size: 1rem;
   margin: 0;
   color: #88b7d5;
@@ -137,13 +133,13 @@ p {
   font-size: 0.8rem;
   font-family: "Poppins", sans-serif;
   text-align: left;
-  font-weight: 500;;
+  font-weight: 500;
   padding-right: 1rem;
-  padding-left:0.2rem;
+  padding-left: 0.2rem;
 }
 .button-club {
-  background-color: #88b7d5; /* Bleu */
-  opacity:  0.90;
+  background-color: #88b7d5;
+  opacity: 0.9;
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -170,9 +166,9 @@ a {
 }
 
 .tennis-icon {
-  font-size: 2rem; /* Taille de l'icône */
-  color: #88b7d5; /* Couleur personnalisée */
-  vertical-align: middle; /* Alignement avec le texte */
+  font-size: 2rem;
+  color: #88b7d5;
+  vertical-align: middle;
   margin-right: 0.5rem;
 }
 
@@ -184,11 +180,9 @@ a {
   text-decoration: underline;
 }
 
-
 .arrow {
-  font-size: 1.5rem; /* Taille de l'icône */
-  color: #88b7d5; /* Couleur de l'icône */
-  margin-right: 0.5rem; /* Espacement entre la flèche et le texte */
-  vertical-align: middle; /* Aligne la flèche avec le texte */
+  font-size: 1.5rem;
+  color: #88b7d5;
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
-

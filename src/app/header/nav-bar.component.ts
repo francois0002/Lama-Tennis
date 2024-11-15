@@ -33,9 +33,9 @@ import { NotificationService } from '../service/notification.service';
 export class NavBarComponent implements OnInit {
   isHidden = false;
   lastScrollTop = 0;
-  notificationCount: number = 0; // Compteur des notifications
-  showNotifications: boolean = false; // Contrôle l'affichage des notifications
-  notifications: string[] = []; // Stocke les notifications
+  notificationCount: number = 0;
+  showNotifications: boolean = false;
+  notifications: string[] = [];
 
   constructor(
     private authService: AuthService,
@@ -47,40 +47,39 @@ export class NavBarComponent implements OnInit {
   onWindowScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > this.lastScrollTop) {
-      // Scroll vers le bas
+      // Scroll down
       this.isHidden = true;
     } else {
-      // Scroll vers le haut
+      // Scroll up
       this.isHidden = false;
     }
     this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }
 
   ngOnInit() {
-    // S'abonner aux notifications de trophées
+    // subscribe to the notification service
     this.notificationService.sendNotification$.subscribe((message) => {
-      console.log('Notification reçue :', message); // Log pour vérifier si la notification est bien reçue
       this.notifications.push(message);
-      this.notificationCount++; // Incrémenter le nombre de notifications
+      this.notificationCount++;
     });
   }
 
-  // Marquer les notifications comme lues
+  // Mmark all notifications as read
   markNotificationsAsRead(): void {
-    this.notificationCount = 0; // Réinitialiser le compteur
+    this.notificationCount = 0; // Reinitialysed the counter
   }
 
   toggleNotifications(): void {
-    this.showNotifications = !this.showNotifications; // Afficher ou cacher les notifications
+    this.showNotifications = !this.showNotifications; // display the notifications
   }
 
   removeNotification(notification: string): void {
-    this.notifications = this.notifications.filter((n) => n !== notification); // Supprimer la notification
-    this.notificationCount--; // Décrementer le compteur
+    this.notifications = this.notifications.filter((n) => n !== notification); // delete the notification
+    this.notificationCount--; // decrement the counter
   }
 
   logout(): void {
-    this.authService.logout(); // Appel de la méthode logout
-    this.router.navigate(['/home-login']); // Redirection après la déconnexion
+    this.authService.logout();
+    this.router.navigate(['/home-login']);
   }
 }

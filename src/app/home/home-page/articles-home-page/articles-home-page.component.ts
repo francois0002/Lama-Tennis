@@ -9,13 +9,13 @@ import { ClubService } from '../../../service/clubs-services';
 @Component({
   selector: 'app-articles-home-page',
   standalone: true,
-  imports: [StandartButtonComponent, CommonModule],
+  imports: [CommonModule],
   templateUrl: './articles-home-page.component.html',
   styleUrl: './articles-home-page.component.css',
 })
 export class ArticlesHomePageComponent implements OnInit {
-  user: any = {}; // Pour stocker les données de l'utilisateur
-  club: any; // Pour stocker les informations du club
+  user: any = {};
+  club: any;
 
   constructor(
     private userService: UserService,
@@ -25,14 +25,13 @@ export class ArticlesHomePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const userId = this.authservice.getCurrentUserId(); // Remplacez par l'ID de l'utilisateur connecté
+    const userId = this.authservice.getCurrentUserId();
 
     if (userId) {
-      // Récupérer les informations de l'utilisateur
+      // fetch user info
       this.userService.getUserInfo(userId).subscribe((data) => {
         this.user = data;
 
-        // Vérifiez si l'utilisateur a un club associé
         if (this.user.club) {
           this.fetchClubInfo(this.user.club);
         }
@@ -42,7 +41,7 @@ export class ArticlesHomePageComponent implements OnInit {
     }
   }
 
-  // Fonction pour récupérer les informations du club
+  // fecth club info
   fetchClubInfo(clubId: string): void {
     this.clubsService.getClubInfo(clubId).subscribe((data) => {
       this.club = data;
@@ -50,13 +49,13 @@ export class ArticlesHomePageComponent implements OnInit {
   }
 
   capitalizeWords(text: string): string {
-    if (!text) return ''; // Gérer les valeurs vides ou undefined
+    if (!text) return '';
 
     return text
-      .toLowerCase() // Convertir toute la chaîne en minuscules
-      .split(' ') // Séparer la chaîne en mots
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitaliser la première lettre de chaque mot
-      .join(' '); // Rejoindre les mots en une seule chaîne
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   }
 
   navigateToPage(page: string) {
