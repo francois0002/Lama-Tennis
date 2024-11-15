@@ -66,27 +66,27 @@ Once installed, you can launch the Lama Tennis app and start exploring its featu
 
 Getting Started with Lama Tennis
 
-Registration
+**Registration**
 
 To access Lama Tennis, you need to create an account.
 Follow these steps to register:
 
-Go to the registration page: https://lama-tennis.fr/home-login/inscription.
-Ensure you have a valid email address to complete the process.
-Registration Process (3 Steps):
-Step 1: Enter your email address and create a secure password.
-Step 2: Provide your personal information (first name, last name, and phone number).
-Step 3: Specify your tennis level to help match you with players of similar skills.
-Once these three steps are completed, you will receive a confirmation email at the address provided. To finalize your registration, click the link included in the email. If you don't see the email in your inbox, please check your spam or junk folder.
+Go to the registration page: https://lama-tennis.fr/home-login/inscription.  
+Ensure you have a valid email address to complete the process.  
+Registration Process (3 Steps):  
+Step 1: Enter your email address and create a secure password.  
+Step 2: Provide your personal information (first name, last name, and phone number).  
+Step 3: Specify your tennis level to help match you with players of similar skills.  
+Once these three steps are completed, you will receive a confirmation email at the address provided. To finalize your registration, click the link included in the email. If you don't see the email in your inbox, please check your spam or junk folder.  
 
-Connection
+**Connection**
 
 If you have completed the registration, you can now log in to the site.
 
 Enter your email address and password on the login page to access the Lama Tennis app.
 If you’ve forgotten your password, you can reset it by clicking on the "Mot de passe oublié ?" link and following the instructions.
 
-Utilization
+**Utilization**
 
 Before you can fully enjoy all the features of Lama Tennis, you need to join a club.
 You can join a club by visiting this page: https://lama-tennis.fr/home/join-club.
