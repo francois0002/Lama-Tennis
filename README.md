@@ -25,13 +25,10 @@ With Lama Tennis, players can not only connect with others in their club but als
 
 I wanted the website to be responsive for both web and mobile, adopting a mobile-first development approach.
 
-URL website : https://lama-tennis.fr
-
-Project Presentation : https://lama-tennis.fr/home/presentation 
-
-Author: François Gosselin [Github](https://github.com/francois0002)
-
-Project source: https://github.com/francois0002/lama-tennis
+URL website : https://lama-tennis.fr  
+[Project Presentation ](https://lama-tennis.fr/home/presentation)  
+Author: François Gosselin [Github](https://github.com/francois0002)  
+[Project source:](https://github.com/francois0002/lama-tennis)  
 
 
 ----------
@@ -71,7 +68,7 @@ Getting Started with Lama Tennis
 To access Lama Tennis, you need to create an account.
 Follow these steps to register:
 
-Go to the registration page: https://lama-tennis.fr/home-login/inscription.  
+Go to the [registration page](https://lama-tennis.fr/home-login/inscription)  
 Ensure you have a valid email address to complete the process.  
 Registration Process (3 Steps):  
 Step 1: Enter your email address and create a secure password.  
@@ -89,7 +86,8 @@ If you’ve forgotten your password, you can reset it by clicking on the "Mot de
 **Utilization**
 
 Before you can fully enjoy all the features of Lama Tennis, you need to join a club.
-You can join a club by visiting this page: https://lama-tennis.fr/home/join-club.
+You can join a club by visiting this [page](https://lama-tennis.fr/home/join-club)
+
 
 Find Your Club
 Our database includes 15,000 tennis clubs across France. You can easily find and join your club by filtering the list by city or club name.
@@ -137,11 +135,9 @@ Reach out to the site administrator for any questions or concerns.
 
 ## ➤ Related projects:
 
-Find a tennis club : https://tenup.fft.fr/recherche/clubs/list
-
-Data base of tennis club France : https://equipements.sports.gouv.fr/explore/dataset/data-es/table/?refine.equip_type_name=Court+de+tennis
-
-Official rules of tennis game : https://fft-site.cdn.prismic.io/fft-site/ZtGuhEaF0TcGJlLv_R%C3%A8glesdujeu2025.pdf
+[Find a tennis club](https://tenup.fft.fr/recherche/clubs/list)  
+[Data base of tennis club France](https://equipements.sports.gouv.fr/explore/dataset/data-es/table/?refine.equip_type_name=Court+de+tennis)  
+[Official rules of tennis game ](https://fft-site.cdn.prismic.io/fft-site/ZtGuhEaF0TcGJlLv_R%C3%A8glesdujeu2025.pdf)  
 
 
 ----------
