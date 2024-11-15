@@ -25,9 +25,9 @@ With Lama Tennis, players can not only connect with others in their club but als
 
 I wanted the website to be responsive for both web and mobile, adopting a mobile-first development approach.
 
-URL website : lama-tennis.fr
+URL website : https://lama-tennis.fr
 
-Project presentation : https://lama-tennis.fr/home/presentation
+[Project Presentation] (https://lama-tennis.fr/home/presentation)
 
 Author: François Gosselin [Github](https://github.com/francois0002)
 
@@ -116,17 +116,16 @@ In the menu, you’ll find other useful features:
 Browse a list of frequently asked questions and answers for quick guidance.
 
 2. My Account
-Manage your account settings, including the ability to:
-
-Edit personal details (e.g., email, phone number).
+Manage your account settings, including the ability to: Edit personal details (e.g., email, phone number).
 Log out of your account.
 Delete your account if needed.
+
 3. Statistics
 View a summary of your match highlights, including:
-
 Wins and losses.
 Your best winning streak.
 A detailed match history of all your games.
+
 4. Contact Us
 Reach out to the site administrator for any questions or concerns.
 
@@ -136,7 +135,9 @@ Reach out to the site administrator for any questions or concerns.
 ## ➤ Related projects:
 
 Find a tennis club : https://tenup.fft.fr/recherche/clubs/list
+
 Data base of tennis club France : https://equipements.sports.gouv.fr/explore/dataset/data-es/table/?refine.equip_type_name=Court+de+tennis
+
 Official rules of tennis game : https://fft-site.cdn.prismic.io/fft-site/ZtGuhEaF0TcGJlLv_R%C3%A8glesdujeu2025.pdf
 
 
