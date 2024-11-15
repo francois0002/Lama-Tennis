@@ -28,7 +28,7 @@ I wanted the website to be responsive for both web and mobile, adopting a mobile
 URL website : https://lama-tennis.fr  
 [Project Presentation ](https://lama-tennis.fr/home/presentation)  
 Author: François Gosselin [Github](https://github.com/francois0002)  
-[Project source:](https://github.com/francois0002/lama-tennis)  
+[Project source](https://github.com/francois0002/lama-tennis)  
 
 
 ----------

@@ -36,7 +36,7 @@
   font-weight: 500;
 }
 
-/* Sections */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -60,7 +60,7 @@
   text-align: left;
 }
 
-/* Fonctionnalités */
+
 .features-list {
   list-style-type: none;
   padding: 0;
@@ -76,7 +76,7 @@
   text-align: left;
 }
 
-/* Section CTA */
+
 .cta {
   background-color: #7aaec4;
   color: white;
@@ -172,22 +172,22 @@
 }
 
 .carousel-item {
-  width: 90%; /* Par exemple, 80% de la largeur du conteneur */
-  height: auto; /* Maintient le ratio d'aspect de l'image */
-  max-height: 60rem; /* Limite la hauteur de l'image, ajustez selon vos besoins */
+  width: 90%; 
+  height: auto; 
+  max-height: 60rem; 
   object-fit: cover;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  margin: 0 auto; /* Centre l'image dans le conteneur */
+  margin: 0 auto; 
 }
 
 
-/* Navigation Buttons */
+
 button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  display: flex; /* Centrage du contenu */
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
@@ -196,10 +196,10 @@ button {
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 50%;
-  width: 35px; /* Taille du cercle */
+  width: 35px;
   height: 35px;
   transition: background-color 0.3s ease;
-  padding: 0; /* Suppression du padding */
+  padding: 0;
 }
 
 button:hover {
@@ -214,7 +214,7 @@ button:hover {
   right: 10px;
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 768px) {
   .carousel-container {
     max-width: 100%;
