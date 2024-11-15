@@ -1,4 +1,4 @@
-import { Component,EventEmitter,inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormService } from '../../../service/form.service';
 import { FormsModule, NgModel } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';
@@ -7,71 +7,62 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-inscription-step2',
   standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule,
-    MatFormField
-  ],
+  imports: [FormsModule, CommonModule, MatFormField],
   templateUrl: './step2-credential.component.html',
-  styleUrl: './step2-credential.component.css'
+  styleUrl: './step2-credential.component.css',
 })
-export class InscriptionStep2Component implements OnInit {  // Implémente OnInit pour l'initialisation
+export class InscriptionStep2Component implements OnInit {
+  @Output() validityChange = new EventEmitter<boolean>(); // Output event to notify parent
 
-  @Output() validityChange = new EventEmitter<boolean>();  // Output event to notify parent
+  firstName: string = '';
+  lastName: string = '';
+  phoneNumber: string = '';
 
-
-  // Propriétés pour les champs d'entrée
-  firstName: string = '';  // Champ pour le prénom
-  lastName: string = '';   // Champ pour le nom
-  phoneNumber: string = '';  // Champ pour le numéro de téléphone
-
-  private service = inject(FormService);  // Injection du service FormService
+  private service = inject(FormService);
 
   ngOnInit() {
-    // Récupérer les données du formulaire depuis le service et initialiser les propriétés
     const formData = this.service.getFormData();
-    this.firstName = formData.firstName || '';  // Initialise le prénom avec les données du service
-    this.lastName = formData.lastName || '';    // Initialise le nom avec les données du service
-    this.phoneNumber = formData.phoneNumber || '';  // Initialise le numéro de téléphone avec les données du service
-    this.emitFormValidity();  // Émettre la validité du formulaire
+    this.firstName = formData.firstName || '';
+    this.lastName = formData.lastName || '';
+    this.phoneNumber = formData.phoneNumber || '';
+    this.emitFormValidity();
   }
 
-
-  // Émettre la validité du formulaire
   emitFormValidity() {
-    const isValid = this.firstName.trim() !== '' && this.lastName.trim() !== '' &&
-      /^(06|07)\d{8}$/.test(this.phoneNumber); // Ajout d'une vérification de la validité des champs
-    this.validityChange.emit(isValid); // Informe le parent si le formulaire est valide ou non
+    const isValid =
+      this.firstName.trim() !== '' &&
+      this.lastName.trim() !== '' &&
+      /^(06|07)\d{8}$/.test(this.phoneNumber);
+    this.validityChange.emit(isValid);
   }
 
-  // Méthode appelée lorsqu'il y a un changement dans le prénom
+  // Method call when there is a change in the first name
   updateFirstName(newFirstName: string) {
     this.firstName = newFirstName;
     this.service.updateForm({ firstName: this.firstName });
     this.emitFormValidity();
   }
 
-  // Méthode appelée lorsqu'il y a un changement dans le nom
+  // Method call when there is a change in the last name
   updateLastName(newLastName: string) {
     this.lastName = newLastName;
     this.service.updateForm({ lastName: this.lastName });
     this.emitFormValidity();
   }
 
-  // Méthode appelée lorsqu'il y a un changement dans le numéro de téléphone
+  // Method call when there is a change in the phone number
   updatePhoneNumber(newPhoneNumber: string) {
     this.phoneNumber = newPhoneNumber;
     this.service.updateForm({ phoneNumber: this.phoneNumber });
     this.emitFormValidity();
   }
 
-  // Méthode pour valider le numéro de téléphone (doit commencer par 06 ou 07 et avoir 10 chiffres)
+  // Method to validate the phone number
   validatePhoneNumber(phoneInput: NgModel) {
     phoneInput.control.markAsTouched();
-    const phonePattern = /^(06|07)\d{8}$/;  // Vérifie si le numéro commence par 06 ou 07 et a 10 chiffres
+    const phonePattern = /^(06|07)\d{8}$/;
     if (!phonePattern.test(this.phoneNumber)) {
-      console.log("Le numéro de téléphone est invalide.");
+      console.log('Le numéro de téléphone est invalide.');
     }
   }
 }
-

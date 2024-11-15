@@ -1,10 +1,10 @@
 
 .content {
   display: flex;
-  justify-content: center; /* Centre horizontalement */
-  background-color: #88b7d5; /* Optionnel : couleur de fond de la page */
+  justify-content: center; 
+  background-color: #88b7d5; 
   width: 100%;
   height: 100vh;
-  max-width: 30rem; /* Limite la largeur à 80rem (ajuste selon tes besoins) */
-  margin: 0 auto;   /* Centre la div horizontalement */
+  max-width: 30rem; 
+  margin: 0 auto; 
 }

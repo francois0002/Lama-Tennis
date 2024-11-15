@@ -36,13 +36,12 @@ interface RankingGroup {
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './step3-credential.component.html',
-  styleUrl: './step3-credential.component.css'
+  styleUrl: './step3-credential.component.css',
 })
 export class InscriptionStep3Component implements OnInit {
-
   @Output() validityChange = new EventEmitter<boolean>();
 
   level: string = '';
@@ -50,12 +49,14 @@ export class InscriptionStep3Component implements OnInit {
   rankingControl = new FormControl('');
   levelControl = new FormControl('');
 
+  // List of available levels
   levels: Level[] = [
     { value: 'Débutant', viewValue: 'Débutant' },
     { value: 'Intermediaire', viewValue: 'Intermédiaire' },
     { value: 'Confirmé', viewValue: 'Confirmé' },
   ];
 
+  // List of ranking groups with available rankings for each group
   rankingGroups: RankingGroup[] = [
     {
       name: 'Aucun classement',
@@ -113,22 +114,23 @@ export class InscriptionStep3Component implements OnInit {
     this.emitFormValidity();
   }
 
+  // Method called when a level is selected
   onLevelSelected(level: string) {
     this.level = level;
     this.formService.updateForm({ level });
     this.emitFormValidity();
   }
 
+  // Method called when the ranking selection is changed
   onRankingChange() {
     this.formService.updateForm({ ranking: this.rankingControl.value });
     this.emitFormValidity();
   }
 
+  // Emits the form validity based on whether both level and ranking are selected
   emitFormValidity() {
-    const isValid = this.levelControl.value !== '' && this.rankingControl.value !== '';
+    const isValid =
+      this.levelControl.value !== '' && this.rankingControl.value !== '';
     this.validityChange.emit(isValid);
   }
-
-
 }
-

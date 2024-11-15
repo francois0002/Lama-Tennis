@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; // Importez ActivatedRoute
+import { ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-confirm-mail',
