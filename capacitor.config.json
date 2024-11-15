@@ -1,0 +1,7 @@
+{
+  "appId": "com.lamatennis.app",
+  "appName": "lama-tennis",
+  "webDir": "dist/lama-tennis/browser",
+  "bundledWebRuntime": false
+}
+

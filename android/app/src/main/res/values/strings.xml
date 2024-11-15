@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">lama-tennis</string>
-    <string name="title_activity_main">lama-tennis</string>
+    <string name="app_name">Lama Tennis</string>
+    <string name="title_activity_main">Lama Tennis</string>
     <string name="package_name">com.lamatennis.app</string>
     <string name="custom_url_scheme">com.lamatennis.app</string>
 </resources>

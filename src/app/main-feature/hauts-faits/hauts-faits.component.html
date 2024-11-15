@@ -5,48 +5,67 @@
 
     <!-- Ask for a partner-->
     <div class="club-info">
-
-
-
-
-
       <p>
         <span class="material-symbols-outlined icon-white"> info</span>
-        Retrouve ici tous les succès que tu as accomplis et ceux qu'il te reste encore à débloquer ! </p>
-
-
+        Retrouve ici tous les succès que tu as accomplis et ceux qu'il te reste
+        encore à débloquer !
+      </p>
     </div>
 
+    <!-- My first trophy -->
     <div class="trophy-container">
-      <img src="/achievements/be-lama.jpeg" alt="Trophée" class="trophy-image" />
+      <img
+        src="/achievements/be-lama.jpeg"
+        alt="Trophée"
+        class="trophy-image"
+      />
       <div class="trophy-content">
-        <p class="trophy-title "><span class="material-symbols-outlined icon-gold">
-          trophy
-          </span> Be a lama</p>
-        <p class="trophy-description">
-          Crée un compte Lama Tennis.
+        <p class="trophy-title">
+          <span class="material-symbols-outlined icon-gold"> trophy </span> Be a
+          lama
         </p>
+        <p class="trophy-description">Crée un compte Lama Tennis.</p>
       </div>
     </div>
 
-<!-- Liste des trophées -->
-<div *ngFor="let trophy of trophies" class="trophy-container">
-  <!-- Afficher image en fonction du statut (débloqué ou verrouillé) -->
-  <img [src]="isTrophyUnlocked(trophy._id) ? trophy.imageUnlocked : trophy.imageLocked"
-       [alt]="trophy.name"
-       class="trophy-image" />
-       <div class="trophy-content">
-    <p [ngClass]="isTrophyUnlocked(trophy._id) ? 'trophy-title' : 'trophy-title-locked'">
-      <span class="material-symbols-outlined"
-            [ngClass]="isTrophyUnlocked(trophy._id) ? 'icon-gold' : 'icon-grey'">
-        trophy
-      </span>
-      {{ trophy.name }}
-    </p>
-    <p [ngClass]="isTrophyUnlocked(trophy._id) ? 'trophy-description' : 'trophy-description-locked'">
-      {{ trophy.description }}
-    </p>
+    <!-- Liste des trophées -->
+    <div *ngFor="let trophy of trophies" class="trophy-container">
+      <!-- Afficher image en fonction du statut (débloqué ou verrouillé) -->
+      <img
+        [src]="
+          isTrophyUnlocked(trophy._id)
+            ? trophy.imageUnlocked
+            : trophy.imageLocked
+        "
+        [alt]="trophy.name"
+        class="trophy-image"
+      />
+      <div class="trophy-content">
+        <p
+          [ngClass]="
+            isTrophyUnlocked(trophy._id)
+              ? 'trophy-title'
+              : 'trophy-title-locked'
+          "
+        >
+          <span
+            class="material-symbols-outlined"
+            [ngClass]="isTrophyUnlocked(trophy._id) ? 'icon-gold' : 'icon-grey'"
+          >
+            trophy
+          </span>
+          {{ trophy.name }}
+        </p>
+        <p
+          [ngClass]="
+            isTrophyUnlocked(trophy._id)
+              ? 'trophy-description'
+              : 'trophy-description-locked'
+          "
+        >
+          {{ trophy.description }}
+        </p>
+      </div>
+    </div>
   </div>
-</div>
-
 </div>
