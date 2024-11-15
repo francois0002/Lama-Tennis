@@ -26,8 +26,11 @@ With Lama Tennis, players can not only connect with others in their club but als
 I wanted the website to be responsive for both web and mobile, adopting a mobile-first development approach.
 
 URL website : lama-tennis.fr
+
 Project presentation : https://lama-tennis.fr/home/presentation
+
 Author: François Gosselin [Github](https://github.com/francois0002)
+
 Project source: https://github.com/francois0002/lama-tennis
 
 
@@ -96,11 +99,10 @@ On this page, you can view your club’s information, including its city, addres
 You also have the option to leave your club or switch to a different one.
 
 2. Partners
-This feature allows you to:
-
-Send messages directly to all players in your club to find a partner for a match.
+This feature allows you to send messages directly to all players in your club to find a partner for a match.
 Include a personalized message with your skill level and availability.
 Access a directory of players in your club to contact individual members directly.
+
 3. Results
 Here, you can record match results by entering the scores for each player.
 
